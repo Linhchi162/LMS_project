@@ -93,12 +93,13 @@ body{
 }
 .white_container
 {
+    position: relative;
     padding-top: 50px;
     margin-left: 200px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content:left;
     align-content: center;
     background-color: #F8F7EC;
     width: 1055px;
@@ -106,6 +107,14 @@ body{
     padding-bottom: 20px;
     position: relative;
     row-gap: 20px; 
+}
+.white_container2
+{
+    position: absolute;
+    background-color: #F8F7EC;
+    width: 1055px;
+    height: 530px;
+    border-radius: 20px;
 }
 .book
 {

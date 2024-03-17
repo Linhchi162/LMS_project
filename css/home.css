@@ -13,16 +13,28 @@ body{
 }
 .middle
 {
-    
+    position: relative;
     padding-top: 14px;
+}
+.find
+{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 6px;
+    margin-left: -2;
+    opacity: 0.5;
 }
 .enterSpace
 {
+
+    background-color: #f4ebdd;
     width: 250px;
     height: 25px;
     border: none;
     border-radius: 15px;
-    padding-left: 12px;
+    padding-left: 40px;
+    padding-top: 3px;
+    
 }
 .filter
 {
@@ -37,7 +49,7 @@ body{
 }
 .ava_menu
 {
-    background-color: azure;
+    background-color: #F8F7EC;
     display: grid;
     grid-template-columns: 50px 80px 1fr;
     width: 170px;
@@ -52,7 +64,16 @@ body{
     display: inline-block;
     width: 40px;
     height: 40px;
-    border-radius: 16px;
+    border-radius: 14px;
+}
+.drop_down_menu
+{
+    margin-top: 8px;
+}
+.drop_down_menu:hover
+{
+    opacity: 0.5;
+    cursor: pointer;
 }
 .container
 {
@@ -62,7 +83,7 @@ body{
 .white_container
 {
     display: inline-block;
-    background-color: white;
+    background-color: #F8F7EC;
     width: 1055px;
     height: 580px;
     border-radius: 20px;
@@ -110,7 +131,10 @@ body{
     margin-top: 10px;
 }
 .book_cover{
-    box-shadow:-5px 1px 10px rgba(148, 146, 146,1); ;
+    box-shadow:-5px 1px 10px rgba(148, 146, 146,1);
+}
+.book_cover:hover{
+    cursor: pointer;
 }
 .name
 {
@@ -132,10 +156,11 @@ body{
     border: none;
     margin-left: 530px;
     margin-top: 19px;
-    background-color: white;
+    background-color: #F8F7EC;
 }
-.see_all.button{
-    border: none;
+.see_all:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
 .menu
 {
@@ -147,24 +172,26 @@ body{
     grid-row-gap: 5px;
     justify-content: center;
 }
-.menu_item
+.menu button
 {
+    display: flex;
+    align-items: center;
     border: none;
     width: 170px;
     font-size: 17px;
     text-align: left;
     padding-left: 20px;
     border-radius: 20px;
+    background-color: #E6D4BA;
+    gap: 10px;
 }
-
+.menu button:hover
+{
+    background-color: #F8F7EC;
+    cursor: pointer;
+}
 .log_out_button
 {
-    border: none;
-    width: 170px;
     height: 50px;
-    font-size: 17px;
-    text-align: left;
-    padding-left: 20px;
-    border-radius: 20px;
     margin-top: 250px;
 }

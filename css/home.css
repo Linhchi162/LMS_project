@@ -1,0 +1,170 @@
+body{
+    background-color: #E6D4BA;
+}
+.header
+{
+    height: 60px;
+    display: grid;
+    grid-template-columns: 200px 560px 1fr ;
+}
+.start
+{
+   
+}
+.middle
+{
+    
+    padding-top: 14px;
+}
+.enterSpace
+{
+    width: 250px;
+    height: 25px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 12px;
+}
+.filter
+{
+    border: none;
+    height: 30px;
+    margin-left: 10px;
+}
+.end
+{
+    padding-left: 300px;
+    padding-top: 5px;
+}
+.ava_menu
+{
+    background-color: azure;
+    display: grid;
+    grid-template-columns: 50px 80px 1fr;
+    width: 170px;
+    height: 45px;
+    border-radius: 17px;
+    padding-left: 6px;
+    padding-top: 4px;
+
+}
+.ava{
+    background-color: blue;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 16px;
+}
+.container
+{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+.white_container
+{
+    display: inline-block;
+    background-color: white;
+    width: 1055px;
+    height: 580px;
+    border-radius: 20px;
+}
+.genre
+{
+    height: 287px;
+    margin-top: 10px;
+}
+.genre2
+{
+    height: 280px;
+    margin-top: -20px;
+}
+.genre_top
+{
+    
+    height: 60px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    padding-top: 10px;
+    padding-left: 60px;
+}
+.genre_end
+{
+    display: grid;
+    grid-template-columns:200px 200px 200px 200px 200px;
+}
+.book
+{
+    display: grid;
+    width: 263px;
+    height: 210px;
+}
+.book_cover
+{
+     display: inline;
+    margin-left: 70px;
+    
+}
+.title
+{
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 10px;
+}
+.book_cover{
+    box-shadow:-5px 1px 10px rgba(148, 146, 146,1); ;
+}
+.name
+{
+    display: inline-block;
+    margin-left: 67px;
+    text-align: left;
+    width: 127px;
+}
+.author
+{
+    display: inline-block;
+    margin-left: 67px;
+    text-align: left;
+    width: 127px;
+}
+.see_all
+{
+    display: inline-block;
+    border: none;
+    margin-left: 530px;
+    margin-top: 19px;
+    background-color: white;
+}
+.see_all.button{
+    border: none;
+}
+.menu
+{
+    padding-top: 15px;
+    background-color:#E6D4BA;
+    height: 565px;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 1fr ;
+    grid-row-gap: 5px;
+    justify-content: center;
+}
+.menu_item
+{
+    border: none;
+    width: 170px;
+    font-size: 17px;
+    text-align: left;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+
+.log_out_button
+{
+    border: none;
+    width: 170px;
+    height: 50px;
+    font-size: 17px;
+    text-align: left;
+    padding-left: 20px;
+    border-radius: 20px;
+    margin-top: 250px;
+}

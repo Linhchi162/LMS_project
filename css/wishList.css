@@ -87,20 +87,25 @@ body{
 }
 .container
 {
-    padding-top: 60px;
+    padding-top: 61px;
     display: grid;
     grid-template-columns: 200px 1fr;
 }
 .white_container
 {
-    padding-top: 60px;
-    margin-left: 190px;
-    display: grid;
-    grid-template-columns:200px 200px 200px 200px 200px  ;
+    padding-top: 50px;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-content: center;
     background-color: #F8F7EC;
     width: 1055px;
-    height: 1000px;
     border-radius: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    row-gap: 20px; 
 }
 .book
 {
@@ -167,7 +172,8 @@ body{
 .menu
 {
     position: fixed;
-    padding-top: 15px;
+    padding-left: 15px;
+    padding-top: 14px;
     background-color:#E6D4BA;
     height: 565px;
     display: grid;

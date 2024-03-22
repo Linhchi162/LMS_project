@@ -55,7 +55,7 @@
                     <div class="genre">
                         <div class="genre_top">
                             <div class="title">
-                                Title
+                                Popular
                             </div>
                             <div>
                                 <button class ="see_all">
@@ -95,7 +95,7 @@
                     <div class="genre2">
                         <div class="genre_top">
                             <div class="title">
-                            Title
+                            You may like
                             </div>
                             <div>
                                 <button class ="see_all">

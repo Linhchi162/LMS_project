@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Wish list</title>
+        <title>BookshelfDetail</title>
         <link rel="stylesheet" href="css/wishList.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+        <script src="functions.js"></script>
         </head>
 
     <body>
@@ -29,28 +30,35 @@
         </div>
         <div class="container">
             <div class="menu">
-                    <button class="home">
+                    <button class="home" onclick="goToHome()">
                         <img src="img\icons8-home-96.png" width="30" height="30">
                         Home
                     </button>
-                    <button class="bookshelf">
+                    <button class="bookshelf" style=" background-color: #F8F7EC;">
                         <img src="img/icons8-bookshelf-96.png" width="30" height="30">
                         Bookshelf
                     </button>
-                    <button class="wishlist" style=" background-color: #F8F7EC;">
+                    <button class="wishlist" onclick="goToWishlist()">
                         <img src="img/icons8-bookmark-96.png" width="30" height="30">
                         Wishlist
                     </button>
                     <div>
-                        <button class="log_out_button">
+                        <button class="log_out_button" onclick="logOut()">
                             <img src="img/icons8-log-out-96.png" width="30" height="30">
                             Logout
                         </button>
                     </div>
             </div>
             <div class="main_board">
-                <div class="white_container">
-                    <div class="white_container2">
+                <div class="white_container" 
+                style = "padding-top: 100px;">
+                <div class="white_container2">
+                </div>
+                    <div class="title" 
+                    style="position:absolute;
+                        margin-top: -70px;
+                        margin-left: 50px; ">
+                        Borrowed books
                     </div>
                     <div class="book">
                         <img class="book_cover" src="img\81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" width="120px" height="160px"> 

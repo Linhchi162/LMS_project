@@ -6,6 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+        <script src="functions.js"></script>
         </head>
 
     <body>
@@ -29,20 +30,20 @@
         </div>
         <div class="container">
             <div class="menu">
-                    <button class="home" style=" background-color: #F8F7EC;">
+                    <button class="home" onclick="goToHome()">
                         <img src="img\icons8-home-96.png" width="30" height="30">
                         Home
                     </button>
-                    <button class="bookshelf">
+                    <button class="bookshelf" onclick="goToBookshelf()">
                         <img src="img/icons8-bookshelf-96.png" width="30" height="30">
                         Bookshelf
                     </button>
-                    <button class="wishlist" >
+                    <button class="wishlist" onclick="goToWishlist()">
                         <img src="img/icons8-bookmark-96.png" width="30" height="30">
                         Wishlist
                     </button>
                     <div>
-                        <button class="log_out_button">
+                        <button class="log_out_button" onclick="logOut()">
                             <img src="img/icons8-log-out-96.png" width="30" height="30">
                             Logout
                         </button>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Book shelf</title>
+        <title>home</title>
         <link rel="stylesheet" href="css/home.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
-    </head>
+        <script src="functions.js"></script>
+        </head>
 
     <body>
         <div class="header">
@@ -30,20 +31,20 @@
         <div class="container">
 
             <div class="menu">
-                    <button class="home" >
+                    <button class="home" style=" background-color: #F8F7EC;">
                         <img src="img\icons8-home-96.png" width="30" height="30">
                         Home
                     </button>
-                    <button class="bookshelf" style=" background-color: #F8F7EC;">
+                    <button class="bookshelf" onclick="goToBookshelf()">
                         <img src="img/icons8-bookshelf-96.png" width="30" height="30">
                         Bookshelf
                     </button>
-                    <button class="wishlist">
+                    <button class="wishlist" onclick="goToWishlist()">
                         <img src="img/icons8-bookmark-96.png" width="30" height="30">
                         Wishlist
                     </button>
                     <div>
-                        <button class="log_out_button">
+                        <button class="log_out_button" onclick="logOut()">
                             <img src="img/icons8-log-out-96.png" width="30" height="30">
                             Logout
                         </button>
@@ -54,7 +55,7 @@
                     <div class="genre">
                         <div class="genre_top">
                             <div class="title">
-                                Active borrowed books
+                                Popular
                             </div>
                             <div>
                                 <button class ="see_all">
@@ -94,7 +95,7 @@
                     <div class="genre2">
                         <div class="genre_top">
                             <div class="title">
-                            Borrowed books
+                            You may like
                             </div>
                             <div>
                                 <button class ="see_all">

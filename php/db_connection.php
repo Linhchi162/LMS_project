@@ -2,8 +2,8 @@
 // Kết nối tới cơ sở dữ liệu MySQL
 $servername = "localhost";
 $username = "root"; 
-$password = "1616lclc"; 
-$dbname = "lms_project"; 
+$password = "getenv('mySQLPass')"; 
+$dbname = "project_DBMS"; 
 
 // Tạo kết nối
 $conn = new mysqli($servername, $username, $password, $dbname);

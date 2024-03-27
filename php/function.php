@@ -27,7 +27,7 @@
         INNER JOIN `borrow` ON `borrow`.account_id = `account`.id
         INNER JOIN `book` ON `borrow`.book_id = `book`.id
         INNER JOIN `book_detail` ON `book`.id = `book_detail`.id
-        WHERE `book`.id = $user_id AND `borrow`.return_date IS NULL";
+        WHERE `account`.id = $user_id AND `borrow`.return_date IS NULL";
     
         $result = $mysqli->query($query);
         $mysqli->close();

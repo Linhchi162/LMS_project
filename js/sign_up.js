@@ -10,11 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
             method: "POST",
             body: formData
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
             const errorMessage = document.getElementById("error_message");
             errorMessage.style.display = "block";
-            errorMessage.textContent = data;
+            if (data.error) {
+                errorMessage.textContent = data.error;
+            } else {
+                errorMessage.textContent = data.success;
+                location.href = "../html/home.html";
+            }
         })
         .catch(error => {
             console.error("Error:", error);

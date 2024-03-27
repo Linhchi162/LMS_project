@@ -7,18 +7,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pass = $_POST['password'];
 
     // truy vấn SQL
-    $sql = "SELECT `id` FROM account WHERE username='$user' AND `password`='$pass'";
+    $sql = "SELECT `id` FROM `account` WHERE `username`= '$user' AND `password`= '$pass'";
     $result = $conn->query($sql);
 
     // Kiểm tra kết quả trả về
     if ($result->num_rows > 0) {
         session_start();
         $_SESSION['username'] = $user;
-
-        header("Location: ../html/home.php");
+        $response = array('success' => 'login successfully');
+        echo json_encode($response);
         exit();
     } else {
-        echo "<script> showError(); </script>";
+        $response = array('error' => 'Your username or password is incorrect!');
+        echo json_encode($response);
     }
 }
 $conn->close();

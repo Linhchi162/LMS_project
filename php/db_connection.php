@@ -2,7 +2,7 @@
 // Kết nối tới cơ sở dữ liệu MySQL
 $servername = "localhost";
 $username = "root"; 
-$password = "getenv('mySQLPass')"; 
+$password = getenv('mySQLPass'); 
 $dbname = "project_DBMS"; 
 
 // Tạo kết nối

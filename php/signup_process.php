@@ -35,11 +35,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO account (username, `password`, `role`, `status`) VALUES ('$username', '$password', 1, 1)";
 
         if ($conn->query($sql) === TRUE) {
+            session_start();
+            $_SESSION['username'] = $username;
             echo "<script>
                 showError()
                 document.getElementById('error_message').innerHTML =
                'New user added successfully.';
                </script>";
+            header("Location: ../html/home.php");
+            
         } else {
             echo "<script>
                 showError()

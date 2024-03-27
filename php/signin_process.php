@@ -12,7 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Kiểm tra kết quả trả về
     if ($result->num_rows > 0) {
-        header("Location: home.php");
+        session_start();
+        $_SESSION['username'] = $user;
+
+        header("Location: ../html/home.php");
         exit();
     } else {
         echo "<script> showError(); </script>";

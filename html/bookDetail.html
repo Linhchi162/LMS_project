@@ -106,49 +106,17 @@
                 </div>
                 <div class="bottom">
                     <p style="color: rgb(16, 134, 134);
-                     font-weight: 700;">
+                     font-weight: bolder; font-size: 25px; margin-top:20px;">
                         COMMENT
                     </p>
-
-                    <input class="commentBar" type="text" placeholder="Write your comments here...">
-                    <button class="add-cmt">
-                        <img src="../img/icons8-send-48.png" width="40px" height="40px">
-                    </button>
-                    <div class="comments">
-                        <div class="comment-section">
-                            <div class="cmt-ava">
-                            </div>
-                            <p class="cmt-name">
-                                Linh chee
-                            </p>
-                            <div class="comment">
-                                HAY!
-                            </div>
-                        </div>
-                        <div class="comment-section">
-                            <div class="cmt-ava">
-                            </div>
-                            <p class="cmt-name">
-                                Linh chee
-                            </p>
-                            <div class="comment">
-                                kkkkkkk!
-                            </div>
-                        </div>
-                        <div class="comment-section">
-                            <div class="cmt-ava">
-                            </div>
-                            <p class="cmt-name">
-                                Linh chee
-                            </p>
-                            <div class="comment">
-                                KHÔNG HAY!
-                            </div>
-                        </div>
-                    </div>
+                    <form method="post" class="comment-container">
+                        <input class="commentBar" type="text" name="comment" placeholder="Write your comments here...">
+                        <button class="add-cmt" type="submit">
+                            <img src="../img/icons8-send-48.png" alt="Add Comment" id="add-cmt">
+                        </button>
+                    </div> 
+                    <div class="comments" id="comments"></div>
                 </div>
-
-
             </div>
         </div>
 
@@ -156,6 +124,7 @@
     </div>
     </div>
     <script src="../js/functions.js"></script>
+    <script type="module" src="../js/book_details.js"></script>
 </body>
 
 </html>

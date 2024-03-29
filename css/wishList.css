@@ -210,3 +210,9 @@ body{
     height: 50px;
     margin-top: 250px;
 }
+
+.genre_end
+{
+    display: grid;
+    grid-template-columns:200px 200px 200px 200px 200px;
+}

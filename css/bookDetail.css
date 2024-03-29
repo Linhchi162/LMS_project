@@ -210,7 +210,7 @@ body {
 }
 
 .description {
-    margin-top: -10px;
+    margin-top: 5px;
     border-top: 1px solid rgba(109, 83, 53, 0.436);
     border-bottom: none;
     border-left: none;
@@ -272,29 +272,36 @@ body {
     z-index: 150;
 }
 
+.comment-container {
+    display: flex;
+    align-items: center;
+}
+
 .commentBar {
-    border: none;
     width: 900px;
-    height: 50px;
+    height: 48px;
+    border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f5f0e9;
     padding-left: 15px;
-    position: relative;
+    font-size: 16px;
+    margin-top: 15px;
 }
-.add-cmt
-{
-    position: absolute;
-    margin-top: 55px;
-    margin-left: 920px;
+
+.add-cmt {
     border: none;
-    background-color: #F8F7EC;
+    background-color: transparent;
+    height: 48px;
+    width: 50px;
 }
-.add-cmt:hover{
+
+.add-cmt:hover {
     opacity: 0.5;
     cursor: pointer;
 }
+
 .comments {
-    margin-top: 50px;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
 }
@@ -304,20 +311,7 @@ body {
     grid-template-columns: 50px 1fr;
     align-items: top;
     padding-top: 10px;
-}
-
-.comment {
-    display: inline-block;
-    width: 880px;
-    font-size: 15px;
-    color: rgb(104, 104, 104);
-    margin-left: 15px;
-    margin-top: -5px;
-    border-bottom: 1px solid rgba(229, 223, 217, 0.436);
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    padding-bottom: 8px;
+    margin-top: 10px;
 }
 
 .cmt-ava {
@@ -326,14 +320,36 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 12px;
-    
+    margin-top: 5px;
 }
-.cmt-name
-{
-    margin-top: 1px;
-    color: rgb(16, 134, 134);
-    font-size: 15px;
-    margin-left: -10px;
-    width: 100px;
+
+.comment {
+    display: inline-block;
+    width: 870px;
+    font-size: 14px;
+    color: rgb(104, 104, 104);
+    margin-left: 15px;
+    border-bottom: 1px solid rgba(229, 223, 217, 0.436);
+    border-top: none;
+    border-left: none;
+    border-right: none;
     padding-bottom: 8px;
+    word-wrap: break-word;
+}
+
+.cmt-name {
+    width: 870px;
+    margin-top: 1px;
+    margin-left: 14px;
+    color: #03f;
+    font-size: 15px;
+    padding-bottom: 8px;
+    border-bottom: solid 1px;
+    font-weight: bolder;
+}
+
+.info {
+    width: 900px;
+    border: solid 1px;
+    border-radius: 10px;
 }

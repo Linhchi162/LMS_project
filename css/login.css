@@ -112,3 +112,6 @@ body {
     opacity: 0.75;
 }
 
+.signInButton:disabled, .signInButton:disabled:hover {
+    opacity: 0.6;
+}

@@ -21,7 +21,7 @@
     function get_borrowing($user_id) {
         //connect to database
         include 'db_connection.php';
-    
+        
         $query = "SELECT * 
         FROM `account`
         INNER JOIN `borrow` ON `borrow`.account_id = `account`.id

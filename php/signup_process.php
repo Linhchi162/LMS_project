@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Thêm dữ liệu vào bảng account với role là 1 và status là 1
-        $sql = "INSERT INTO account (username, `password`, `role`, `status`) VALUES ('$username', '$password', 1, 1)";
+        $sql = "INSERT INTO account (username, `password`, `role`, `status`) VALUES ('$username', '$password', 1, 0)";
 
         if ($conn->query($sql) === TRUE) {
             session_start();

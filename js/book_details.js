@@ -21,8 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("click on reservation");
     });
 
-    wishlist.addEventListener("click", function () {
-        console.log("click on wishlist");
+    wishlist.addEventListener("click", function (event) {
+        // console.log("click on wishlist");
+        event.preventDefault();
+        addToWishList(book_id);
     });
 
     Form.addEventListener("submit", function (event) {
@@ -49,6 +51,7 @@ function addComments(Form, book_id) {
         });
 }
 
+//add to wishlist
 function addToWishList(book_id) {
     let url = "../php/add_wishlist.php?book_id=" + book_id;
 
@@ -79,6 +82,7 @@ function addToReservation(book_id) {
         });
 }
 
+//finished
 function getCommentData(book_id) {
     let url = "../php/get_comment.php?book_id=" + book_id;
     fetch(url, {

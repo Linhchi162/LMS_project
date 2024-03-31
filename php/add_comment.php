@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 throw new Exception("Error adding comment: " . $conn->error);
             }
         } catch (Exception $e) {
-            if ($conn->errno == 1062) { 
+            if ($conn->errno == 1062) { //check duplicate
                 echo 'You have already commented on this book.';
             } else {
                 echo "An error occurred while adding the comment: " . $e->getMessage();

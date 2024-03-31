@@ -280,7 +280,7 @@ body {
 .commentBar {
     width: 900px;
     height: 48px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 10px;
     background-color: #f5f0e9;
     padding-left: 15px;
@@ -352,4 +352,10 @@ body {
     width: 900px;
     border: solid 1px;
     border-radius: 10px;
+}
+.enterSpace:focus,
+.commentBar:focus
+{
+    outline: none; 
+    border: none; 
 }

@@ -7,6 +7,8 @@ body{
     height: 60px;
     display: grid;
     grid-template-columns: 200px 560px 1fr ;
+    position: fixed;
+    z-index: 200;
 }
 .start
 {
@@ -50,7 +52,7 @@ body{
 }
 .ava_menu
 {
-    background-color: #F8F7EC;
+    background-color: #f4ebdd;
     display: grid;
     grid-template-columns: 50px 80px 1fr;
     width: 170px;
@@ -87,44 +89,55 @@ body{
 {
     display: grid;
     grid-template-columns: 200px 1fr;
+    padding-top: 60px;
 }
 .white_container
 {
     display: inline-block;
+    position: relative;
     background-color: #F8F7EC;
-    width: 1055px;
+    width: 1040px;
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
+.white_container2
+{
+    position: absolute;
+    display: inline-block;
+    background-color: #F8F7EC;
+    width: 1040px;
     height: 580px;
     border-radius: 20px;
+    z-index: 10;
 }
 .genre
 {
     height: 287px;
     margin-top: 10px;
+    z-index: 100;
 }
-.genre2
-{
-    height: 280px;
-    margin-top: -20px;
-}
+
 .genre_top
 {
-    
     height: 60px;
     display: grid;
     grid-template-columns: 300px 1fr;
     padding-top: 10px;
     padding-left: 60px;
+    z-index: 100;
 }
 .genre_end
 {
     display: grid;
     grid-template-columns:200px 200px 200px 200px 200px;
+    z-index: 100;
 }
 .book
 {
     display: grid;
     width: 263px;
     height: 210px;
+    z-index: 100;
 }
 .book_cover
 {
@@ -138,6 +151,7 @@ body{
     font-weight: 600;
     font-size: 25px;
     margin-top: 10px;
+    z-index: 100;
 }
 .book_cover{
     box-shadow:-5px 1px 10px rgba(148, 146, 146,1);
@@ -177,6 +191,7 @@ body{
     margin-top: 19px;
     background-color: #F8F7EC;
     color: rgb(34, 184, 192);
+    z-index: 100;
 }
 .see_all:hover{
     text-decoration: underline;
@@ -217,4 +232,9 @@ body{
 {
     height: 50px;
     margin-top: 250px;
+}
+.enterSpace:focus
+{
+    outline: none; 
+    border: none; 
 }

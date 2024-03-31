@@ -105,7 +105,7 @@ body{
     position: absolute;
     background-color: #F8F7EC;
     width: 1055px;
-    height: 530px;
+    height: 480px;
     border-radius: 20px;
     z-index: 50;
 }
@@ -215,4 +215,9 @@ body{
 {
     display: grid;
     grid-template-columns:200px 200px 200px 200px 200px;
+}
+.enterSpace:focus
+{
+    outline: none; 
+    border: none; 
 }

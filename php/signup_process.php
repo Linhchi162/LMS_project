@@ -29,8 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO account (username, `password`, `role`, `status`) VALUES ('$username', '$password', 1, 0)";
 
         if ($conn->query($sql) === TRUE) {
+            $sql = "SELECT `id` from `account` WHERE `username`= '$username'";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            
             session_start();
             $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = $row['id'];
+
             $response = array('success' => 'New user added successfully.');
             echo json_encode($response);
             exit();

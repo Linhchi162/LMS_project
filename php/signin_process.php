@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         session_start();
         $_SESSION['username'] = $user;
+        $_SESSION['user_id'] = $row['id'];
+        
         $response = array('success' => 'login successfully');
         echo json_encode($response);
         exit();

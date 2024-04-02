@@ -359,3 +359,44 @@ body {
     outline: none; 
     border: none; 
 }
+.top button{
+    position: absolute;
+    border: none;
+    display: flex;
+    z-index: 50;
+    margin-top: -25px;
+    justify-content: center;
+    align-items: center;
+    font-family: Shippori Mincho;
+    font-weight: 700;
+    font-size: 15px;
+    background-color:#F8F7EC;
+    border-radius: 8px;
+    padding: 8px;
+    column-gap: 10px;
+}
+.top button:hover{
+    background-color: rgb(244, 239, 222);
+    cursor: pointer;
+}
+.details-button
+{
+    margin-left: 664px;
+}
+.edit-button
+{
+    margin-left: 577px;
+}
+.move-button
+{
+    margin-left: 773px;
+}
+.move-button img
+{
+    margin-right: 4px;
+}
+.delete-button
+{
+    margin-left: 870px;
+    color: rgb(177, 89, 89);
+}

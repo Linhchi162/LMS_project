@@ -93,6 +93,7 @@ body{
 }
 .white_container
 {
+    margin-left: 200px;
     display: inline-block;
     position: relative;
     background-color: #F8F7EC;
@@ -199,6 +200,7 @@ body{
 }
 .menu
 {
+    position: fixed;
     padding-top: 15px;
     background-color:#E6D4BA;
     height: 565px;

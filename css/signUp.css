@@ -9,12 +9,12 @@ body {
     background-color: rgb(255, 255, 255);
     height: 575px;
     border-radius: 15px;
-    box-shadow: -10px 10px 30px #3d0f17d7 ;
+    box-shadow: -10px 10px 30px #3d0f17d7;
 }
 
 .board_img {
     display: inline-block;
-    
+
 }
 
 .the_img {
@@ -31,83 +31,92 @@ body {
     padding-left: 70px;
 
 }
-.logo{
+
+.logo {
     height: 130px;
     background-color: #cdcbca;
     margin-right: 140px;
 }
-.sign_up{
+
+.sign_up {
     display: inline-block;
     height: 60px;
     text-align: right;
 }
-.username{
+
+.username {
     display: grid;
     display: inline-block;
     height: 100px;
-    
+
 }
-.password{
+
+.password {
     display: grid;
     display: inline-block;
     height: 100px;
 }
-.Text
-{
+
+.Text {
     font-size: 15px;
     font-weight: 700;
     margin-left: 2px;
     margin-top: 10px;
     margin-bottom: 15px;
 }
-.enterSpace
-{
+
+.enterSpace {
     width: 300px;
     height: 35px;
     border: none;
-    box-shadow: -1px 1px 5px rgba(148, 146, 146,0.45);
+    box-shadow: -1px 1px 5px rgba(148, 146, 146, 0.45);
     border-radius: 15px;
     padding-left: 12px;
 }
-.sign_in
-{
-    display: inline-block;    
-    height: 130px;
+
+.sign_in {
+    display: inline-block;
+    height: 100px;
 }
-.signUpButton
-{
+
+.signUpButton {
     font-family: Shippori Mincho;
     font-weight: 600;
     font-size: 25px;
     margin-top: 15px;
     border: none;
     border-radius: 18px;
-    background-color:#CEB38D;
+    background-color: #CEB38D;
     color: white;
     width: 200px;
     height: 50px;
     padding-bottom: 4px;
 }
-.signUpButton:hover
-{
+
+.signUpButton:hover {
     cursor: pointer;
     opacity: 0.75;
 }
-.signInButton
-{
+
+.signUpButton:disabled, .signUpButton:disabled:hover {
+    opacity: 0.6;
+}
+
+.signInButton {
     border: none;
-    background-color:white;
+    background-color: white;
     font-family: Arial;
     font-size: 13px;
     padding-left: 0px;
-    color:#6288C9 ;
+    color: #6288C9;
 }
-.signInButton:hover{
- cursor: pointer;
- text-decoration: underline;
+
+.signInButton:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
-.signInText
-{
+
+.signInText {
     margin-top: -20px;
     padding-left: 10px;
     font-family: Arial;

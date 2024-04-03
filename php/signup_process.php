@@ -19,13 +19,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($error_message) {
             $response = array('error' => $error_message);
             echo json_encode($response);
+            exit();
         } else {
+            $sql = "SELECT `id` from `account` WHERE `username`= '$username'";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $row['id'];
 
             $response = array('success' => 'New user added successfully.');
             echo json_encode($response);
+            exit();
         }
     } else {
         $response = array('error' => 'Please enter password and account.');

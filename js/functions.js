@@ -32,3 +32,52 @@ function goToSignUp() {
 function showError() {
     document.getElementById("error_message").style.display = "block";
 }
+
+document.addEventListener("DOMContentLoaded", userCheck);
+
+function userCheck() {
+    fetch("../php/user_now.php")
+        .then(response => response.json())
+        .then(data => {
+            changeAva(data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
+
+function changeAva(data) {
+    var ava_menu = document.querySelector('.ava_menu');
+    ava_menu.innerHTML = ''; 
+
+    var avatarContainerDiv = document.createElement('div');
+    avatarContainerDiv.classList.add('avatar-container');
+
+    var avatarImg = document.createElement('img');
+    avatarImg.classList.add('ava');
+    avatarImg.src = "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg"; 
+
+    avatarContainerDiv.appendChild(avatarImg);
+
+    var accountNameDiv = document.createElement('div');
+    accountNameDiv.classList.add('account_name');
+    accountNameDiv.textContent = data.username; 
+
+    var dropdownImg = document.createElement('img');
+    dropdownImg.classList.add('drop_down_menu');
+    dropdownImg.src = "../img/icons8-expand-arrow-64.png";
+    dropdownImg.width = "25";
+    dropdownImg.height = "25";
+
+    ava_menu.appendChild(avatarContainerDiv);
+    ava_menu.appendChild(accountNameDiv);
+    ava_menu.appendChild(dropdownImg);
+}
+
+
+
+
+
+
+
+

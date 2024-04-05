@@ -1,7 +1,13 @@
-<?php 
+<?php
 session_start();
-$username = $_SESSION['username'];
-$user_id = $_SESSION['user_id'];
+
+if (isset($_SESSION['username']) && isset($_SESSION['user_id'])) {
+    $username = $_SESSION['username'];
+    $user_id = $_SESSION['user_id'];
+} else {
+    $username = "Guest";
+    $user_id = 0;
+}
 
 $query = "";
 

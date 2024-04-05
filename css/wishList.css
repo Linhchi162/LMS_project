@@ -107,10 +107,14 @@ body{
     background-color: #F8F7EC;
     width: 1055px;
     height: auto; 
+    min-height: 200px;
     overflow-y: auto; 
     overflow-x: hidden;
     border-radius: 20px;
     z-index: 50;
+
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
 }
 .book
 {

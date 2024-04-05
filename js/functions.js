@@ -7,6 +7,7 @@ function goToWishlist() {
 }
 
 function logOut() {
+    fetch("../php/log_out.php");
     window.location.href = "login.html";
 }
 
@@ -48,20 +49,20 @@ function userCheck() {
 
 function changeAva(data) {
     var ava_menu = document.querySelector('.ava_menu');
-    ava_menu.innerHTML = ''; 
+    ava_menu.innerHTML = '';
 
     var avatarContainerDiv = document.createElement('div');
     avatarContainerDiv.classList.add('avatar-container');
 
     var avatarImg = document.createElement('img');
     avatarImg.classList.add('ava');
-    avatarImg.src = "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg"; 
+    avatarImg.src = "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg";
 
     avatarContainerDiv.appendChild(avatarImg);
 
     var accountNameDiv = document.createElement('div');
     accountNameDiv.classList.add('account_name');
-    accountNameDiv.textContent = data.username; 
+    accountNameDiv.textContent = data.username;
 
     var dropdownImg = document.createElement('img');
     dropdownImg.classList.add('drop_down_menu');

@@ -3,14 +3,13 @@ include_once "db_connection.php";
 
 session_start();
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) && $_SESSION['user_id'] != 0) {
     $username = $_SESSION['username'];
     $user_id = $_SESSION['user_id'];
 } else {
     echo 'Please log in first';
     exit();
 }
-
 
 $book_id = $_GET['book_id'];
 

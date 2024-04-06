@@ -2,7 +2,9 @@ body {
     background-color: #E6D4BA;
     font-family: Shippori Mincho;
 }
-
+button:hover{
+    cursor: pointer;
+}
 .header {
     position: fixed;
     height: 60px;
@@ -354,10 +356,261 @@ body {
     border-radius: 10px;
 }
 
-.enterSpace:focus,
-.commentBar:focus {
+input:focus, 
+textarea:focus {
     outline: none;
     border: none;
 }
 
+.top button {
+    position: absolute;
+    border: none;
+    display: flex;
+    z-index: 50;
+    margin-top: -25px;
+    justify-content: center;
+    align-items: center;
+    font-family: Shippori Mincho;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #F8F7EC;
+    border-radius: 8px;
+    padding: 8px;
+    column-gap: 10px;
+}
 
+.top button:hover, 
+.back-to-book:hover,
+.move-close:hover
+{
+    background-color: rgb(244, 239, 222);
+    cursor: pointer;
+}
+
+.details-button {
+    margin-left: 664px;
+}
+
+.edit-button {
+    margin-left: 577px;
+}
+
+.move-button {
+    margin-left: 773px;
+}
+
+.move-button img {
+    margin-right: 4px;
+}
+
+.delete-button {
+    margin-left: 870px;
+    color: rgb(177, 89, 89);
+}
+
+
+.white_container .top .right-column, .top .book_cover, .bottom{
+    display: none;
+}
+
+.edit_container {
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    width: 1000px;
+    margin-left: -60px;
+    margin-top: 15px;
+    padding-bottom: 40px;
+    padding-left: 50px;
+    background-color: #F8F7EC;
+    border-radius: 20px;
+}
+.back-to-book
+{
+    position: absolute;
+    margin-top: -50px;
+    margin-left: -30px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #504332;
+    background-color: #F8F7EC;
+    font-size: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 900;
+    
+}
+.edit-header
+{
+    margin-top: 5px;
+    margin-left: -40px;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 35px;
+}
+.edit-left
+{
+    padding-right: 100px ;
+    padding-left: 80px;
+}
+.edit-right
+{
+    padding-top: 52px;
+    padding-left: 30px;
+}
+.title
+{
+    font-size: 18px;
+}
+.edit-container input{
+    border: none;
+}
+.note
+{
+    font-size: 14px;
+    font-style: italic;
+}
+.titleBar, 
+.authorBar, 
+.ISBNBar,
+.inStockBar
+{
+    border: none;
+    height: 25px;
+    width: 260px;
+    background-color: #f4e9d9;
+    border-radius: 5px;
+    padding: 5px 10px ;
+}
+.descriptionBar
+{
+    padding: 10px;
+    border: none;
+    background-color: #f4e9d9;
+    border-radius: 5px;
+    height: 150px;
+}
+.cover-img
+{
+    display: block;
+    display: flex;
+    border: none;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 5px;
+    background-color: rgb(214, 214, 214);
+    justify-content: center;
+    align-items: center;
+    padding: 5px 25px;
+}
+.submit
+{
+    display: block;
+    margin-top: 150px;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 7px;
+    font-size: 20px;
+    color: #f3f2f1;
+    background-color: rgb(106, 129, 173);
+}
+.submit:hover,
+.cover-img:hover
+{
+    opacity:0.75;
+}
+.blur
+{
+    position: fixed;
+    width: 1400px;
+    height: 1000px;
+    z-index: 200;
+    margin-left: -270px;
+    margin-top:-119px;
+    background-color: #020202;
+    opacity: 0.75;
+}
+.move-container
+{
+    position: fixed;
+    width: 500px;
+    background-color: #F8F7EC;
+    z-index: 200;
+    margin-left: 160px;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+.move-close
+{
+    display: block;
+    margin-left: 448px;
+    margin-top: 10px;
+    border: 1px solid rgb(234, 226, 214);
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 900;
+    padding: 8px 13px;
+    background-color: #F8F7EC;
+}
+.move-container p:first-of-type
+{
+    font-weight: 900;
+    margin-top: -25px;
+    font-size: 25px;
+    margin-left: -10px;
+}
+
+.move-container input
+{
+    border: none;
+    height: 30px;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 70px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #f1e8dc;
+}
+.move-container .move-button2
+{
+    display: block;
+    margin-top: 30px;
+    border: none;
+    padding: 10px 90px;
+    font-size: 20px;
+    margin-left: 110px;
+    border-radius: 10px;
+    background-color: rgb(96, 105, 143);
+    color: white;
+}
+.move-button2:hover
+{
+    opacity: 0.75;
+}
+.delete-container
+{
+    position: fixed;
+    width: 500px;
+    background-color: #F8F7EC;
+    z-index: 200;
+    margin-left: 160px;
+    margin-top: 100px;
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+.details-container
+{
+    position: absolute;
+    z-index: 100;
+    width: 1000px;
+    margin-left: -60px;
+    margin-top: 15px;
+    padding-bottom: 40px;
+    padding-left: 50px;
+    background-color: #8c8b81;
+    border-radius: 20px;
+}

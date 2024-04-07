@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Add Book</title>
-        <link rel="stylesheet" href="../css/addBook2.css">
+        <title>Genre</title>
+        <link rel="stylesheet" href="../css/addBook.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
@@ -30,15 +30,11 @@
         <div class="container">
 
             <div class="menu">
-                    <button class="home" >
-                        <img src="../img\icons8-home-96.png" width="30" height="30">
-                        Home
-                    </button>
-                    <button class="bookshelf" style=" background-color: #F8F7EC;">
+                    <button class="bookshelf" onclick="goToAddBook()">
                         <img src="../img/icons8-book-48.png" width="30" height="30">
                         Add Book
                     </button>
-                    <button class="wishlist">
+                    <button class="wishlist"style=" background-color: #F8F7EC;">
                         <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
                         Genre
                     </button>
@@ -50,43 +46,50 @@
                     </div>
             </div>
             <div class="main_board">
-                <div class="bottom">
-                    <button class="submit">
-                        Submit
-                    </button>
-                </div>
-                <div class="white_container">
-
+                <div class="white_container" >
                     <div class="top">
-                        <button class="Search">
-                            SEARCH
+                        <button class="Search" >
+                            MODIFY GENRE
                         </button>
-                        <button class="Manual-entry">
-                            MANUAL ENTRY
+                        <button class="Manual-entry" style="border: none;" onclick="goToAdd()">
+                            ADD GENRE
                         </button>
                     </div>
                     <div class="middle2">
                         <p class="title"> Select Genre</p>
                         <input class="genre-search" type="text" placeholder="Search">
-                        <p class="note">Choose the collection you're adding items to.</p>
-                        <p class="title">Title</p>
-                        <input class="titleBar" type="text">
-                        <p class="title">Authors</p>
-                        
-                        <input class="authorBar" type="text">
-                        <p class="note"> Separate authors with a comma.</p>
-                        <p class="title">ISBN</p>
-                        <input class="ISBNBar" type="text">
-                        <p class="title">Description</p>
-                        <textarea class="descriptionBar" rows="4" cols="50">
-                        </textarea>
-                        <button class="cover-img">
-                            <img src="../img/icons8-img-48.png" width="30px" height="30px"
-                              style="margin-right: 5px;">
-                            Cover Image
+                        <p class="note">Choose the collection want to modify.</p>
+                        <p class="title"> Enter new title</p>
+                        <input class="book-search" type="text">
+                        <p class="note">Limit 40 characters.</p>
+                        <button class="Search-button" 
+                        style="display: block;
+                               margin-top: 40px;">
+                            Change
                         </button>
                     </div>
                     
+                </div>
+                <div class="add-container">
+                    <div class="top">
+                        <button class="Search" style="border: none;" onclick="goToModify()">
+                            MODIFY GENRE
+                        </button>
+                        <button class="Manual-entry">
+                            ADD GENRE
+                        </button>
+                    </div>
+                    <div class="middle2">
+                        <p class="title"> Genre Title</p>
+                        <input class="genre-search" type="text">
+                        <p class="note">Limit 40 characters.</p>
+                        
+                        <button class="Search-button" 
+                        style="display: block;
+                               margin-top: 50px;">
+                            Add
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

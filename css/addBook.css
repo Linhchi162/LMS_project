@@ -86,7 +86,10 @@ button:hover{
     grid-template-columns: 200px 1fr;
     padding-top: 60px;
 }
-
+.main-board
+{
+    position: relative;
+}
 .white_container {
     display: inline-block;
     position: relative;
@@ -147,7 +150,10 @@ button:hover{
     padding-right: 10px;
     padding-bottom: 15px;
     background-color: #F8F7EC;
-    border: none;
+    border-bottom: 4px solid rgb(96, 124, 163);
+    border-top: none;
+    border-left: none;
+    border-right: none;
 
 }
 
@@ -301,4 +307,102 @@ button:hover{
 {
     font-size: 13px;
     margin-top: 0;
+}
+.add-container
+{
+    position: absolute;
+    background-color: #F8F7EC;
+    width: 1005px;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    margin-left: 200px;
+    margin-top: -600px;
+    z-index: 150;
+}
+.manual-container
+{
+    position: absolute;
+    background-color: #F8F7EC;
+    width: 1005px;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    margin-left: 200px;
+    z-index: 150;
+    margin-top: 10px;
+}
+.middle3 {
+    margin-top: 40px;
+    width: 950px;
+    padding-left: 55px;
+    z-index: 50;
+    padding-bottom: 60px;
+
+}
+.middle3 input {
+    border: none;
+    padding: 10px;
+    width: 650px;
+    margin-left: 20px;
+    background-color: #f3eade;
+}
+.descriptionBar {
+    border: none;
+    padding: 10px;
+    width: 650px;
+    margin-left: 20px;
+    background-color: #f3eade;
+    height: 100px;
+    overflow-y: auto; 
+}
+.descriptionBar:focus
+{
+    outline: none;
+    border: none;
+}
+ input:focus {
+    outline: none;
+    border: none;
+}
+.cover-img
+{
+    display: block;
+    display: flex;
+    border: none;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: rgb(214, 214, 214);
+    justify-content: center;
+    align-items: center;
+    padding: 5px 25px;
+}
+.bottom2 {
+    position: fixed;
+    padding-left: 40px;
+    padding-top: 15px;
+    margin-top: 530px;
+    margin-left: 200px;
+    border-top: 1px solid rgb(209, 209, 209);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    background-color: #F8F7EC;
+    width: 1005px;
+    height: 60px;
+    border-radius: 0px 0px 20px 20px;
+    z-index: 200;
+
+}
+
+.submit {
+    border: none;
+    padding: 10px 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(96, 124, 163);
+    color: white;
 }

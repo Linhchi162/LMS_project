@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Add Book</title>
+        <title>Add Book1</title>
         <link rel="stylesheet" href="../css/addBook.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,15 +30,11 @@
         <div class="container">
 
             <div class="menu">
-                    <button class="home" >
-                        <img src="../img\icons8-home-96.png" width="30" height="30">
-                        Home
-                    </button>
                     <button class="bookshelf" style=" background-color: #F8F7EC;">
                         <img src="../img/icons8-book-48.png" width="30" height="30">
                         Add Book
                     </button>
-                    <button class="wishlist">
+                    <button class="wishlist" onclick="goToGenre()">
                         <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
                         Genre
                     </button>
@@ -56,7 +52,9 @@
                         <button class="Search">
                             SEARCH
                         </button>
-                        <button class="Manual-entry">
+                        <button class="Manual-entry" 
+                        style="border: none;"
+                        onclick="goToManual()">
                             MANUAL ENTRY
                         </button>
                     </div>
@@ -146,8 +144,49 @@
                         </div>
                     </div>
                 </div>
+                <div class="bottom2">
+                    <button class="submit">
+                        Submit
+                    </button>
+                </div>
+                <div class="manual-container" style ="display: none;">
+                    <div class="top">
+                        <button class="Search" 
+                        style = "border: none;"
+                        onclick="goToSearch()">
+                            SEARCH
+                        </button>
+                        <button class="Manual-entry">
+                            MANUAL ENTRY
+                        </button>
+                    </div>
+                    <div class="middle3">
+                        <p class="title"> Select Genre</p>
+                        <input class="genre-search" type="text" placeholder="Search">
+                        <p class="note">Choose the collection you're adding items to.</p>
+                        <p class="title">Title</p>
+                        <input class="titleBar" type="text">
+                        <p class="title">Authors</p>
+                        
+                        <input class="authorBar" type="text">
+                        <p class="note"> Separate authors with a comma.</p>
+                        <p class="title">ISBN</p>
+                        <input class="ISBNBar" type="text">
+                        <p class="title">Description</p>
+                        <textarea class="descriptionBar" rows="4" cols="50">
+                        </textarea>
+                        <button class="cover-img">
+                            <img src="../img/icons8-img-48.png" width="30px" height="30px"
+                              style="margin-right: 5px;">
+                            Cover Image
+                        </button>
+                    </div>
+                    
+                </div>
+                </div>
             </div>
         </div>
-        <script src="../js/functions.js"></script>
+        <script src="../js/functions.js">
+        </script>
     </body>
 </html>

@@ -10,6 +10,7 @@ function renderBook(bookData) {
 
     const nameDiv = document.createElement("div");
     nameDiv.classList.add("name");
+    nameDiv.title = bookData.name;
     nameDiv.textContent = bookData.name;
 
     const authorDiv = document.createElement("div");
@@ -62,7 +63,7 @@ export function renderLib(divID, bookData) {
 
 export function renderLibAll(divID, bookData) {
     for (let i = 0; i < bookData.length; i++) {
-        let bookElement = renderBook(bookData[0]);
+        let bookElement = renderBook(bookData[i]);
         document.getElementById(divID).appendChild(bookElement);
     }
 }
@@ -71,5 +72,6 @@ export function renderComments(divID, commentData) {
     for (let i = 0; i < commentData.length; i++) {
         let commentElement = renderComment(commentData[i]);
         document.getElementById(divID).appendChild(commentElement);
-    } 
-}
+    }
+    document.getElementById(divID).appendChild(commentElement);
+} 

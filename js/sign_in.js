@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             const errorMessage = document.getElementById("error_message");
             errorMessage.style.display = "block";
             if (data.error) {

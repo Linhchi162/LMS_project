@@ -52,19 +52,69 @@ function goToModify() {
 function goToAdd() {
     document.querySelector(".add-container").style.display = "block";
 }
+function hideBookDetail() {
+    document.querySelector(".white_container .top .right-column").style.display = "none";
+    document.querySelector(".top .book_cover").style.display = "none";
+    document.querySelector(".bottom").style.display = "none";
+}
+function showBookDetail() {
+    document.querySelector(".white_container .top .right-column").style.display = "block";
+    document.querySelector(".top .book_cover").style.display = "block";
+    document.querySelector(".bottom").style.display = "block";
+}
+function backToBookDetail() {
+    showBookDetail()
+    document.querySelector(".edit_container").style.display = "none";
+    document.querySelector(".delete-container").style.display = "none";
+    document.querySelector(".move-container").style.display = "none";
+    document.querySelector(".details-container").style.display = "none";
+    document.querySelector(".blur").style.display = "none";
+}
+
 function goToDetail() {
     document.querySelector(".add-container").style.display = "none";
 }
 function goToEdit() {
-
+    hideBookDetail();
+    document.querySelector(".edit_container").style.display = "flex";
+    document.querySelector(".delete-container").style.display = "none";
+    document.querySelector(".move-container").style.display = "none";
+    document.querySelector(".details-container").style.display = "none";
+    document.querySelector(".blur").style.display = "none";
 }
 function goToDelete() {
-
+    showBookDetail()
+    document.querySelector(".delete-container").style.display = "block";
+    document.querySelector(".blur").style.display = "block";
+    document.querySelector(".edit_container").style.display = "none";
+    document.querySelector(".move-container").style.display = "none";
+    document.querySelector(".details-container").style.display = "none";
 }
 function goToMove() {
-    
+    showBookDetail()
+    document.querySelector(".move-container").style.display = "block";
+    document.querySelector(".blur").style.display = "block";
+    document.querySelector(".delete-container").style.display = "none";
+    document.querySelector(".edit_container").style.display = "none";    
+    document.querySelector(".details-container").style.display = "none";
 }
+function goTodetails() {
+    hideBookDetail();
 
+    document.querySelector(".edit_container").style.display = "none";  
+    document.querySelector(".details-container").style.display = "block";
+    document.querySelector("blur").style.display = "none";
+    document.querySelector(".move-container").style.display = "none";
+    document.querySelector(".delete-container").style.display = "none";
+}
+function drop_down_menu() {
+    var dropdown = document.querySelector('.ava-dropdown');
+    if (dropdown.style.display === 'none') {
+        dropdown.style.display = 'block';
+    } else {
+        dropdown.style.display = 'none';
+    }
+}
 
 
 

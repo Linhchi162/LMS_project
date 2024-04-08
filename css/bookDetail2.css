@@ -53,6 +53,7 @@ button:hover{
 
 .ava_menu {
     background-color: #f4ebdd;
+    position: relative;
     display: grid;
     grid-template-columns: 50px 80px 1fr;
     width: 170px;
@@ -79,7 +80,11 @@ button:hover{
 }
 
 .drop_down_menu {
+    position: absolute;
     margin-top: 8px;
+    z-index: 100;
+    margin-top: 10px;
+    margin-left: 140px;
 }
 
 .drop_down_menu:hover {
@@ -410,7 +415,7 @@ textarea:focus {
 
 
 .white_container .top .right-column, .top .book_cover, .bottom{
-    display: none;
+    
 }
 
 .edit_container {
@@ -631,4 +636,39 @@ th, td {
 {
     opacity: 0.75;
     cursor: pointer;
+}
+.ava-dropdown
+{
+    
+    margin-left: -132px;
+    margin-top: 40px;
+    z-index: 1;
+}
+.ava-dropdown button
+{
+    width: 167px;
+    padding: 8px;
+    border: none;
+    background-color: #f5ebde;
+    text-align: left;
+    padding-left: 20px;
+    font-family: Shippori Mincho;
+    font-weight: 700;
+}
+.change-password
+{
+    border-radius: 0px 0px 10px 10px;
+    border-top: 3px solid rgb(57, 50, 50);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+.profile
+{
+    border-radius: 5px 5px 0px 0px;
+}
+.ava-dropdown button:hover
+{
+    background-color: #5c829d;
+    color: white;
 }

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Book shelf</title>
-        <link rel="stylesheet" href="../css/home.css">
+        <title>Filtered books</title>
+        <link rel="stylesheet" href="../css/wishList.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
-    </head>
+        </head>
 
     <body>
         <div class="header">
@@ -39,19 +39,14 @@
             </div>
         </div>
         <div class="container">
-
             <div class="menu">
-                    <button class="home" onclick="goToHome()">
-                        <img src="../img\icons8-home-96.png" width="30" height="30">
-                        Home
-                    </button>
-                    <button class="bookshelf" style=" background-color: #F8F7EC;" >
+                    <button class="bookshelf" onclick="goToAddBook()">
                         <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
-                        Bookshelf
+                        Add Book
                     </button>
-                    <button class="wishlist" onclick="goToWishlist()">
+                    <button class="wishlist" onclick="goToGenre()">
                         <img src="../img/icons8-bookmark-96.png" width="30" height="30">
-                        Wishlist
+                        Genre
                     </button>
                     <div>
                         <button class="log_out_button" onclick="logOut()">
@@ -62,38 +57,29 @@
             </div>
             <div class="main_board">
                 <div class="white_container">
-                    <div class="genre">
-                        <div class="genre_top">
-                            <div class="title">
-                                Active borrowed books
-                            </div>
-                            <div>
-                                <button class ="see_all" onclick="goToActiveBorrowed()">
-                                    See all &rarr;
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <div class="genre_end" id = "borrowed-book-small"></div>
+                    <div class="white_container2">
                     </div>
-                    <div class="genre2">
-                        <div class="genre_top">
-                            <div class="title">
-                            Borrowed books
-                            </div>
-                            <div>
-                                <button class ="see_all" onclick="goToBorrowed()">
-                                    See all &rarr;
-                                </button>
-                            </div>
-                            
-                        </div>
-                        <div class="genre_end" id="borrowing-book-small"></div>
+                    <div class="book">
+                        <img class="book_cover" src="../img\81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" width="120px" height="160px"> 
+                        <div class="name">name</div>
+                        <div class="author">author</div>
                     </div>
+                    <div class="book">
+                        <img class="book_cover" src="../img\81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" width="120px" height="160px"> 
+                        <div class="name">name</div>
+                        <div class="author">author</div>
+                    </div>
+                    <div class="book">
+                        <img class="book_cover" src="../img\81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" width="120px" height="160px"> 
+                        <div class="name">name</div>
+                        <div class="author">author</div>
+                    </div>
+                   
+                </div>
+
                 </div>
             </div>
         </div>
         <script src="../js/functions.js"></script>
-        <script type = "module" src="../js/bookshelf.js"></script>
     </body>
 </html>

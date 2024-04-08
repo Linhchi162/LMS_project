@@ -10,9 +10,11 @@ body {
     position: fixed;
     z-index: 200;
 }
-button:hover{
-    cursor:pointer;
+
+button:hover {
+    cursor: pointer;
 }
+
 .start {}
 
 .middle {
@@ -91,10 +93,11 @@ button:hover{
     grid-template-columns: 200px 1fr;
     padding-top: 60px;
 }
-.main-board
-{
+
+.main-board {
     position: relative;
 }
+
 .white_container {
     display: inline-block;
     position: relative;
@@ -127,7 +130,7 @@ button:hover{
 
 .Search {
     display: inline-block;
-    font-family:Shippori Mincho;
+    font-family: Shippori Mincho;
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 30px;
@@ -146,7 +149,7 @@ button:hover{
 
 .Manual-entry {
     display: inline-block;
-    font-family:Shippori Mincho;
+    font-family: Shippori Mincho;
     margin-left: 30px;
     font-weight: 900;
     font-size: 20px;
@@ -168,7 +171,7 @@ button:hover{
     height: 450px;
     width: 950px;
     padding-left: 15px;
-    
+
 
 }
 
@@ -201,25 +204,26 @@ button:hover{
     margin-left: 20px;
     background-color: #f3eade;
 }
+
 .enterSpace:focus,
 .genre-search:focus,
 .book-search:focus {
-    outline: none; 
-    border: none; 
+    outline: none;
+    border: none;
 }
-.Search-button
-{
+
+.Search-button {
     margin-left: 10px;
     margin-top: 30px;
     border: none;
     border-radius: 7px;
     font-size: 15px;
     color: rgb(255, 255, 255);
-    background-color:rgb(96, 124, 163);
+    background-color: rgb(96, 124, 163);
     padding: 10px 50px;
 }
-.bottom
-{
+
+.bottom {
     padding-left: 20px;
     border-top: 1px solid rgb(209, 209, 209);
     border-bottom: none;
@@ -227,6 +231,7 @@ button:hover{
     border-right: none;
     width: 950px
 }
+
 .menu {
     position: fixed;
     padding-top: 15px;
@@ -253,6 +258,7 @@ button:hover{
     font-weight: 700;
 
 }
+
 .menu button:hover {
     background-color: #F8F7EC;
     cursor: pointer;
@@ -262,26 +268,26 @@ button:hover{
     height: 50px;
     margin-top: 250px;
 }
-.book
-{
+
+.book {
     display: grid;
     grid-template-columns: 150px 730px;
     margin-bottom: 50px;
 }
-.book-left
-{
+
+.book-left {
     display: inline-block;
     padding-left: 13px;
 }
-.book-cover
-{
+
+.book-cover {
     border-radius: 5px;
     box-shadow: -5px 1px 10px rgba(148, 146, 146, 1);
 }
-.add-book-button
-{
+
+.add-book-button {
     border: none;
-    background-color:rgb(96, 124, 163) ;
+    background-color: rgb(96, 124, 163);
     color: white;
     padding: 7px 15px;
     border-radius: 5px;
@@ -289,32 +295,32 @@ button:hover{
     margin-top: 15px;
     margin-left: 5px;
 }
-.book-right
-{
+
+.book-right {
     padding-left: 10px;
 }
-.book-name
-{
-   font-size: 20px;
-   font-weight: 700;
+
+.book-name {
+    font-size: 20px;
+    font-weight: 700;
 }
-.book-author
-{
+
+.book-author {
     font-size: 15px;
     color: rgb(149, 146, 146);
     margin-bottom: 10px;
 }
-.book-ISBN
-{
+
+.book-ISBN {
     display: inline;
 }
-.book-description
-{
+
+.book-description {
     font-size: 13px;
     margin-top: 0;
 }
-.add-container
-{
+
+.add-container {
     position: absolute;
     background-color: #F8F7EC;
     width: 1005px;
@@ -325,8 +331,8 @@ button:hover{
     margin-top: -600px;
     z-index: 150;
 }
-.manual-container
-{
+
+.manual-container {
     position: absolute;
     background-color: #F8F7EC;
     width: 1005px;
@@ -337,6 +343,7 @@ button:hover{
     z-index: 150;
     margin-top: 10px;
 }
+
 .middle3 {
     margin-top: 40px;
     width: 950px;
@@ -345,6 +352,7 @@ button:hover{
     padding-bottom: 60px;
 
 }
+
 .middle3 input {
     border: none;
     padding: 10px;
@@ -352,6 +360,7 @@ button:hover{
     margin-left: 20px;
     background-color: #f3eade;
 }
+
 .descriptionBar {
     border: none;
     padding: 10px;
@@ -359,19 +368,20 @@ button:hover{
     margin-left: 20px;
     background-color: #f3eade;
     height: 100px;
-    overflow-y: auto; 
+    overflow-y: auto;
 }
-.descriptionBar:focus
-{
+
+.descriptionBar:focus {
     outline: none;
     border: none;
 }
- input:focus {
+
+input:focus {
     outline: none;
     border: none;
 }
-.cover-img
-{
+
+.cover-img {
     display: block;
     display: flex;
     border: none;
@@ -385,6 +395,7 @@ button:hover{
     align-items: center;
     padding: 5px 25px;
 }
+
 .bottom2 {
     position: fixed;
     padding-left: 40px;
@@ -413,7 +424,7 @@ button:hover{
 }
 
 
- .custom-dropdown {
+.custom-dropdown {
     position: relative;
     display: inline-block;
 }
@@ -427,7 +438,7 @@ button:hover{
 }
 
 .custom-dropdown select {
-    /*display: none;*/ 
+    /*display: none;*/
     margin-left: 20px;
     position: absolute;
     top: 100%;
@@ -448,14 +459,14 @@ button:hover{
     padding: 10px;
     border-radius: 0px;
 }
-.ava-dropdown
-{
+
+.ava-dropdown {
     margin-left: -132px;
     margin-top: 40px;
     z-index: 1;
 }
-.ava-dropdown button
-{
+
+.ava-dropdown button {
     width: 167px;
     padding: 8px;
     border: none;
@@ -465,23 +476,20 @@ button:hover{
     font-family: Shippori Mincho;
     font-weight: 700;
 }
-.change-password
-{
+
+.change-password {
     border-radius: 0px 0px 10px 10px;
     border-top: 3px solid rgb(57, 50, 50);
     border-bottom: none;
     border-left: none;
     border-right: none;
 }
-.profile
-{
+
+.profile {
     border-radius: 5px 5px 0px 0px;
 }
-.ava-dropdown button:hover
-{
+
+.ava-dropdown button:hover {
     background-color: #5c829d;
     color: white;
 }
-
-
-

@@ -115,3 +115,8 @@ body {
 .signInButton:disabled, .signInButton:disabled:hover {
     opacity: 0.6;
 }
+.enterSpace:focus
+{
+    outline: none; 
+    border: none; 
+}

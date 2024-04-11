@@ -1,69 +1,32 @@
-<<<<<<< HEAD
 <?php
 include_once "db_connection.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Lấy dữ liệu từ form
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
+    
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    // truy vấn SQL
-    $sql = "SELECT `id`, `status`, (select `name` from `status` where `status`.id = `account`.`status`) as newStatus FROM `account` WHERE `username`= '$user' AND `password`= '$pass'";
-    $result = $conn->query($sql);
-
-    // Kiểm tra kết quả trả về
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if ($row['status'] != 0) {
-            $response = array('error' => 'your account has been '. $row['newStatus']);
-            echo json_encode($response);
+    $sql = "CALL login(?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    
+    if (isset($row['response'])) {
+        $response = json_decode($row['response'], true);
+        if (isset($response['success'])) {
+            session_start();
+            $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = $row['user_id'];
+            echo json_encode(array('success' => $response['success']));
+        } elseif (isset($response['error'])) {
+            echo json_encode(array('error' => $response['error']));
+            exit();
+        } else {
+            echo json_encode(array('error' => 'Unexpected error occurred.'));
             exit();
         }
-        session_start();
-        $_SESSION['username'] = $user;
-        $_SESSION['user_id'] = $row['id'];
-        
-        $response = array('success' => 'login successfully');
-        echo json_encode($response);
-        exit();
-    } else {
-        $response = array('error' => 'Your username or password is incorrect!');
-        echo json_encode($response);
     }
+    $conn->close();
 }
-$conn->close();
-=======
-<?php
-include_once "db_connection.php";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Lấy dữ liệu từ form
-    $user = $_POST['username'];
-    $pass = $_POST['password'];
-
-    // truy vấn SQL
-    $sql = "SELECT `id`, `status`, (select `name` from `status` where `status`.id = `account`.`status`) as newStatus FROM `account` WHERE `username`= '$user' AND `password`= '$pass'";
-    $result = $conn->query($sql);
-
-    // Kiểm tra kết quả trả về
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        if ($row['status'] != 0) {
-            $response = array('error' => 'your account has been '. $row['newStatus']);
-            echo json_encode($response);
-            exit();
-        }
-        session_start();
-        $_SESSION['username'] = $user;
-        $_SESSION['user_id'] = $row['id'];
-        
-        $response = array('success' => 'login successfully');
-        echo json_encode($response);
-        exit();
-    } else {
-        $response = array('error' => 'Your username or password is incorrect!');
-        echo json_encode($response);
-    }
-}
-$conn->close();
->>>>>>> main

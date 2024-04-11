@@ -122,3 +122,8 @@ body {
     font-family: Arial;
     font-size: 13px;
 }
+.enterSpace:focus
+{
+    outline: none; 
+    border: none; 
+}

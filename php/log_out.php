@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 <?php 
-session_unset();
-=======
-<?php 
-session_unset();
->>>>>>> main
+session_start();
+$_SESSION['username'] = "";
+$_SESSION['user_id'] = null;
+
 echo 'Loged out!';

@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
         .then(response => response.json()) // Chuyển đổi phản hồi thành dạng văn bản
         .then(data => {
             // Hiển thị kết quả trong phần tử có ID là "search-results"
-            console.log(data);
+            // console.log(data);
             bookData = data;
-            console.log(bookData.length);
+            console.log(bookData);
             renderLibAll("search-results", bookData);
             // document.getElementById('search-results').innerHTML = data;
         })

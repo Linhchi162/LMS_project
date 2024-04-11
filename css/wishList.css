@@ -47,6 +47,7 @@ body{
 .ava_menu
 {
     background-color: #f4ebdd;
+    position: relative;
     display: grid;
     grid-template-columns: 50px 80px 1fr;
     width: 170px;
@@ -71,7 +72,11 @@ body{
 }
 .drop_down_menu
 {
+    position: absolute;
     margin-top: 8px;
+    z-index: 100;
+    margin-top: 10px;
+    margin-left: 140px;
 }
 .drop_down_menu:hover
 {
@@ -96,29 +101,33 @@ body{
     align-content: center;
     background-color: #F8F7EC;
     width: 1055px;
+    height: fit-content;
     border-radius: 20px;
     padding-bottom: 20px;
     row-gap: 20px; 
 }
-.white_container2
-{
-    position: absolute;
+
+.white_container2 {
+    position: relative;
     background-color: #F8F7EC;
     width: 1055px;
-    height: 530px;
+    height: 480px;
     border-radius: 20px;
     z-index: 50;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px 200px;
 }
 .book
 {
     display: grid;
-    width: 263px;
+    width: 250px;
     height: 210px;
     z-index: 100;
+    margin-top: 10px;
 }
 .book_cover
 {
-     display: inline;
+    display: inline;
     margin-left: 70px;
     
 }
@@ -216,3 +225,61 @@ body{
     display: grid;
     grid-template-columns:200px 200px 200px 200px 200px;
 }
+
+.enterSpace:focus
+{
+    outline: none; 
+    border: none; 
+}
+.ava-dropdown
+{
+    margin-left: -132px;
+    margin-top: 40px;
+    z-index: 1;
+}
+.ava-dropdown button
+{
+    width: 167px;
+    padding: 8px;
+    border: none;
+    background-color: #f5ebde;
+    text-align: left;
+    padding-left: 20px;
+    font-family: Shippori Mincho;
+    font-weight: 700;
+}
+.change-password
+{
+    border-radius: 0px 0px 10px 10px;
+    border-top: 3px solid rgb(57, 50, 50);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+.profile
+{
+    border-radius: 5px 5px 0px 0px;
+}
+.ava-dropdown button:hover
+{
+    background-color: #5c829d;
+    color: white;
+}
+
+
+#search-results
+{
+    display: grid;
+    grid-template-columns:200px 200px 200px 200px 200px;
+}
+
+.name {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 150px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+

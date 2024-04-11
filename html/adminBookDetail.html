@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>book</title>
+    <link rel="stylesheet" href="../css/bookDetail2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="start">logo</div>
+        <div class="middle">
+            <img class="find" src="../img/icons8-search-48.png" width="18" height="18">
+            <input class="enterSpace" type="text" placeholder="Search for name or author...">
+        </div>
+        <div class="end">
+            <div class="ava_menu">
+                   
+                <div >
+                    <img class="ava" src="../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" >
+                </div>
+                <div class="account_name">
+                    Account name
+                </div>
+                <div class="ava-dropdown" style="display: none;">
+                    <button class="profile">
+                        Profile
+                    </button>
+                    <button class="change-password">
+                        Change password
+                    </button>
+                </div>
+                <img class="drop_down_menu" src="../img/icons8-expand-arrow-64.png" 
+                width="25px" height="25px" onclick="drop_down_menu()">
+            
+           </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="menu">
+            <button class="home" onclick="">
+                <img src="../img/icons8-book-48.png" width="30" height="30">
+                Add Book
+            </button>
+            <button class="bookshelf" onclick="goToGenre()">
+                <img src="../img/icons8-bookshelf-96.png" width="30" height="30" >
+                Genre
+            </button>
+            <div>
+                <button class="log_out_button" onclick="logOut()">
+                    <img src="../img/icons8-log-out-96.png" width="30" height="30">
+                    Logout
+                </button>
+            </div>
+        </div>
+        <div class="main_board">
+            <div class="white_container ">
+                <div class="white_container2"></div>
+                <div class="edit_container" style="display: none;">
+                    <button class="back-to-book" onclick="backToBookDetail()">
+                        &larr;
+                    </button>
+                    <div class="edit-left">
+                        <p class="edit-header">
+                            EDIT BOOK
+                        </p>
+                        <p class="title">Title</p>
+                        <input class="titleBar" type="text" value="Dune">
+                        <p class="title">Authors</p>
+                        <input class="authorBar" type="text" value="Frank Herbert">
+                        <p class="note"> Separate authors with a comma.</p>
+                        <p class="title">In Stock</p>
+                        <input class="inStockBar" type="text" value="3">
+                        <button class="submit">
+                            Submit
+                        </button>
+                    </div>
+                    <div class="edit-right">
+                        <p class="title">ISBN</p>
+                        <input class="ISBNBar" type="text" value="9780575068568">
+                        <p class="title">Description</p>
+                        <textarea class="descriptionBar" rows="4" cols="50">
+Herbert's evocative, epic tale is set on the desert planet
+Arrakis, the focus for a complex political and military
+struggle with galaxy-wide repercussions. Arrakis is the 
+source of spice, a mind enhancing drug which makes interstellar
+travel possible, and therefore the most valuable substance in the galaxy.  
+When Duke Atreides and his family take up court there, they fall into a trap 
+set by his rival, Baron Harkonnen.  The Duke is poisoned, but his wife and her 
+son Paul escape to the vast and arid deserts of Arrakis, which have given it the name Dune.  
+They join the Fremen, natives of the planet who have learnt to live in this harsh and complex ecosystem.  
+But learning to survive is not enough - Paul's destiny was mapped out long ago and his mother is committed to 
+                            </textarea>
+                        <button class="cover-img">
+                            <img src="../img/icons8-img-48.png" width="30px" height="30px">
+                            Cover Image
+                        </button>
+                    </div>
+
+                </div>
+                <div class="details-container" style="display: none;">
+                    <p>
+                        Borrowing tracking
+                    </p>
+                    <table border="1" cellpadding="8" cellspacing="1">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Borrow date</th>
+                                <th>Due date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>201</td>
+                                <td>11/3/2024</td>
+                                <td>11/4/2024</td>
+                                <td class="not-returned">Not returned</td>
+                            </tr>
+                            <tr>
+                                <tr>
+                                    <td>202</td>
+                                    <td>12/2/2024</td>
+                                    <td>12/3/2024</td>
+                                    <td>Returned</td>
+                                </tr>
+                            </tr>
+                            <tr>
+                                <tr>
+                                    <td>216</td>
+                                    <td>3/2/2024</td>
+                                    <td>3/3/2024</td>
+                                    <td>Overdue</td>
+                                </tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <div class="blur" style="display: none;">
+                </div>
+                <div class="delete-container" style="display: none;">
+                    <button class="move-close" onclick="backToBookDetail()">
+                        &#10005;
+                    </button>
+                    <p>
+                        Delete this book?
+                    </p>
+                    <button>
+                        Delete
+                    </button>
+                    <button onclick="backToBookDetail()">
+                        Cancel
+                    </button>
+                </div>
+                <div class="move-container" style="display: none;">
+                    <button class="move-close" onclick="backToBookDetail()">
+                        &#10005;
+                    </button>
+                    <p>
+                        Move book?
+                    </p>
+                    <p>
+                        Move to genre
+                    </p>
+                    <div class="custom-dropdown">
+                        <input class="move-to-genre-bar" type="text" placeholder="Select Genre">
+                        <select>
+                            <option value="fiction">Fiction</option>
+                            <option value="non-fiction">Non-fiction</option>
+                            <option value="science-fiction">Science Fiction</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="fantasy">Fantasy</option>
+                        </select>
+                    </div>
+                    <button class="move-button2">
+                        Move
+                    </button>
+                </div>
+                <div class="top">
+                    <button class="edit-button" onclick="goToEdit()">
+                        <img src="../img/edit-button.png" width="20px" height="20px">
+                        Edit
+                    </button>
+                    <button class="details-button" onclick="goTodetails()">
+                        <img src="../img/details-button.png" width="20px" height="20px">
+                        Details
+                    </button>
+                    <button class="move-button" onclick="goToMove()">
+                        <img src="../img/move-button.png" width="20px" height="20px">
+                        Move
+                    </button>
+                    <button class="delete-button" onclick="goToDelete()">
+                        <img src="../img/delete-button.png" width="23px" height="23px">
+                        Delete
+                    </button>
+                    <img class="book_cover" src="../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg">
+                    <div class="right-column">
+                        <div class="genre">
+                            <img src="../img/icons8-book-96.png" width="25" height="25">
+                            <p class="genre-text">
+                                Novel
+                            </p>
+                        </div>
+                        <p class="book-name">
+                            DUNE
+                        </p><br><br>
+                        <p class="author">
+                            Frank Herbert
+                        </p>
+                        <p class="isbn">
+                            Release year:
+                        <p class="isbn-number">
+                            1965
+                        </p>
+                        </p>
+                        <p style="display: inline-block;">
+                            Instock:
+                        </p>
+                        <p class="Instock-number" style="display: inline-block;">
+                            3
+                        </p>
+                        <p style="font-size: 25px; font-weight: bold;">
+                            Description
+                        </p>
+                        <p class="description no-text-cursor">
+                            Herbert's evocative, epic tale is set on the desert planet Arrakis,
+                            the focus for a complex political and military struggle with galaxy-wid
+                            repercussions. Arrakis is the source of spice, a mind enhancing drug which
+                            makes interstellar travel possible, and therefore the most valuable substance
+                            in the galaxy. When Duke Atreides and his family take up court there, they
+                            fall into a trap set by his rival, Baron Harkonnen. The Duke is poisoned,
+                            but his wife and her son Paul escape to the vast and arid deserts of Arrakis,
+                            which have given it the name Dune. They join the Fremen, natives of the planet
+                            who have learnt to live in this harsh and complex ecosystem. But learning to
+                            survive is not enough - Paul's destiny was mapped out long ago and his mother
+                            is committed to seeing it fulfilled.
+                        </p>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p style="color: rgb(16, 134, 134);
+                        font-weight: bolder; font-size: 25px; margin-top:20px;">
+                        COMMENT
+                    </p>
+                    <form method="post" class="comment-container">
+                        <input class="commentBar" type="text" name="comment" placeholder="Write your comments here...">
+                        <button class="add-cmt" type="submit">
+                            <img src="../img/icons8-send-48.png" alt="Add Comment" id="add-cmt">
+                        </button>
+                </div>
+                <div class="comments" id="comments"></div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+    <script src="../js/functions.js"></script>
+    <script type="module" src="../js/book_details.js"></script>
+</body>
+
+</html>

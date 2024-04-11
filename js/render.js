@@ -7,6 +7,8 @@ function renderBook(bookData) {
     img.src = bookData.imageSrc;
     img.width = "120";
     img.height = "160";
+    img.loading = "lazy";
+    img.alt = bookData.id
 
     const nameDiv = document.createElement("div");
     nameDiv.classList.add("name");

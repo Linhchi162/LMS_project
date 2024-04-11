@@ -1,5 +1,6 @@
 <?php
-function search_books($keyword) {
+function search_books($keyword)
+{
     // Kết nối đến cơ sở dữ liệu
     include 'db_connection.php';
 
@@ -33,11 +34,11 @@ function search_books($keyword) {
 
     // Đọc từng dòng dữ liệu từ kết quả truy vấn và tạo HTML tương ứng
     while ($row = $result->fetch_assoc()) {
-        $data [] = [
+        $data[] = [
             'id' => $row['id'],
             'name' => $row['title'],
             'author' => "author",
-            'imageSrc' => "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg"
+            'imageSrc' => $row['image'],
         ];
 
         // $html_output .= "<div>";
@@ -59,7 +60,12 @@ function search_books($keyword) {
 }
 
 // Kiểm tra xem dữ liệu đã được gửi từ form chưa
-if(isset($_POST['searchData'])) {
+if (isset($_POST['searchData'])) {
+    session_start();
+    if ($_SESSION['user_id'] == 0) {
+        echo json_encode(array('error' => 'Please log in first'));
+        exit();
+    }
     // Lấy từ khóa tìm kiếm từ dữ liệu POST
     $keyword = $_POST['searchData'];
 
@@ -69,4 +75,3 @@ if(isset($_POST['searchData'])) {
     // Trả về kết quả tìm kiếm dưới dạng HTML
     echo json_encode($searchResultHTML);
 }
-

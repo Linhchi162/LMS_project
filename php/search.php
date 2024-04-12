@@ -40,12 +40,6 @@ function search_books($keyword)
             'author' => "author",
             'imageSrc' => $row['image'],
         ];
-
-        // $html_output .= "<div>";
-        // $html_output .= "<h2>{$row['title']}</h2>";
-        // $html_output .= "<p>{$row['id']}</p>";
-        // Thêm các trường dữ liệu khác nếu cần
-        // $html_output .= "</div>";
     };
 
     // Đóng prepared statement

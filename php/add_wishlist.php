@@ -16,5 +16,28 @@ $book_id = $_GET['book_id'];
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     if(isset($_POST['wishlist'])) {
+        // Kiểm tra xem sách đã có trong wishlist chưa
+        $checkQuery = "SELECT * FROM wishlist WHERE account_id = '$user_id' AND book_id = '$book_id'";
+        $checkResult = $conn->query($checkQuery);
+        
+        if ($checkResult->num_rows > 0) {
+            // Nếu sách đã có trong wishlist, xóa nó khỏi wishlist
+            $removeQuery = "DELETE FROM wishlist WHERE account_id = '$user_id' AND book_id = '$book_id'";
+            if ($conn->query($removeQuery) === TRUE) {
+                echo "Book removed from wishlist successfully.";
+            } else {
+                echo "Error removing book from wishlist: " . $conn->error;
+            }
+        } else {
+            // Nếu sách chưa có trong wishlist, thêm nó vào
+            $addQuery = "INSERT INTO wishlist (account_id, book_id) VALUES ('$user_id', '$book_id')";
+            if ($conn->query($addQuery) === TRUE) {
+                echo "Book added to wishlist successfully.";
+            } else {
+                echo "Error adding book to wishlist: " . $conn->error;
+            }
+        }
+    }
     
 }

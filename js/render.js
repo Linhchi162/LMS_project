@@ -7,6 +7,8 @@ function renderBook(bookData) {
     img.src = bookData.imageSrc;
     img.width = "120";
     img.height = "160";
+    img.loading = "lazy";
+    img.alt = bookData.id
 
     const nameDiv = document.createElement("div");
     nameDiv.classList.add("name");
@@ -55,8 +57,9 @@ function renderComment(comment_data) {
 }
 
 export function renderLib(divID, bookData) {
-    for (let i = 0; i < 5; i++) {
-        let bookElement = renderBook(bookData[0]);
+    let minlen = Math.min(bookData.length, 5);
+    for (let i = 0; i < minlen; i++) {
+        let bookElement = renderBook(bookData[i]);
         document.getElementById(divID).appendChild(bookElement);
     }
 }

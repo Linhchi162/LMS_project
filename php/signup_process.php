@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $row['id'];
+            $_SESSION['role'] = '1';
 
             $response = array('success' => 'New user added successfully.');
             echo json_encode($response);

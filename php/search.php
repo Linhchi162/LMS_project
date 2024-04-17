@@ -1,5 +1,6 @@
 <?php
-function search_books($keyword) {
+function search_books($keyword)
+{
     // Kết nối đến cơ sở dữ liệu
     include 'db_connection.php';
 
@@ -15,6 +16,7 @@ function search_books($keyword) {
     }
 
     // Bind parameter và thiết lập giá trị của $keyword
+    $keyword = trim($keyword);
     $searchKeyword = "%$keyword%";
     $stmt->bind_param("ss", $searchKeyword, $searchKeyword);
 
@@ -33,18 +35,12 @@ function search_books($keyword) {
 
     // Đọc từng dòng dữ liệu từ kết quả truy vấn và tạo HTML tương ứng
     while ($row = $result->fetch_assoc()) {
-        $data [] = [
+        $data[] = [
             'id' => $row['id'],
             'name' => $row['title'],
             'author' => "author",
-            'imageSrc' => "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg"
+            'imageSrc' => $row['image'],
         ];
-
-        // $html_output .= "<div>";
-        // $html_output .= "<h2>{$row['title']}</h2>";
-        // $html_output .= "<p>{$row['id']}</p>";
-        // Thêm các trường dữ liệu khác nếu cần
-        // $html_output .= "</div>";
     };
 
     // Đóng prepared statement
@@ -59,7 +55,7 @@ function search_books($keyword) {
 }
 
 // Kiểm tra xem dữ liệu đã được gửi từ form chưa
-if(isset($_POST['searchData'])) {
+if (isset($_POST['searchData'])) {
     // Lấy từ khóa tìm kiếm từ dữ liệu POST
     $keyword = $_POST['searchData'];
 
@@ -69,4 +65,3 @@ if(isset($_POST['searchData'])) {
     // Trả về kết quả tìm kiếm dưới dạng HTML
     echo json_encode($searchResultHTML);
 }
-

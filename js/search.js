@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
         
         const formData = new FormData(filterForm);
-        const searchValue = formData.get('search');
+        const searchValue = formData.get('search').trim().replace(/\s+/g, ' ');
 
-        // console.log(searchValue);
+        console.log(searchValue);
 
         const url = "../html/FilteredBooks.html?data=" + encodeURI(searchValue);
         console.log(url);

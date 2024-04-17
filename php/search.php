@@ -16,6 +16,7 @@ function search_books($keyword)
     }
 
     // Bind parameter và thiết lập giá trị của $keyword
+    $keyword = trim($keyword);
     $searchKeyword = "%$keyword%";
     $stmt->bind_param("ss", $searchKeyword, $searchKeyword);
 
@@ -40,12 +41,6 @@ function search_books($keyword)
             'author' => "author",
             'imageSrc' => $row['image'],
         ];
-
-        // $html_output .= "<div>";
-        // $html_output .= "<h2>{$row['title']}</h2>";
-        // $html_output .= "<p>{$row['id']}</p>";
-        // Thêm các trường dữ liệu khác nếu cần
-        // $html_output .= "</div>";
     };
 
     // Đóng prepared statement
@@ -61,11 +56,6 @@ function search_books($keyword)
 
 // Kiểm tra xem dữ liệu đã được gửi từ form chưa
 if (isset($_POST['searchData'])) {
-    session_start();
-    if ($_SESSION['user_id'] == 0) {
-        echo json_encode(array('error' => 'Please log in first'));
-        exit();
-    }
     // Lấy từ khóa tìm kiếm từ dữ liệu POST
     $keyword = $_POST['searchData'];
 

@@ -17,8 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(comment_data);
     getCommentData(book_id);
 
-    reservation.addEventListener("click", function () {
-        console.log("click on reservation");
+    reservation.addEventListener("click", function (event) {
+        event.preventDefault();
+        addToReservation(book_id);
     });
 
     wishlist.addEventListener("click", function (event) {
@@ -68,14 +69,17 @@ function addToWishList(book_id) {
 }
 
 function addToReservation(book_id) {
-    let url = "../php/add_Reservation.php?book_id=" + book_id;
+    let url = "../php/add_reservation.php?book_id=" + book_id;
 
     fetch(url, {
         method: "POST",
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            if (data.error) {
+                console.log(data.error);
+            }
+            console.log(data.success);
         })
         .catch(error => {
             console.error("Error:", error);

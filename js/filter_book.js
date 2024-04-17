@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                 errorline.textContent = data.error;
             } else {
                 // Hiển thị kết quả trong phần tử có ID là "search-results"
-                // console.log(data);
+                console.log(data);
                 errorline.style.display = 'none';
                 bookData = data;
                 console.log(bookData);

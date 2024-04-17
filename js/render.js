@@ -57,8 +57,9 @@ function renderComment(comment_data) {
 }
 
 export function renderLib(divID, bookData) {
-    for (let i = 0; i < 5; i++) {
-        let bookElement = renderBook(bookData[0]);
+    let minlen = Math.min(bookData.length, 5);
+    for (let i = 0; i < minlen; i++) {
+        let bookElement = renderBook(bookData[i]);
         document.getElementById(divID).appendChild(bookElement);
     }
 }

@@ -43,7 +43,7 @@
     </div>
     <div class="container">
         <div class="menu">
-            <button class="home" onclick="">
+            <button class="home" onclick="goToAddBook()">
                 <img src="../img/icons8-book-48.png" width="30" height="30">
                 Add Book
             </button>
@@ -170,16 +170,13 @@
                         Move to genre
                     </p>
                     <div class="custom-dropdown">
-                        <input class="move-to-genre-bar" type="text" placeholder="Select Genre">
-                        <select>
-                            <option value="fiction">Fiction</option>
-                            <option value="non-fiction">Non-fiction</option>
-                            <option value="science-fiction">Science Fiction</option>
-                            <option value="mystery">Mystery</option>
-                            <option value="romance">Romance</option>
-                            <option value="fantasy">Fantasy</option>
-                        </select>
+                        <input class="genre-search" id="genre_text_1" type="text" placeholder="Select Genre">
+                        <div class="result-box" id="result-box-1"></div>
                     </div>
+
+                    <!-- New div to contain genre tags -->
+                    <div class="genre-tags-container" id="genre-tags-container-1"></div>
+
                     <button class="move-button2">
                         Move
                     </button>
@@ -266,6 +263,7 @@
     </div>
     <script src="../js/functions.js"></script>
     <script type="module" src="../js/book_details.js"></script>
+    <script src="../js/genre_search.js"></script>
 </body>
 
 </html>

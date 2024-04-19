@@ -125,7 +125,6 @@ button:hover {
     border-top: none;
     border-left: none;
     border-right: none;
-    margin-top: 10px;
 }
 
 .Search {
@@ -176,9 +175,10 @@ button:hover {
 }
 
 .title {
-    font-weight: 700;
+    font-weight: bolder;
     font-size: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .note {
@@ -328,8 +328,8 @@ button:hover {
     padding-bottom: 20px;
     padding-left: 40px;
     margin-left: 200px;
-    margin-top: -600px;
     z-index: 150;
+    display: none;
 }
 
 .manual-container {
@@ -341,13 +341,12 @@ button:hover {
     padding-left: 40px;
     margin-left: 200px;
     z-index: 150;
-    margin-top: 10px;
 }
 
 .middle3 {
     margin-top: 40px;
     width: 950px;
-    padding-left: 55px;
+    padding-left: 15px;
     z-index: 50;
     padding-bottom: 60px;
 
@@ -492,4 +491,59 @@ input:focus {
 .ava-dropdown button:hover {
     background-color: #5c829d;
     color: white;
+}
+
+.result-box {
+    position: absolute;
+    background: #e9f3ff;
+    margin-left: 20px;
+    max-height: 800px;
+    /* display: none; */
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    padding-left: 20px;
+    width: 640px;
+    /* margin-top: 10px; */
+    cursor: pointer;
+    overflow-y: hidden;
+}
+
+.result-box ul li:hover{
+    background: #f8f7af;
+}
+
+.genre-tags-container {
+    margin-left: 25px;
+    margin-top: 10px;
+    max-width: 690px;
+    width: 690px;
+}
+
+/* Style for a span that looks like a tag in a multiple select */
+.tag {
+    display: inline-block;
+    padding: 4px 2px; /* Adjust the padding as needed */
+    margin-left: 10px; /* Adjust the margin as needed */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #838789; /* Background color */
+    color: #000000; /* Text color */
+    font-size: 13px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.2s ease-in-out; /* Transition effect for hover */
+    max-width: 50px; /* Set the width of each tag to a fixed size (adjust as needed) */
+    white-space: nowrap; /* Prevent line breaks inside the tag */
+    overflow: hidden; /* Hide any overflow text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
+}
+
+/* Hover effect */
+.tag:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+    overflow: auto;
+    max-width: 1000px;
 }

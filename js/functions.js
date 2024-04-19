@@ -49,10 +49,12 @@ function goToSearch() {
     document.querySelector(".white_container").style.display = "block";
 }
 function goToModify() {
+    document.querySelector(".white_container").style.display = "block";
     document.querySelector(".add-container").style.display = "none";
 }
 function goToAdd() {
     document.querySelector(".add-container").style.display = "block";
+    document.querySelector(".white_container").style.display = "none";
 }
 function hideBookDetail() {
     document.querySelector(".white_container .top .right-column").style.display = "none";

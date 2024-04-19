@@ -2,9 +2,11 @@ body {
     background-color: #E6D4BA;
     font-family: Shippori Mincho;
 }
-button:hover{
+
+button:hover {
     cursor: pointer;
 }
+
 .header {
     position: fixed;
     height: 60px;
@@ -229,7 +231,6 @@ button:hover{
 
 .menu {
     position: fixed;
-    padding-left: 15px;
     padding-top: 14px;
     background-color: #E6D4BA;
     height: 565px;
@@ -361,7 +362,7 @@ button:hover{
     border-radius: 10px;
 }
 
-input:focus, 
+input:focus,
 textarea:focus {
     outline: none;
     border: none;
@@ -384,10 +385,9 @@ textarea:focus {
     column-gap: 10px;
 }
 
-.top button:hover, 
+.top button:hover,
 .back-to-book:hover,
-.move-close:hover
-{
+.move-close:hover {
     background-color: rgb(244, 239, 222);
     cursor: pointer;
 }
@@ -414,9 +414,9 @@ textarea:focus {
 }
 
 
-.white_container .top .right-column, .top .book_cover, .bottom{
-    
-}
+.white_container .top .right-column,
+.top .book_cover,
+.bottom {}
 
 .edit_container {
     position: absolute;
@@ -430,8 +430,8 @@ textarea:focus {
     background-color: #F8F7EC;
     border-radius: 20px;
 }
-.back-to-book
-{
+
+.back-to-book {
     position: absolute;
     margin-top: -50px;
     margin-left: -30px;
@@ -441,62 +441,63 @@ textarea:focus {
     color: #504332;
     background-color: #F8F7EC;
     font-size: 30px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 900;
-    
+
 }
-.edit-header
-{
+
+.edit-header {
     margin-top: 5px;
     margin-left: -40px;
     font-size: 20px;
     font-weight: 900;
     margin-bottom: 35px;
 }
-.edit-left
-{
-    padding-right: 100px ;
+
+.edit-left {
+    padding-right: 100px;
     padding-left: 80px;
 }
-.edit-right
-{
+
+.edit-right {
     padding-top: 52px;
     padding-left: 30px;
 }
-.title
-{
+
+.title {
     font-size: 18px;
 }
-.edit-container input{
+
+.edit-container input {
     border: none;
 }
-.note
-{
+
+.note {
     font-size: 14px;
     font-style: italic;
 }
-.titleBar, 
-.authorBar, 
+
+.titleBar,
+.authorBar,
 .ISBNBar,
-.inStockBar
-{
+.inStockBar {
     border: none;
     height: 25px;
     width: 260px;
     background-color: #f4e9d9;
     border-radius: 5px;
-    padding: 5px 10px ;
+    padding: 5px 10px;
 }
-.descriptionBar
-{
+
+.descriptionBar {
     padding: 10px;
     border: none;
     background-color: #f4e9d9;
     border-radius: 5px;
     height: 150px;
 }
-.cover-img
-{
+
+.cover-img {
     display: block;
     display: flex;
     border: none;
@@ -509,8 +510,8 @@ textarea:focus {
     align-items: center;
     padding: 5px 25px;
 }
-.submit
-{
+
+.submit {
     display: block;
     margin-top: 150px;
     border: none;
@@ -520,24 +521,24 @@ textarea:focus {
     color: #f3f2f1;
     background-color: rgb(106, 129, 173);
 }
+
 .submit:hover,
-.cover-img:hover
-{
-    opacity:0.75;
+.cover-img:hover {
+    opacity: 0.75;
 }
-.blur
-{
+
+.blur {
     position: fixed;
     width: 1400px;
     height: 1000px;
     z-index: 200;
     margin-left: -270px;
-    margin-top:-119px;
+    margin-top: -119px;
     background-color: #020202;
     opacity: 0.75;
 }
-.move-container
-{
+
+.move-container {
     position: fixed;
     width: 500px;
     background-color: #F8F7EC;
@@ -548,8 +549,8 @@ textarea:focus {
     padding-left: 50px;
     padding-bottom: 50px;
 }
-.move-close
-{
+
+.move-close {
     display: block;
     margin-left: 448px;
     margin-top: 10px;
@@ -560,16 +561,15 @@ textarea:focus {
     padding: 8px 13px;
     background-color: #F8F7EC;
 }
-.move-container p:first-of-type
-{
+
+.move-container p:first-of-type {
     font-weight: 900;
     margin-top: -25px;
     font-size: 25px;
     margin-left: -10px;
 }
 
-.move-container input
-{
+.move-container input {
     border: none;
     height: 30px;
     width: 300px;
@@ -579,8 +579,8 @@ textarea:focus {
     border-radius: 10px;
     background-color: #f1e8dc;
 }
-.move-container .move-button2
-{
+
+.move-container .move-button2 {
     display: block;
     margin-top: 30px;
     border: none;
@@ -591,12 +591,12 @@ textarea:focus {
     background-color: rgb(96, 105, 143);
     color: white;
 }
-.move-button2:hover
-{
+
+.move-button2:hover {
     opacity: 0.75;
 }
-.delete-container
-{
+
+.delete-container {
     position: fixed;
     width: 500px;
     background-color: #F8F7EC;
@@ -607,8 +607,8 @@ textarea:focus {
     padding-left: 50px;
     padding-bottom: 50px;
 }
-.details-container
-{
+
+.details-container {
     position: absolute;
     z-index: 100;
     width: 1000px;
@@ -619,33 +619,35 @@ textarea:focus {
     background-color: #F8F7EC;
     border-radius: 20px;
 }
+
 table {
     width: 930px;
     margin-left: 10px;
 }
 
-th, td {
+th,
+td {
     padding: 15px;
     text-align: left;
 }
-.not-returned
-{
+
+.not-returned {
     color: rgb(200, 41, 41);
 }
-.not-returned:hover
-{
+
+.not-returned:hover {
     opacity: 0.75;
     cursor: pointer;
 }
-.ava-dropdown
-{
-    
+
+.ava-dropdown {
+
     margin-left: -132px;
     margin-top: 40px;
     z-index: 1;
 }
-.ava-dropdown button
-{
+
+.ava-dropdown button {
     width: 167px;
     padding: 8px;
     border: none;
@@ -655,20 +657,89 @@ th, td {
     font-family: Shippori Mincho;
     font-weight: 700;
 }
-.change-password
-{
+
+.change-password {
     border-radius: 0px 0px 10px 10px;
     border-top: 3px solid rgb(57, 50, 50);
     border-bottom: none;
     border-left: none;
     border-right: none;
 }
-.profile
-{
+
+.profile {
     border-radius: 5px 5px 0px 0px;
 }
-.ava-dropdown button:hover
-{
+
+.ava-dropdown button:hover {
     background-color: #5c829d;
     color: white;
+}
+
+.result-box {
+    position: absolute;
+    background: #b8d2f3;
+    margin-left: 70px;
+    max-height: 800px;
+    /* display: none; */
+    border-radius: 10px;
+}
+
+.result-box ul li {
+    list-style: none;
+    border-radius: 10px;
+    padding: 15px 10px;
+    /* padding-left: 50px; */
+    width: 300px;
+    /* margin-top: 10px; */
+    cursor: pointer;
+    overflow-y: hidden;
+}
+
+.result-box ul li:hover {
+    background: #f8f7af;
+}
+
+.genre-tags-container {
+    margin-left: 70px;
+    margin-top: 10px;
+    max-width: 300px;
+    width: 300px;
+    display: block;
+}
+
+/* Style for a span that looks like a tag in a multiple select */
+.tag {
+    display: inline-block;
+    padding: 4px 2px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    /* Border color */
+    border-radius: 5px;
+    /* Rounded corners */
+    background-color: #838789;
+    /* Background color */
+    color: #000000;
+    /* Text color */
+    font-size: 13px;
+    /* Font size */
+    cursor: pointer;
+    /* Cursor style */
+    transition: background-color 0.2s ease-in-out;
+    /* Transition effect for hover */
+    max-width: 50px;
+    /* Set the width of each tag to a fixed size (adjust as needed) */
+    white-space: nowrap;
+    /* Prevent line breaks inside the tag */
+    overflow: hidden;
+    /* Hide any overflow text */
+    text-overflow: ellipsis;
+    /* Add ellipsis (...) for overflow text */
+    width: 50px;
+}
+
+.tag:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+    overflow: auto;
+    max-width: 1000px;
+    width: max-content;
 }

@@ -421,6 +421,7 @@ textarea:focus {
 .edit_container {
     position: absolute;
     display: flex;
+    flex-direction: column;
     z-index: 100;
     width: 1000px;
     margin-left: -60px;
@@ -430,6 +431,11 @@ textarea:focus {
     background-color: #F8F7EC;
     border-radius: 20px;
 }
+.enter-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .back-to-book
 {
     position: absolute;
@@ -511,9 +517,10 @@ textarea:focus {
 }
 .submit
 {
-    display: block;
-    margin-top: 150px;
+    width: 250px;
+    margin-top: -20px;
     border: none;
+    margin-left: 80px;
     padding: 10px 50px;
     border-radius: 7px;
     font-size: 20px;
@@ -628,14 +635,34 @@ th, td {
     padding: 15px;
     text-align: left;
 }
-.not-returned
+.not-returned,.overdue
 {
     color: rgb(200, 41, 41);
+    position: relative;
 }
-.not-returned:hover
+.return-option
 {
-    opacity: 0.75;
+    color:#020202;
+    position: absolute;
+    margin-top: 4px;
+    background-color: #ffffff;
+    width: 100px;
+    padding: 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+    border: solid 2px rgb(236, 231, 231);
+}
+.return-option:hover {
+    background-color:rgb(236, 231, 231) ;
     cursor: pointer;
+}
+.user-id
+{
+    color: rgb(58, 75, 136);
+}
+.not-returned:hover,.overdue:hover,.user-id:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
 }
 .ava-dropdown
 {

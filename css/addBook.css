@@ -104,7 +104,7 @@ button:hover {
     background-color: #F8F7EC;
     width: 1005px;
     border-radius: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     padding-left: 40px;
     margin-left: 200px;
 }
@@ -189,7 +189,7 @@ button:hover {
     margin-left: 20px;
 }
 
-.genre-search {
+.genre-search,.add-description {
     border: none;
     padding: 10px;
     width: 650px;
@@ -197,7 +197,7 @@ button:hover {
     background-color: #f3eade;
 }
 
-.book-search {
+.book-search,.description,.new-title {
     border: none;
     padding: 10px;
     width: 650px;

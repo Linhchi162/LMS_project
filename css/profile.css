@@ -101,7 +101,7 @@ body{
     padding-bottom: 20px;
     row-gap: 20px; 
     display: grid;
-    grid-template-columns: 200px 200px 200px 200px 200px;
+    grid-template-columns: 400px 1fr;
 }
 
 .white_container2 {
@@ -112,69 +112,155 @@ body{
     border-radius: 20px;
     z-index: 50;
 }
-.book
+.profile-left
+{
+    padding-left: 100px;
+    padding-top: 50px;
+    z-index: 70;
+}
+.user-ava
+{
+    margin-top: 30px;
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: #5c829d;
+}
+.change-photo
+{
+    margin-top: 20px;
+    margin-left: 46px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ece1d3;
+    padding: 10px;
+}
+.edit, .cancel,.save
+{
+    margin-top: 20px;
+    margin-left: 43px;
+    font-size: 17px;
+    border: none;
+    border-radius: 7px;
+    background-color: #616a8d;
+    padding: 10px 50px;
+    color: #F8F7EC;
+}
+.edit
+{
+    margin-left: 100px;
+}
+.cancel,.save
+{
+    position: absolute;
+    margin-top: 20px;
+    display: none;
+}
+.save
+{
+    margin-left: 40px;
+}
+.cancel
+{
+    margin-left: 260px;
+    background-color: #9c6767;
+}
+.profile-right {
+    padding-top: 40px;
+    padding-left: 50px;
+    z-index: 70;
+}
+.right-top,.right-top2 {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    margin-bottom: 30px;
+}
+.right-top2
 {
     display: grid;
-    width: 250px;
-    height: 210px;
-    z-index: 100;
-    margin-top: 10px;
+    grid-template-columns: 300px 1fr;
+    margin-left: 190px;
+    z-index: 70;
+    font-size: 20px;
+    padding-top: 30px;
 }
-.book_cover
+.profile-title {
+    margin-top: 30px;
+}
+.profile-title2 {
+    margin-top: 50px;
+}
+.profile-name, .profile-gender,
+.profile-email, .profile-phoneNumber
 {
-    display: inline;
-    margin-left: 70px;
-    
+    margin-top: 30px;
 }
-.title
+.infor-input-panel,.infor-input-panel2
 {
-    display: inline-block;
-    font-weight: 600;
-    font-size: 25px;
-    margin-top: 10px;
+    position: absolute;
+    margin-left: 150px;
+    margin-top: 0px;
 }
-.book_cover{
-    box-shadow:-5px 1px 10px rgba(148, 146, 146,1);
-    position: relative;
-}
-.book_cover:hover{
-    cursor: pointer;
-}
-.name
+.current-pass,.new-pass,.confirm-pass
 {
-    display: inline-block;
-    margin-left: 67px;
-    text-align: left;
-    width: 127px;
-    color: rgb(24, 150, 195);
-    font-size: 16px;
-    font-weight: 600;
-}
-.name:hover{
-    text-decoration: underline;
-    cursor: pointer;
-}
-.author
-{
-    display: inline-block;
-    margin-left: 67px;
-    text-align: left;
-    width: 127px;
-    font-size: 13px;
-
-}
-.see_all
-{
-    display: inline-block;
-    border: none;
-    margin-left: 530px;
-    margin-top: 19px;
+    display: block;
+    margin-top: 45px;
+    height: 27px;
+    width: 400px;
     background-color: #F8F7EC;
-    color: rgb(34, 184, 192);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color:#E6D4BA;
+    font-family:Shippori Mincho;
+    font-size: 20px;
 }
-.see_all:hover{
-    text-decoration: underline;
+.infor-input-panel2
+{
+    margin-left: -80px;
+    position: relative;
+    z-index: 70;
+    margin-top: 4px;
+}
+.change{
+    z-index: 70;
+    position: absolute;
+    padding: 20px 60px;
+    margin-top: 380px;
+    margin-left: 430px;
+    border: none;
+    border-radius: 15px;
+    background-color: #616a8d;
+    color: rgb(253, 253, 253);
+    font-size: 20px;
+}
+.change:hover{
     cursor: pointer;
+    opacity: 0.75;
+}
+.input-name,.input-gender,
+.input-phoneNumber, .input-email
+{
+    display: block;
+    margin-top: 25px;
+    height: 25px;
+    width: 300px;
+    background-color: #F8F7EC;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color:#E6D4BA;
+    font-family:Shippori Mincho;
+    font-size: 15px;
+}
+.input-name:focus,.input-gender:focus,
+.input-phoneNumber:focus, .input-email:focus,
+.current-pass:focus,.new-pass:focus,.confirm-pass:focus
+{
+    outline: none; 
+    border-bottom-color:#616a8d;
 }
 .menu
 {
@@ -262,12 +348,6 @@ body{
     color: white;
 }
 
-
-#search-results
-{
-    display: grid;
-    grid-template-columns:200px 200px 200px 200px 200px;
-}
 
 .name {
     position: relative;

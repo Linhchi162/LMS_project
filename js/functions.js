@@ -54,6 +54,9 @@ function goToModify() {
 function goToAdd() {
     document.querySelector(".add-container").style.display = "block";
 }
+function goToUserProfile() {
+    window.location.href = "userProfile.html";
+}
 function hideBookDetail() {
     document.querySelector(".white_container .top .right-column").style.display = "none";
     document.querySelector(".top .book_cover").style.display = "none";
@@ -117,7 +120,19 @@ function drop_down_menu() {
         dropdown.style.display = 'none';
     }
 }
+function editProfile() {
+    document.querySelector(".edit").style.display = "none";
+    document.querySelector(".cancel").style.display = "block";
+    document.querySelector(".save").style.display = "block";
+    document.querySelector(".infor-input-panel").style.display = "inline";
+}
 
+function cancelEditProfile() {
+    document.querySelector(".edit").style.display = "block";
+    document.querySelector(".cancel").style.display = "none";
+    document.querySelector(".save").style.display = "none";
+    document.querySelector(".infor-input-panel").style.display = "none";
+}
 
 
 

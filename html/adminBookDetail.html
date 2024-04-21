@@ -42,7 +42,7 @@
     </div>
     <div class="container">
         <div class="menu">
-            <button class="home" onclick="">
+            <button class="home" onclick="goToAddBook()">
                 <img src="../img/icons8-book-48.png" width="30" height="30">
                 Add Book
             </button>
@@ -64,45 +64,49 @@
                     <button class="back-to-book" onclick="backToBookDetail()">
                         &larr;
                     </button>
-                    <div class="edit-left">
-                        <p class="edit-header">
-                            EDIT BOOK
-                        </p>
-                        <p class="title">Title</p>
-                        <input class="titleBar" type="text" value="Dune">
-                        <p class="title">Authors</p>
-                        <input class="authorBar" type="text" value="Frank Herbert">
-                        <p class="note"> Separate authors with a comma.</p>
-                        <p class="title">In Stock</p>
-                        <input class="inStockBar" type="text" value="3">
-                        <button class="submit">
-                            Submit
-                        </button>
+                    <div class="enter-container">
+                        <div class="edit-left">
+                            <p class="edit-header">
+                                EDIT BOOK
+                            </p>
+                            <p class="title">Title</p>
+                            <input class="titleBar" type="text" value="Dune">
+                            <p class="title">Authors</p>
+                            <input class="authorBar" type="text" value="Frank Herbert">
+                            <p class="note"> Separate authors with a comma.</p>
+                            <p class="title">In Stock</p>
+                            <input class="inStockBar" type="text" value="3">
+                        </div>
+                        <div class="edit-right">
+                            <p class="title">ISBN</p>
+                            <input class="ISBNBar" type="text" value="9780575068568">
+                            <p class="title">Description</p>
+                            <textarea class="descriptionBar" rows="4" cols="50">
+    Herbert's evocative, epic tale is set on the desert planet
+    Arrakis, the focus for a complex political and military
+    struggle with galaxy-wide repercussions. Arrakis is the 
+    source of spice, a mind enhancing drug which makes interstellar
+    travel possible, and therefore the most valuable substance in the galaxy.  
+    When Duke Atreides and his family take up court there, they fall into a trap 
+    set by his rival, Baron Harkonnen.  The Duke is poisoned, but his wife and her 
+    son Paul escape to the vast and arid deserts of Arrakis, which have given it the name Dune.  
+    They join the Fremen, natives of the planet who have learnt to live in this harsh and complex ecosystem.  
+    But learning to survive is not enough - Paul's destiny was mapped out long ago and his mother is committed to 
+                                </textarea>
+                            <button class="cover-img">
+                                <img src="../img/icons8-img-48.png" width="30px" height="30px">
+                                Cover Image
+                            </button>
+                        </div>
                     </div>
-                    <div class="edit-right">
-                        <p class="title">ISBN</p>
-                        <input class="ISBNBar" type="text" value="9780575068568">
-                        <p class="title">Description</p>
-                        <textarea class="descriptionBar" rows="4" cols="50">
-Herbert's evocative, epic tale is set on the desert planet
-Arrakis, the focus for a complex political and military
-struggle with galaxy-wide repercussions. Arrakis is the 
-source of spice, a mind enhancing drug which makes interstellar
-travel possible, and therefore the most valuable substance in the galaxy.  
-When Duke Atreides and his family take up court there, they fall into a trap 
-set by his rival, Baron Harkonnen.  The Duke is poisoned, but his wife and her 
-son Paul escape to the vast and arid deserts of Arrakis, which have given it the name Dune.  
-They join the Fremen, natives of the planet who have learnt to live in this harsh and complex ecosystem.  
-But learning to survive is not enough - Paul's destiny was mapped out long ago and his mother is committed to 
-                            </textarea>
-                        <button class="cover-img">
-                            <img src="../img/icons8-img-48.png" width="30px" height="30px">
-                            Cover Image
-                        </button>
-                    </div>
-
+                    <button class="submit">
+                        Submit
+                    </button>
                 </div>
                 <div class="details-container" style="display: none;">
+                    <button class="back-to-book" onclick="backToBookDetail()">
+                        &larr;
+                    </button>
                     <p>
                         Borrowing tracking
                     </p>
@@ -117,14 +121,25 @@ But learning to survive is not enough - Paul's destiny was mapped out long ago a
                         </thead>
                         <tbody>
                             <tr>
-                                <td>201</td>
+                                <td class="user-id">
+                                    201
+                                </td>
                                 <td>11/3/2024</td>
                                 <td>11/4/2024</td>
-                                <td class="not-returned">Not returned</td>
+                                <td>
+                                    <div class="not-returned">
+                                        Not returned
+                                    </div>
+                                    <div class="return-option">
+                                        Returned
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <tr>
-                                    <td>202</td>
+                                    <td class="user-id">
+                                        201
+                                    </td>
                                     <td>12/2/2024</td>
                                     <td>12/3/2024</td>
                                     <td>Returned</td>
@@ -132,10 +147,19 @@ But learning to survive is not enough - Paul's destiny was mapped out long ago a
                             </tr>
                             <tr>
                                 <tr>
-                                    <td>216</td>
+                                    <td class="user-id">
+                                            201
+                                    </td>
                                     <td>3/2/2024</td>
                                     <td>3/3/2024</td>
-                                    <td>Overdue</td>
+                                    <td>
+                                        <div class="overdue">
+                                            Overdue
+                                        </div>
+                                        <div class="return-option">
+                                            Returned
+                                        </div>
+                                    </td>
                                 </tr>
                             </tr>
                         </tbody>

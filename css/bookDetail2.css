@@ -197,7 +197,7 @@ button:hover {
 
 .author {
     font-size: 30px;
-    margin-top: -50px;
+    /* margin-top: -50px; */
     color: gray;
 }
 
@@ -388,7 +388,8 @@ textarea:focus {
 .top button:hover,
 .back-to-book:hover,
 .move-close:hover {
-    background-color: rgb(244, 239, 222);
+    background-color: rgb(244 239 222 / 0%);
+    color: rgb(80, 67, 50, 0.5);
     cursor: pointer;
 }
 
@@ -419,36 +420,43 @@ textarea:focus {
 .bottom {}
 
 .edit_container {
-    position: absolute;
+    /* position: absolute; */
+    /* display: flex; */
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     z-index: 100;
     width: 1000px;
     margin-left: -60px;
-    margin-top: 15px;
+    margin-top: -20px;
     padding-bottom: 40px;
     padding-left: 50px;
     background-color: #F8F7EC;
     border-radius: 20px;
 }
 
+/* .enter-container {
+    display: flex;
+    flex-direction: row;
+} */
+
 .back-to-book {
-    position: absolute;
-    margin-top: -50px;
-    margin-left: -30px;
+    margin-left: 30px;
+    font-size: 50px;
+    font-weight: bolder;
+    padding-bottom: 20px;
     border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: #504332;
-    background-color: #F8F7EC;
-    font-size: 30px;
+    /* border-radius: 5px; */
+    color: rgb(80, 67, 50, 1);
+    background-color: rgb(244 239 222 / 0%);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 900;
-
+    text-align: end;
 }
 
 .edit-header {
-    margin-top: 5px;
-    margin-left: -40px;
+    margin-top: 21px;
+    /* margin-left: -40px; */
     font-size: 20px;
     font-weight: 900;
     margin-bottom: 35px;
@@ -457,11 +465,13 @@ textarea:focus {
 .edit-left {
     padding-right: 100px;
     padding-left: 80px;
+    max-width: 40%;
 }
 
 .edit-right {
     padding-top: 52px;
     padding-left: 30px;
+    max-width: 40%;
 }
 
 .title {
@@ -491,7 +501,7 @@ textarea:focus {
 
 .descriptionBar {
     padding: 10px;
-    border: none;
+    /* border: none; */
     background-color: #f4e9d9;
     border-radius: 5px;
     height: 150px;
@@ -512,9 +522,10 @@ textarea:focus {
 }
 
 .submit {
-    display: block;
-    margin-top: 150px;
+    width: 250px;
+    margin-top: -20px;
     border: none;
+    margin-left: 80px;
     padding: 10px 50px;
     border-radius: 7px;
     font-size: 20px;
@@ -682,6 +693,7 @@ td {
     max-height: 800px;
     /* display: none; */
     border-radius: 10px;
+    z-index: 3;
 }
 
 .result-box ul li {
@@ -707,39 +719,124 @@ td {
     display: block;
 }
 
-/* Style for a span that looks like a tag in a multiple select */
-.tag {
+.tooltip {
+    position: relative;
     display: inline-block;
     padding: 4px 2px;
     margin-right: 10px;
     border: 1px solid #ccc;
-    /* Border color */
     border-radius: 5px;
-    /* Rounded corners */
     background-color: #838789;
-    /* Background color */
     color: #000000;
-    /* Text color */
     font-size: 13px;
-    /* Font size */
     cursor: pointer;
-    /* Cursor style */
     transition: background-color 0.2s ease-in-out;
-    /* Transition effect for hover */
     max-width: 50px;
-    /* Set the width of each tag to a fixed size (adjust as needed) */
-    white-space: nowrap;
-    /* Prevent line breaks inside the tag */
-    overflow: hidden;
-    /* Hide any overflow text */
-    text-overflow: ellipsis;
-    /* Add ellipsis (...) for overflow text */
+    /* overflow: hidden; */
+    /* word-wrap: break-word; */
     width: 50px;
+    z-index: 1;
 }
 
-.tag:hover {
-    background-color: #e0e0e0; /* Change background color on hover */
-    overflow: auto;
-    max-width: 1000px;
+.tooltip-text {
+    overflow: hidden;
+    max-width: inherit;
+    max-height: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 11px !important;
+    font-weight: 300 !important;
+    margin-top: 0px !important;
+    margin-left: 5px !important;    
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #555;
+    color: #ffffff;
     width: max-content;
+    /* Change text color to contrast with background */
+    text-align: center;
+    padding: 5px 10px;
+    /* Adjust padding */
+    border-radius: 6px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 0;
+    /* Ensure tooltip text appears above other content */
+    top: -30px;
+    /* Position above the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center horizontally */
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.edit_container {
+    display: flex;
+    /* Use flexbox */
+    justify-content: space-between;
+    /* Space out the children, placing one at the start and the other at the end */
+    align-items: center;
+    /* Center the child elements vertically */
+    padding: 0 10px;
+    /* Add padding to the sides */
+}
+
+.edit-left,
+.edit-right {
+    flex: 1;
+    /* Allow both .edit-left and .edit-right to expand equally */
+    padding: 0 10px;
+    /* Add padding to separate the content from the edges */
+}
+
+.edit-left {
+    border-right: 1px solid #ccc;
+    /* Add a border between .edit-left and .edit-right */
+}
+
+.edit-right {
+    padding-left: 10px;
+    /* Add additional padding to .edit-right */
+}
+
+.edit_container {
+    display: flex;
+    /* Use flexbox to allow children to expand */
+    justify-content: center;
+    /* Center the child elements horizontally */
+    align-items: center;
+    /* Center the child elements vertically */
+}
+
+.edit_part {
+    display: flex;
+    /* Use flexbox to allow children to expand */
+    flex-direction: row;
+    /* Arrange children horizontally */
+    justify-content: space-around;
+    /* background-color: white; */
 }

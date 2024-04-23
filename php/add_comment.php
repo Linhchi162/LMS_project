@@ -3,7 +3,7 @@ include_once "db_connection.php";
 include_once "get_user.php";
 
 if ($_SESSION['user_id'] == 0) {
-    echo 'Please log in first';
+    echo json_encode(array('error' => 'Please log in first'));
     exit();
 }
 
@@ -18,18 +18,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $addCommentQuery = "INSERT INTO `comment` (account_id, book_id, `comment`) VALUES ('$user_id', '$book_id', '$comment')";
             
             if ($conn->query($addCommentQuery) === TRUE) {
-                echo "Comment added successfully.";
+                echo json_encode(array('success' => "Comment added successfully."));
             } else {
                 throw new Exception("Error adding comment: " . $conn->error);
             }
         } catch (Exception $e) {
             if ($conn->errno == 1062) { //check duplicate
-                echo 'You have already commented on this book.';
+                echo json_encode(array('error' => 'You have already commented on this book.'));
             } else {
                 echo "An error occurred while adding the comment: " . $e->getMessage();
             }
         }
     } else {
-        echo "The comment should be at least 4 characters long.";
+        echo json_encode(array('error' => "The comment should be at least 4 characters long."));
     }
 }

@@ -59,32 +59,31 @@
             </div>
         </div>
         <div class="main_board">
-            <div class="white_container ">
-                <div class="white_container2"></div>
+            <div class="white_container">
                 <div class="edit_container" style="display: none;">
-                    <button class="back-to-book" onclick="backToBookDetail()">
-                        &larr;
-                    </button>
-                    <div class="edit-left">
+                    <div style="display: flex; flex-direction: row;">
+                        <button class="back-to-book" onclick="backToBookDetail()">
+                            &larr;
+                        </button>
                         <p class="edit-header">
                             EDIT BOOK
                         </p>
-                        <p class="title">Title</p>
-                        <input class="titleBar" type="text" value="Dune">
-                        <p class="title">Authors</p>
-                        <input class="authorBar" type="text" value="Frank Herbert">
-                        <p class="note"> Separate authors with a comma.</p>
-                        <p class="title">In Stock</p>
-                        <input class="inStockBar" type="text" value="3">
-                        <button class="submit">
-                            Submit
-                        </button>
                     </div>
-                    <div class="edit-right">
-                        <p class="title">ISBN</p>
-                        <input class="ISBNBar" type="text" value="9780575068568">
-                        <p class="title">Description</p>
-                        <textarea class="descriptionBar" rows="4" cols="50">
+                    <div class="edit_part">
+                        <div class="edit-left">
+                            <p class="title">Title</p>
+                            <input class="titleBar" type="text" value="Dune">
+                            <p class="title">Authors</p>
+                            <input class="authorBar" type="text" value="Frank Herbert">
+                            <p class="note"> Separate authors with a comma.</p>
+                            <p class="title">In Stock</p>
+                            <input class="inStockBar" type="text" value="3">
+                        </div>
+                        <div class="edit-right">
+                            <p class="title">ISBN</p>
+                            <input class="ISBNBar" type="text" value="9780575068568">
+                            <p class="title">Description</p>
+                            <textarea class="descriptionBar" rows="4" cols="50">
                             Herbert's evocative, epic tale is set on the desert planet
                             Arrakis, the focus for a complex political and military
                             struggle with galaxy-wide repercussions. Arrakis is the 
@@ -96,12 +95,15 @@
                             They join the Fremen, natives of the planet who have learnt to live in this harsh and complex ecosystem.  
                             But learning to survive is not enough - Paul's destiny was mapped out long ago and his mother is committed to 
                         </textarea>
-                        <button class="cover-img">
-                            <img src="../img/icons8-img-48.png" width="30px" height="30px">
-                            Cover Image
-                        </button>
+                            <button class="cover-img">
+                                <img src="../img/icons8-img-48.png" width="30px" height="30px">
+                                Cover Image
+                            </button>
+                        </div>
                     </div>
-
+                    <!-- <button class="submit" style="width:500px;">
+                        Submit
+                    </button> -->
                 </div>
                 <div class="details-container" style="display: none;">
                     <p>
@@ -181,67 +183,7 @@
                         Move
                     </button>
                 </div>
-                <div class="top">
-                    <button class="edit-button" onclick="goToEdit()">
-                        <img src="../img/edit-button.png" width="20px" height="20px">
-                        Edit
-                    </button>
-                    <button class="details-button" onclick="goTodetails()">
-                        <img src="../img/details-button.png" width="20px" height="20px">
-                        Details
-                    </button>
-                    <button class="move-button" onclick="goToMove()">
-                        <img src="../img/move-button.png" width="20px" height="20px">
-                        Move
-                    </button>
-                    <button class="delete-button" onclick="goToDelete()">
-                        <img src="../img/delete-button.png" width="23px" height="23px">
-                        Delete
-                    </button>
-                    <img class="book_cover" src="../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg">
-                    <div class="right-column">
-                        <div class="genre">
-                            <img src="../img/icons8-book-96.png" width="25" height="25">
-                            <p class="genre-text">
-                                Novel
-                            </p>
-                        </div>
-                        <p class="book-name">
-                            DUNE
-                        </p><br><br>
-                        <p class="author">
-                            Frank Herbert
-                        </p>
-                        <p class="isbn">
-                            Release year:
-                        <p class="isbn-number">
-                            1965
-                        </p>
-                        </p>
-                        <p style="display: inline-block;">
-                            Instock:
-                        </p>
-                        <p class="Instock-number" style="display: inline-block;">
-                            3
-                        </p>
-                        <p style="font-size: 25px; font-weight: bold;">
-                            Description
-                        </p>
-                        <p class="description no-text-cursor">
-                            Herbert's evocative, epic tale is set on the desert planet Arrakis,
-                            the focus for a complex political and military struggle with galaxy-wid
-                            repercussions. Arrakis is the source of spice, a mind enhancing drug which
-                            makes interstellar travel possible, and therefore the most valuable substance
-                            in the galaxy. When Duke Atreides and his family take up court there, they
-                            fall into a trap set by his rival, Baron Harkonnen. The Duke is poisoned,
-                            but his wife and her son Paul escape to the vast and arid deserts of Arrakis,
-                            which have given it the name Dune. They join the Fremen, natives of the planet
-                            who have learnt to live in this harsh and complex ecosystem. But learning to
-                            survive is not enough - Paul's destiny was mapped out long ago and his mother
-                            is committed to seeing it fulfilled.
-                        </p>
-                    </div>
-                </div>
+                <div class="top"></div>
                 <div class="bottom">
                     <p style="color: rgb(16, 134, 134);
                         font-weight: bolder; font-size: 25px; margin-top:20px;">
@@ -262,7 +204,7 @@
     </div>
     </div>
     <script src="../js/functions.js"></script>
-    <script type="module" src="../js/book_details.js"></script>
+    <script type="module" src="../js/admin_book_details.js"></script>
     <script src="../js/genre_search.js"></script>
 </body>
 

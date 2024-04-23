@@ -8,7 +8,7 @@ body {
     display: grid;
     grid-template-columns: 200px 560px 1fr;
     position: fixed;
-    z-index: 200;
+    z-index: 1;
 }
 
 button:hover {
@@ -78,7 +78,7 @@ button:hover {
 .drop_down_menu {
     position: absolute;
     margin-top: 8px;
-    z-index: 100;
+    z-index: 1;
     margin-top: 10px;
     margin-left: 140px;
 }
@@ -116,7 +116,7 @@ button:hover {
     width: 1020px;
     height: 580px;
     border-radius: 20px;
-    z-index: 10;
+    z-index: 1;
 }
 
 .top {
@@ -328,7 +328,7 @@ button:hover {
     padding-bottom: 20px;
     padding-left: 40px;
     margin-left: 200px;
-    z-index: 150;
+    z-index: 1;
     display: none;
 }
 
@@ -340,14 +340,14 @@ button:hover {
     padding-bottom: 20px;
     padding-left: 40px;
     margin-left: 200px;
-    z-index: 150;
+    z-index: 1;
 }
 
 .middle3 {
     margin-top: 40px;
     width: 950px;
     padding-left: 15px;
-    z-index: 50;
+    z-index: 1;
     padding-bottom: 60px;
 
 }
@@ -409,7 +409,7 @@ input:focus {
     width: 1005px;
     height: 60px;
     border-radius: 0px 0px 20px 20px;
-    z-index: 200;
+    z-index: 1;
 
 }
 
@@ -494,11 +494,12 @@ input:focus {
 }
 
 .result-box {
-    position: absolute;
+    position:absolute;
     background: #e9f3ff;
     margin-left: 20px;
     max-height: 800px;
     /* display: none; */
+    z-index: 3;
 }
 
 .result-box ul li {
@@ -512,7 +513,7 @@ input:focus {
     overflow-y: hidden;
 }
 
-.result-box ul li:hover{
+.result-box ul li:hover {
     background: #f8f7af;
 }
 
@@ -523,27 +524,73 @@ input:focus {
     width: 690px;
 }
 
-/* Style for a span that looks like a tag in a multiple select */
-.tag {
-    display: inline-block;
-    padding: 4px 2px; /* Adjust the padding as needed */
-    margin-left: 10px; /* Adjust the margin as needed */
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #838789; /* Background color */
-    color: #000000; /* Text color */
-    font-size: 13px; /* Font size */
-    cursor: pointer; /* Cursor style */
-    transition: background-color 0.2s ease-in-out; /* Transition effect for hover */
-    max-width: 50px; /* Set the width of each tag to a fixed size (adjust as needed) */
-    white-space: nowrap; /* Prevent line breaks inside the tag */
-    overflow: hidden; /* Hide any overflow text */
-    text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
+.tooltip-text {
+    overflow: hidden;
+    max-width: 50px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-/* Hover effect */
-.tag:hover {
-    background-color: #e0e0e0; /* Change background color on hover */
-    overflow: auto;
-    max-width: 1000px;
+.tooltip {
+    position: relative;
+    display: inline-block;
+    padding: 4px 2px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #838789;
+    color: #000000;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    max-width: 50px;
+    /* overflow: hidden; */
+    /* word-wrap: break-word; */
+    width: 50px;
+    z-index: 1;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #555;
+    color: #ffffff;
+    width: max-content;
+    /* Change text color to contrast with background */
+    text-align: center;
+    padding: 5px 10px;
+    /* Adjust padding */
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 0;
+    /* Ensure tooltip text appears above other content */
+    top: -30px;
+    /* Position above the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Center horizontally */
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
 }

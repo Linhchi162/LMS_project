@@ -109,11 +109,18 @@ function updateGenreText(tag_box) {
     // Iterate over each genre item in the genre array
     genre.forEach(function (genreItem, index) {
         // Create a new span element for the tag
-        const tag = document.createElement('span');
-        tag.className = 'tag';
-        tag.textContent = genreItem;
+        const tag = document.createElement('div');
+        tag.className = 'tooltip';
+        const text_part = document.createElement('p');
+        text_part.textContent = genreItem;
+        text_part.classList.add('tooltip-text');
+        tag.appendChild(text_part);
 
+        const newTooltip = document.createElement('span');
+        newTooltip.className = 'tooltiptext';
+        newTooltip.textContent = genreItem;
         // Append the tag to the tag box
+        tag.appendChild(newTooltip);
         tag_box.appendChild(tag);
 
         // Add an event listener to the close button

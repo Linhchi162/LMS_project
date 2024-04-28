@@ -51,10 +51,15 @@ function goToSearch() {
 function goToModify() {
     document.querySelector(".white_container").style.display = "block";
     document.querySelector(".add-container").style.display = "none";
+    document.querySelector("#new-title-2").value = "";
+    document.querySelector("#new-title-description-2").value = "";
+    
 }
 function goToAdd() {
     document.querySelector(".add-container").style.display = "block";
     document.querySelector(".white_container").style.display = "none";
+    document.querySelector("#new-title-1").value = "";
+    document.querySelector("#new-title-description-1").value = "";
 }
 
 function goToDetail() {

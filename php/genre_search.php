@@ -11,7 +11,7 @@ if (isset($_POST['genre_text'])) {
     // Lấy từ khóa tìm kiếm từ dữ liệu POST
     $keyword = $_POST['genre_text'];
 
-    $query = "SELECT `title` 
+    $query = "SELECT `id`, `title` 
     FROM `genre`
     WHERE `title` LIKE ? LIMIT 5";
     $stmt = $conn->prepare($query);
@@ -42,6 +42,7 @@ if (isset($_POST['genre_text'])) {
     // Đọc từng dòng dữ liệu từ kết quả truy vấn và tạo HTML tương ứng
     while ($row = $result->fetch_assoc()) {
         $data[] = [
+            'id' => $row['id'],
             'title' => $row['title']
         ];
     };

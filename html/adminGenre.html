@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="header">
+    <div class="header" style="width:100%">
         <div class="start">logo</div>
         <div class="middle"></div>
         <div class="end">
@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="main_board">
-            <div class="white_container">
+            <div class="white_container" style="min-height: 800px;">
                 <div class="top">
                     <button class="Search">
                         MODIFY GENRE
@@ -78,10 +78,14 @@
                     <p class="note">Choose the collection want to modify.</p>
 
                     <p class="title"> Enter new title</p>
-                    <input class="book-search" type="text">
+                    <input required class="book-search" id="new-title-1" type="text">
                     <p class="note">Limit 40 characters.</p>
-                    <button class="Search-button" style="display: block;
-                               margin-top: 40px;">
+
+                    <p class="title title-description"> Enter new Description</p>
+                    <textarea class="new-title-description book-search" id="new-title-description-1" type="text" style="min-height: 250px; word-wrap: break-word;"></textarea>
+                    <p class="note"> If you don't want to change the description, then no need to fill this.</p>
+
+                    <button class="Search-button" id="modify_button"" style="display: block;">
                         Change
                     </button>
                 </div>
@@ -98,11 +102,12 @@
                 </div>
                 <div class="middle2">
                     <p class="title"> Genre Title</p>
-                    <input class="genre-search" type="text">
+                    <input class="genre-search" id="new-title-2" type="text">
                     <p class="note">Limit 40 characters.</p>
 
-                    <button class="Search-button" style="display: block;
-                               margin-top: 50px;">
+                    <textarea required class="new-title-description book-search" id="new-title-description-2" type="text" style="min-height: 250px; word-wrap: break-word;"></textarea>
+
+                    <button class="Search-button" id="add_button" style="display: block;">
                         Add
                     </button>
                 </div>
@@ -113,6 +118,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
     <script src="../js/genre_search.js"></script>
+    <script src="../js/admin_genre_control.js"></script>
     <script>
         $(document).ready(function () {
             $('.ava-dropdown').select2();

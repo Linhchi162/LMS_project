@@ -5,9 +5,9 @@ function search_books($keyword)
     include 'db_connection.php';
 
     // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh
-    $query = "SELECT * 
-              FROM `book_detail`
-              WHERE `id` LIKE ? OR `title` LIKE ? ";
+    $query = "SELECT *
+                FROM book_detail
+            WHERE `title` LIKE ? OR `id` LIKE ?";
     $stmt = $conn->prepare($query);
 
     if (!$stmt) {
@@ -64,8 +64,8 @@ if (isset($_POST['searchData'])) {
     $keyword = $_POST['searchData'];
 
     // Gọi hàm search_books để tìm kiếm và trả về kết quả dưới dạng HTML
-    $searchResultHTML = search_books($keyword);
+    $searchResultData  = search_books($keyword);
 
-    // Trả về kết quả tìm kiếm dưới dạng HTML
-    echo json_encode($searchResultHTML);
+    // Trả về kết quả tìm kiếm dưới dạng JSON
+    echo json_encode($searchResultData);
 }

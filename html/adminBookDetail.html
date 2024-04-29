@@ -146,7 +146,7 @@
                     <p>
                         Delete this book?
                     </p>
-                    <button>
+                    <button id="delete-button">
                         Delete
                     </button>
                     <button onclick="backToBookDetail()">
@@ -182,8 +182,8 @@
                         COMMENT
                     </p>
                     <form method="post" class="comment-container">
-                        <input class="commentBar" type="text" name="comment" placeholder="Write your comments here...">
-                        <button class="add-cmt" type="submit">
+                        <input disabled class="commentBar" type="text" name="comment" placeholder="Write your comments here...">
+                        <button disabled class="add-cmt" type="submit">
                             <img src="../img/icons8-send-48.png" alt="Add Comment" id="add-cmt">
                         </button>
                 </div>

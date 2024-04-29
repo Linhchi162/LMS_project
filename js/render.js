@@ -80,6 +80,9 @@ export function renderComments(divID, commentData) {
 }
 
 export function renderBookDetail(divID, bookDataDetail) {
+    if (bookDataDetail.length === 0) {
+        bookDataDetail.push(getEmptyBookDetail());
+    }
     const topDiv = document.getElementsByClassName(divID)[0]; // Access the first element in the HTMLCollection
 
     const borrowButton = document.createElement("button");
@@ -154,6 +157,10 @@ export function renderBookDetail(divID, bookDataDetail) {
 }
 
 export function renderBookDetailAdmin(divID, bookDataDetail) {
+    if (bookDataDetail.length === 0) {
+        bookDataDetail.push(getEmptyBookDetail());
+    }
+
     const topDiv = document.getElementsByClassName(divID)[0]; // Access the first element in the HTMLCollection
 
     const coverImg = document.createElement("img");
@@ -246,4 +253,16 @@ function createButton(className, onClick, imgSrc, buttonText) {
     button.addEventListener("click", onClick);
 
     return button;
+}
+
+function getEmptyBookDetail() {
+    return {
+        imageSrc: "../img/this-image-has-been-removed.png",
+        genreText: "N/A",
+        bookName: "N/A",
+        author: "N/A",
+        releaseYear: "N/A",
+        instockCount: "N/A",
+        description: "N/A"
+    };
 }

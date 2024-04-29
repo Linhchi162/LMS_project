@@ -71,4 +71,66 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(err);
             })
     });
+
+    let moveButton = document.querySelector(".move-button2");
+    moveButton.addEventListener("click", () => {
+        // Select all elements with class "tooltip"
+        const tooltipElements = document.querySelectorAll('.tooltip');
+
+        // Initialize an array to store the IDs
+        const tooltipIDs = [];
+
+        // Loop through each tooltip element and extract its ID
+        tooltipElements.forEach(element => {
+            tooltipIDs.push(element.id);
+        });
+
+        // console.log(tooltipIDs);
+
+        if (tooltipIDs.length > 0) {
+            const data = JSON.stringify({ tooltipIDs: tooltipIDs });
+            let url = "../php/edit_book_genre.php?book_id=" + book_id;
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: data
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // console.log(data.success);
+                        location.reload();
+                    }
+                    else {
+                        console.log(data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        }
+    });
+
+    let deleteButton = document.querySelector('#delete-button');
+    deleteButton.addEventListener('click', () => {
+        let url = "../php/delete_book.php?book_id=" + book_id;
+        fetch(url, {
+            method: 'POST'
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log(data.success);
+                    // location.reload();
+                }
+                else {
+                    console.log(data.error);
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    });
 });

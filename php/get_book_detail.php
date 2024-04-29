@@ -6,33 +6,34 @@ include_once "get_user.php";
 $book_id = $_GET['book_id'];
 
 $sql = "SELECT 
-            bd.id AS book_id,
-            bd.title AS book_title,
-            p.`name` AS publisher,
-            bd.image AS book_image,
-            bd.`description` AS book_description,
-            bd.ISBN AS book_ISBN,
-            bd.year_of_publishing AS release_date,
-            b.owned AS instock,
-            group_concat(a.`name`) AS author,
-            g.title AS book_genre
-        FROM
-            book_detail bd
-                JOIN
-            publisher p ON bd.publisher = p.id
-                JOIN
-            book b ON b.id = bd.id
-                JOIN
-            book_author ba ON ba.book_id = b.id
-                JOIN
-            author a ON a.id = ba.author_id
-                JOIN
-            book_genre bg ON b.id = bg.book_id
-                JOIN
-            genre g ON g.id = bg.genre_id
-        GROUP BY g.title, b.id
-        HAVING
-            b.id = $book_id";
+bd.id AS book_id,
+bd.title AS book_title,
+p.`name` AS publisher,
+bd.image AS book_image,
+bd.`description` AS book_description,
+bd.ISBN AS book_ISBN,
+bd.year_of_publishing AS release_date,
+b.owned AS instock,
+GROUP_CONCAT(DISTINCT a.`name`) AS author,
+GROUP_CONCAT(DISTINCT '\n', g.`title`) AS book_genre
+FROM
+book_detail bd
+    JOIN
+publisher p ON bd.publisher = p.id
+    JOIN
+book b ON b.id = bd.id
+    JOIN
+book_author ba ON ba.book_id = b.id
+    JOIN
+author a ON a.id = ba.author_id
+    JOIN
+book_genre bg ON b.id = bg.book_id
+    JOIN
+genre g ON g.id = bg.genre_id
+GROUP BY
+b.id
+HAVING
+b.id = $book_id";
 
 $result = $conn->query($sql);
 

@@ -14,7 +14,7 @@ $query = "SELECT
         INNER JOIN `borrow` ON `borrow`.account_id = `account`.id
         INNER JOIN `book` ON `borrow`.book_id = `book`.id
         INNER JOIN `book_detail` ON `book`.id = `book_detail`.id
-        WHERE `account`.id = ?";
+        WHERE `account`.id = ? AND book_detail.title IS NOT NULL";
 
 // Prepare the query
 $stmt = $mysqli->prepare($query);

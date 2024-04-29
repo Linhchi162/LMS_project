@@ -19,7 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $row['user_id'];
-            echo json_encode(array('success' => $response['success']));
+            $_SESSION['user_role'] = $row['role'];
+            
+            if ($_SESSION['user_role'] === 1) {
+                echo json_encode(array('success-1' => 'success login into member'));
+            }
+            elseif ($_SESSION['user_role'] === 0) {
+                echo json_encode(array('success-0' => 'success login into admin'));
+            }
         } elseif (isset($response['error'])) {
             echo json_encode(array('error' => $response['error']));
             exit();

@@ -35,3 +35,4 @@ function get_borrowing($user_id)
     $mysqli->close();
     return $result;
 }
+

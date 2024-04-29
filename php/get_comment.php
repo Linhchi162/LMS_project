@@ -1,12 +1,7 @@
 <?php 
 include_once "db_connection.php";
 
-session_start();
-
-if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
-    $user_id = $_SESSION['user_id'];
-}
+include_once "get_user.php";
 
 $book_id = $_GET['book_id'];
 

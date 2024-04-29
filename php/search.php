@@ -5,9 +5,9 @@ function search_books($keyword)
     include 'db_connection.php';
 
     // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh
-    $query = "SELECT *
-                FROM book_detail
-            WHERE `title` LIKE ? OR `id` LIKE ?";
+    $query = "SELECT * 
+              FROM `book_detail`
+              WHERE (`id` LIKE ? OR `title` LIKE ?) AND `title` IS NOT NULL";
     $stmt = $conn->prepare($query);
 
     if (!$stmt) {
@@ -16,6 +16,7 @@ function search_books($keyword)
     }
 
     // Bind parameter và thiết lập giá trị của $keyword
+    $keyword = trim($keyword);
     $searchKeyword = "%$keyword%";
     $stmt->bind_param("ss", $searchKeyword, $searchKeyword);
 
@@ -55,11 +56,6 @@ function search_books($keyword)
 
 // Kiểm tra xem dữ liệu đã được gửi từ form chưa
 if (isset($_POST['searchData'])) {
-    session_start();
-    if ($_SESSION['user_id'] == 0) {
-        echo json_encode(array('error' => 'Please log in first'));
-        exit();
-    }
     // Lấy từ khóa tìm kiếm từ dữ liệu POST
     $keyword = $_POST['searchData'];
 

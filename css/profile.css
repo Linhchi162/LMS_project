@@ -1,4 +1,4 @@
-body{
+html, body{
     background-color: #E6D4BA;
     font-family:Shippori Mincho ;
 }
@@ -125,7 +125,6 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 100px;
-    background-color: #5c829d;
 }
 .change-photo
 {
@@ -136,10 +135,11 @@ body{
     border-radius: 5px;
     background-color: #ece1d3;
     padding: 10px;
+    font-weight: 700;
+    color: #392c21;
 }
 .edit, .cancel,.save
 {
-    margin-top: 20px;
     margin-left: 43px;
     font-size: 17px;
     border: none;
@@ -150,21 +150,21 @@ body{
 }
 .edit
 {
-    margin-left: 100px;
+    margin-left: -80px;
+    margin-top: 60px;
 }
 .cancel,.save
 {
     position: absolute;
-    margin-top: 20px;
-    display: none;
+    margin-top: 80px;
 }
 .save
 {
-    margin-left: 40px;
+    margin-left: -80px;
 }
 .cancel
 {
-    margin-left: 260px;
+    margin-left: 140px;
     background-color: #9c6767;
 }
 .profile-right {
@@ -188,9 +188,11 @@ body{
 }
 .profile-title {
     margin-top: 30px;
+    font-weight: 700;
 }
 .profile-title2 {
     margin-top: 50px;
+    font-weight: 700;
 }
 .profile-name, .profile-gender,
 .profile-email, .profile-phoneNumber
@@ -236,7 +238,10 @@ body{
     color: rgb(253, 253, 253);
     font-size: 20px;
 }
-.change:hover{
+.change:hover, .edit:hover, 
+.save:hover, .cancel:hover,
+.change-photo:hover,.save-ava:hover,
+.cancel-ava:hover{
     cursor: pointer;
     opacity: 0.75;
 }
@@ -358,4 +363,73 @@ body{
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
 }
+.change-ava
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(32, 32, 32);
+    z-index: 200;
+    opacity: 0.5;
+    display: none;
 
+}
+.ava-panel
+{
+    position: absolute;
+    width: 550px;
+    height: 600px;
+    background-color: #F8F7EC;
+    margin-top: -40px;
+    margin-left: 150px;
+    border-radius: 20px;
+    z-index: 300;
+
+    grid-template-columns: repeat(3,150px);
+    grid-template-rows: repeat(3,160px);
+    padding-left: 100px;
+    padding-top: 60px;
+    display: none;
+}
+
+.cat1, .cat2, .cat3,
+.cat4, .cat5, .cat6,
+.cat7, .cat8, .cat9
+{
+    height: 140px;
+    width: 140px;
+} 
+
+.cat1:hover, .cat2:hover, .cat3:hover,
+.cat4:hover, .cat5:hover, .cat6:hover,
+.cat7:hover, .cat8:hover, .cat9:hover
+{
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 3px rgba(145, 148, 151, 0.425);
+} 
+
+.save-ava, .cancel-ava
+{
+    position: absolute;
+    bottom: 50px;
+    left: 200px;
+    padding: 10px 20px;
+    border: none;
+    background: #5c829d;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    font-weight: 700;
+
+}
+
+.cancel-ava
+{
+    margin-left: 160px;
+}
+
+.ava-panel img.selected {
+    border: 5px solid rgb(87, 119, 153);
+}

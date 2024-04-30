@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         })
         .catch(error => {
-            console.error("Error:", error);
+            console.error("Error:",error);
             const errorMessage = document.getElementById("error_message");
             errorMessage.style.display = "block";
             errorMessage.textContent = "An unknown error occurred.";

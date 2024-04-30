@@ -28,7 +28,7 @@
                         <button class="profile">
                             Profile
                         </button>
-                        <button class="change-password">
+                        <button class="change-password" onclick = "goToChangePassword()">
                             Change password
                         </button>
                     </div>
@@ -41,21 +41,33 @@
         <div class="container">
 
             <div class="menu">
-                    <button class="bookshelf" onclick="goToAddBook()">
-                        <img src="../img/icons8-book-48.png" width="30" height="30">
-                        Add Book
+                <button class="bookshelf" onclick="goToDashboard()">
+                    <img src="../img/icons8-dashboard-50.png" width="30" height="30">
+                    Dashboard
+                </button>
+                <button class="bookshelf" onclick="goToAddBook()">
+                    <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
+                    Add Book
+                </button>
+                <button class="wishlist" onclick="goToGenre()">
+                    <img src="../img/icons8-bookmark-96.png" width="30" height="30">
+                    Genre
+                </button>
+                <button class="wishlist" onclick="goToIssued()">
+                    <img src="../img/icons8-check-book-100.png" width="30" height="30">
+                    Issued
+                </button>
+                <button class="wishlist" onclick="goToUser()">
+                    <img src="../img/icons8-user-groups-100.png" width="30" height="30">
+                    Users
+                </button>
+                <div>
+                    <button class="log_out_button" onclick="logOut()">
+                        <img src="../img/icons8-log-out-96.png" width="30" height="30">
+                        Logout
                     </button>
-                    <button class="wishlist"style=" background-color: #F8F7EC;">
-                        <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
-                        Genre
-                    </button>
-                    <div>
-                        <button class="log_out_button" onclick="logOut()">
-                            <img src="../img/icons8-log-out-96.png" width="30" height="30">
-                            Logout
-                        </button>
-                    </div>
-            </div>
+                </div>
+        </div>
             <div class="main_board">
                 <div class="white_container" >
                     <div class="top">

@@ -33,7 +33,14 @@ function goToSignUp() {
 function showError() {
     document.getElementById("error_message").style.display = "block";
 }
-
+function goToIssued()
+{
+    window.location.href = "issued.html";
+}
+function goToUser()
+{
+    window.location.href = "adminUsers.html";
+}
 function goToAddBook() {
     window.location.href = "addBook.html";
 }
@@ -57,6 +64,13 @@ function goToAdd() {
 function goToUserProfile() {
     window.location.href = "userProfile.html";
 }
+function goToChangePassword() {
+    window.location.href = "changePassword.html";
+}
+function goToDashboard() {
+    window.location.href = "adminDashboard.html";
+}
+
 function hideBookDetail() {
     document.querySelector(".white_container .top .right-column").style.display = "none";
     document.querySelector(".top .book_cover").style.display = "none";
@@ -122,16 +136,32 @@ function drop_down_menu() {
 }
 function editProfile() {
     document.querySelector(".edit").style.display = "none";
-    document.querySelector(".cancel").style.display = "block";
-    document.querySelector(".save").style.display = "block";
     document.querySelector(".infor-input-panel").style.display = "inline";
+    document.querySelector(".infor-panel").style.display = "none"
 }
 
 function cancelEditProfile() {
     document.querySelector(".edit").style.display = "block";
-    document.querySelector(".cancel").style.display = "none";
-    document.querySelector(".save").style.display = "none";
     document.querySelector(".infor-input-panel").style.display = "none";
+    document.querySelector(".infor-panel").style.display = "block"
+}
+function showAvaPanel() {
+    document.querySelector(".change-ava").style.display = "block";
+    document.querySelector(".ava-panel").style.display = "grid";
+}
+
+function hideAvaPanel() {
+    document.querySelector(".change-ava").style.display = "none";
+    document.querySelector(".ava-panel").style.display = "none";
+}
+
+function selectAvatar(avatarId) {
+    const avatars = document.querySelectorAll(".ava-panel img");
+    avatars.forEach(avatar => {
+        avatar.classList.remove("selected");
+    });
+    const selectedAvatar = document.querySelector(`.ava-panel .${avatarId}`);
+    selectedAvatar.classList.add("selected");
 }
 
 
@@ -142,7 +172,11 @@ function userCheck() {
     fetch("../php/user_now.php")
         .then(response => response.json())
         .then(data => {
-            changeAva(data);
+            if (data !== null && typeof data === 'object' && 'data' in data) {
+                changeAva(data);
+            } else {
+                console.error("Error: Invalid data format received from server.");
+            }
         })
         .catch(error => {
             console.error("Error:", error);

@@ -31,7 +31,7 @@
                         <button class="profile">
                             Profile
                         </button>
-                        <button class="change-password">
+                        <button class="change-password" onclick = "goToChangePassword()">
                             Change password
                         </button>
                     </div>
@@ -66,17 +66,27 @@
                 <div class="white_container2">
                 </div>
                 <div class="profile-left">
-                    <img  class="user-ava">
-                    <button class="change-photo">
-                        change photo
+                    <img  class="user-ava" src="../img/ava/cat4.jpg">
+                    <button class="change-photo" onclick="showAvaPanel()">
+                        Change photo
                     </button>
                 </div>
                 <div class="profile-right">
-                    <div class="right-top">
+                    <form method="get" class="right-top">
                         <div class="title-panel">
                             <div>
                                 <p class="profile-title"> 
-                                    Name:
+                                    First Name:
+                                </p>
+                            </div>
+                            <div>
+                                <p class="profile-title"> 
+                                    Last Name:
+                                </p>
+                            </div>
+                            <div>
+                                <p class="profile-title"> 
+                                     Age:
                                 </p>
                             </div>
                             <div>
@@ -96,42 +106,69 @@
                             </div>
                         </div>
                         <div class="infor-panel">
-                            <p class="profile-name">Lilchee</p>
-                            <p class="profile-gender">Female</p>
-                            <p class="profile-email">linhchi1622k4@gmail.com</p>
-                            <p class="profile-phoneNumber">0848866637</p>
+                            <p class="profile-first-name"></p>
+                            <p class="profile-last-name"></p>
+                            <p class="profile-age"></p>
+                            <p class="profile-gender"></p>
+                            <p class="profile-email"></p>
+                            <p class="profile-phoneNumber"></p>
+                            <button class="edit" onclick="editProfile()">
+                                edit
+                            </button>
                         </div>
                         <div class="infor-input-panel" style="display: none;">
-                            <input class="input-name" type="text" value="Lilchee">
-                            <select class="input-gender">
+                            <input required class="input-first-name" type="text" name="firstName" >
+                            <input required class="input-last-name" type="text" name="lastName">
+                            <input required class="input-age" type="number" name="age">
+                            <select class="input-gender" name="gender">
                                 <option value="Female">Female</option>
                                 <option value="Male">Male</option>
                                 <option value="Other">Other</option>
                             </select>
-                            <input class="input-email" type="text" value="Linhchi1622k4@gmail.com">
-                            <input class="input-phoneNumber" type="text" value="0848866637">
-
+                            <input required class="input-email" type="email" name="email">
+                            <input required class="input-phoneNumber" type="text" name="phoneNumber">
+                            <button class="cancel" onclick="cancelEditProfile()">
+                                cancel
+                            </button>
+                            <button type="submit" class="save">
+                                save
+                            </button>
                         </div>
-                    </div>
-                    <div class="right-bottom">
-                        <button class="edit" onclick="editProfile()">
-                            edit
-                        </button>
-                        <button class="cancel" onclick="cancelEditProfile()">
-                            cancel
-                        </button>
-                        <button class="save">
-                            save
-                        </button>
+                    </form>
+                    <div id="error_message"
+                    style="display:none;
+                    color:rgb(191, 78, 78);
+                    margin-top:20px;
+                    margin-left: 70px;" 
+                    class="error_message">
                     </div>
                 </div>
-                
-            </div>
+                <div class="change-ava">
+                </div>
+                <div class="ava-panel">
+                    <img class = "cat1" src="../img/ava/cat1.jpg" onclick="selectAvatar('cat1')">
+                    <img class = "cat2" src="../img/ava/cat2.jpg" onclick="selectAvatar('cat2')">
+                    <img class = "cat3" src="../img/ava/cat3.jpg" onclick="selectAvatar('cat3')">
+                    <img class = "cat4" src="../img/ava/cat4.jpg" onclick="selectAvatar('cat4')">
+                    <img class = "cat5" src="../img/ava/cat5.jpg" onclick="selectAvatar('cat5')">
+                    <img class = "cat6" src="../img/ava/cat6.jpg" onclick="selectAvatar('cat6')">
+                    <img class = "cat7" src="../img/ava/cat7.jpg" onclick="selectAvatar('cat7')">
+                    <img class = "cat8" src="../img/ava/cat8.jpg" onclick="selectAvatar('cat8')">
+                    <img class = "cat9" src="../img/ava/cat9.jpg" onclick="selectAvatar('cat9')">
+                    <button class="save-ava">
+                        Change
+                    </button>
+                    <button class="cancel-ava" onclick="hideAvaPanel()">
+                        Cancel
+                    </button>
 
+                </div>
+            </div>
         </div>
     </div>
     </div>
     <script src="../js/functions.js"></script>
+    <script src="../js/profile.js"></script>
     <script type="module" src="../js/filter_book.js"> </script>
     <script src="../js/search.js"></script>
 </body>

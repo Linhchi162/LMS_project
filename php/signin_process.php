@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $row['user_id'];
+            
             echo json_encode(array('success' => $response['success']));
         } elseif (isset($response['error'])) {
             echo json_encode(array('error' => $response['error']));
@@ -28,5 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
     }
+
     $conn->close();
 }

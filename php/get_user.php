@@ -50,5 +50,4 @@ while ($row = mysqli_fetch_assoc($result_users)) {
 }
 
 echo json_encode($users);
-
 ?>

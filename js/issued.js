@@ -20,9 +20,15 @@ function filterBooks() {
                     <td>${book.borrow_date}</td>
                     <td>${book.design_return_date}</td>
                     <td>${book.status}</td>
-                    <td>${book.status === 'Issued' 
-                    || book.status === 'Overdue' ? 
-                    '<button onclick="returnBook(' + book.id + ')">Returned</button>' : ''}</td>
+                    <td>${book.reservation_status}</td>
+                    <td>
+                        ${book.status === 'Issued' || book.status === 'Overdue' ? 
+                        `<button onclick="returnBook(${book.id})">Returned</button>` : ''}
+                        ${book.reservation_status_id == 1 ? 
+                        `<button onclick="acceptReservation(${book.id})">Accept</button>` : ''}
+                        ${book.reservation_status_id == 1 ? 
+                        `<button onclick="rejectReservation(${book.id})">Reject</button>` : ''}
+                    </td>
 
                 `;
                 tableBody.appendChild(row);
@@ -59,3 +65,47 @@ document.addEventListener("DOMContentLoaded", function() {
     dropdown.selectedIndex = 0;
     filterBooks();
 });
+
+function acceptReservation(bookId) {
+    fetch('../php/acceptReservation.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ book_id: bookId }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Reservation accepted successfully');
+            location.reload();
+        } else {
+            console.error('Failed to accept reservation');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function rejectReservation(bookId) {
+    fetch('../php/rejectReservation.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ book_id: bookId }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Reservation rejected successfully');
+            location.reload();
+        } else {
+            console.error('Failed to reject reservation');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}

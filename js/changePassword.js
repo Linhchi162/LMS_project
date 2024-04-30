@@ -1,36 +1,36 @@
+// Thêm sự kiện click cho nút Change
 document.addEventListener("DOMContentLoaded", function() {
-    const changePasswordForm = document.getElementById("changePasswordForm");
+    var changeButton = document.querySelector('.change');
+    changeButton.addEventListener('click', function() {
+        var currentPassword = document.getElementById('currentPass').value;
+        var newPassword = document.getElementById('newPass').value;
+        var confirmPassword = document.getElementById('confirmPass').value;
 
-    changePasswordForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const currentPass = document.getElementById("currentPass").value;
-        const newPass = document.getElementById("newPass").value;
-        const confirmPass = document.getElementById("confirmPass").value;
-
-        if (newPass !== confirmPass) {
-            alert("New password and confirm password do not match.");
-            return;
-        }
-
-        fetch("../php/changePassword.php", {
-            method: "POST",
-            body: JSON.stringify({
-                currentPass: currentPass,
-                newPass: newPass
-            }),
+    
+        // Gửi request đến server để thay đổi mật khẩu
+        fetch('../php/changePassword.php', {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json"
-            }
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                current_password: currentPassword,
+                new_password: newPassword,
+                confirm_password: confirmPassword
+            }),
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert("Password changed successfully.");
+                alert('Password updated successfully.');
+                // Sau khi cập nhật mật khẩu thành công, bạn có thể chuyển hướng người dùng đến trang khác hoặc làm gì đó khác
             } else {
-                alert("Failed to change password. Please try again.");
+                alert('Failed to update password: ' + data.message);
             }
         })
-        .catch(error => console.error("Error:", error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while updating password.');
+        });
     });
 });

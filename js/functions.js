@@ -163,7 +163,14 @@ function selectAvatar(avatarId) {
     const selectedAvatar = document.querySelector(`.ava-panel .${avatarId}`);
     selectedAvatar.classList.add("selected");
 }
-
+function toggleAddPanel() {
+    const addPanel = document.querySelector('.add-panel');
+    if (addPanel.style.display === 'block') {
+        addPanel.style.display = 'none';
+    } else {
+        addPanel.style.display = 'block';
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", userCheck);

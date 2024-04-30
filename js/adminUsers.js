@@ -17,12 +17,20 @@ function getUsers() {
                     <td>${user.username}</td>
                     <td>${user.full_name}</td>
                     <td>${user.gmail}</td>
-                    <td>${user.role_name}</td>
+                    <td>
+                    <select>
+                        <option>${user.role_name}</option>
+                        ${user.available_roles.map(role => `<option>${role}</option>`).join('')}
+                    </select>
                     <td>${user.gender_name}</td>
-                    <td>${user.status_name}</td>
+                    <td>
+                    <select>
+                       <option>${user.status_name}</option>
+                       ${user.available_statuses.map(status => `<option>${status}</option>`).join('')}
+                    </select>
+                    </td>
                     <td class="action">
                         <button>Delete</button>
-                        <button>Edit</button>
                     </td>
                 `;
                 tableBody.appendChild(row);

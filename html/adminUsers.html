@@ -74,9 +74,35 @@
                     <div class="searchTitle">
                         Search for user:
                     </div>
-                    <button class="addUser">
+                    <button class="addUser" onclick="toggleAddPanel()">
                         + ADD
                     </button>
+                    <div class="add-panel">
+                        <h2>Add User</h2>
+                        <form id="addUserForm">
+                            <div>
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" name="username" required>
+                            </div>
+                            <div>
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                            <div>
+                                <label for="confirmPassword">Confirm Password:</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                            <div>
+                                <label for="gmail">Gmail:</label>
+                                <input type="email" id="gmail" name="gmail" required>
+                            </div>
+                            <div>
+                                <label for="phoneNumber">Phone Number:</label>
+                                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+                            </div>
+                            <button type="submit">Add User</button>
+                        </form>
+                    </div>
                     <input class="userSearch" type="search" placeholder="Search...">                 
                     <div class="issued-book-table">
                         <table border="2" id="issuedBookTable">
@@ -93,121 +119,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Harry Potter1</td>
-                                    <td>Linh Chi</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td>Female</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Harry Potter</td>
-                                    <td>JohnDoe@gmail.com</td>
-                                    <td>member</td>
-                                    <td>active</td>
-                                    <td class="action">
-                                        <button>
-                                            Delete
-                                        </button>
-                                        <button>
-                                            Edit
-                                        </button>
-                                    </td>
-                                </tr>
-
+                                
                                 
                             </tbody>
                             
@@ -218,6 +130,7 @@
             </div>
         </div>
         <script src="../js/functions.js"></script>
+        
         <script src="../js/adminUsers.js"></script>
     </body>
 </html>

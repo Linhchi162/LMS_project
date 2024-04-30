@@ -23,7 +23,10 @@ $total_overdue = $result_overdue->fetch_assoc()['total_overdue'];
 
 
 // Lấy danh sách today dues
-$sql_today = "SELECT bd.title AS book_title, CONCAT(ap.firstname, ' ', ap.lastname) AS borrower, ap.gmail AS contact,borrow_date
+$sql_today = "SELECT  ROW_NUMBER() OVER (ORDER BY borrow_date) AS number,
+bd.title AS book_title, 
+CONCAT(ap.firstname, ' ', ap.lastname) AS borrower, 
+ap.gmail AS contact,borrow_date
 FROM borrow b
 JOIN book_detail bd ON b.book_id = bd.id
 JOIN account_profile ap ON b.account_id = ap.id
@@ -32,7 +35,10 @@ $result_today = mysqli_query($conn, $sql_today);
 $today_dues = mysqli_fetch_all($result_today, MYSQLI_ASSOC);
 
 // Lấy danh sách tomorrow dues
-$sql_tomorrow = "SELECT bd.title AS book_title, CONCAT(ap.firstname, ' ', ap.lastname) AS borrower, ap.gmail AS contact,borrow_date
+$sql_tomorrow = "SELECT  ROW_NUMBER() OVER (ORDER BY borrow_date) AS number,
+bd.title AS book_title, 
+CONCAT(ap.firstname, ' ', ap.lastname) AS borrower, 
+ap.gmail AS contact,borrow_date
 FROM borrow b
 JOIN book_detail bd ON b.book_id = bd.id
 JOIN account_profile ap ON b.account_id = ap.id
@@ -44,12 +50,11 @@ $tomorrow_dues = mysqli_fetch_all($result_tomorrow, MYSQLI_ASSOC);
 
 // lấy danh sách các cuốn sách được mượn nhiều nhất
 $sql_chart = "SELECT book_detail.title AS book_title, COUNT(borrow.book_id) AS borrow_count
-        FROM borrow
-        INNER JOIN book_detail ON borrow.book_id = book_detail.id
-        WHERE borrow.return_date IS NULL
-        GROUP BY borrow.book_id
-        ORDER BY borrow_count DESC
-        limit 10";
+                FROM borrow
+                INNER JOIN book_detail ON borrow.book_id = book_detail.id
+                GROUP BY borrow.book_id
+                ORDER BY borrow_count DESC
+                limit 10;";
 
 $result_chart = mysqli_query($conn, $sql_chart);
 $chart = mysqli_fetch_all($result_chart, MYSQLI_ASSOC);

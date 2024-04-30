@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         dues.forEach(due => {
             const row = tableBody.insertRow();
             row.innerHTML = `
+                <td>${due.number}</td>
                 <td>${due.book_title}</td>
                 <td>${due.borrower}</td>
                 <td>${due.borrow_date}</td>

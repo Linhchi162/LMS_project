@@ -400,14 +400,15 @@ body{
 }
 .chart
 {
-    margin-top: 30px;
+    margin-top: 40px;
     width: 1000px;
     height: 450px;
     border-radius: 10px;
     padding-left: 90px;
+    z-index: 200;
 }
 .myChart
 {
-   
+    z-index: 200;
 }
 

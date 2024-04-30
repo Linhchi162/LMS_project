@@ -35,14 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       display: true,
                       text: 'Number of Borrows',// Tiêu đề trục y
                     },
-                    ticks: {
-                        stepSize: 1, // Chỉ hiển thị các số nguyên
-                        callback: function(value, index, values) {
-                            if (Number.isInteger(value)) {
-                                return value;
-                            }
-                        }
-                    }
+                    stepSize: 1
                   },
                   x: {
                     title: {

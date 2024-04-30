@@ -13,7 +13,7 @@
 <body>
     <div class="header">
         <div class="start">logo</div>
-        <div class="end" style="width:90%; padding-left: 155%;">
+        <div class="end" style="width:90%; padding-left: 155%;">  
             <div class="ava_menu">
                 <div>
                     <img class="ava" src="../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg">
@@ -25,12 +25,12 @@
                     <button class="profile">
                         Profile
                     </button>
-                    <button class="change-password">
+                    <button class="change-password"  onclick = "goToChangePassword()"> 
                         Change password
                     </button>
                 </div>
                 <img class="drop_down_menu" src="../img/icons8-expand-arrow-64.png" width="25px" height="25px"
-                    onclick="drop_down_menu()">
+                onclick="drop_down_menu()">
 
             </div>
         </div>
@@ -38,13 +38,25 @@
     <div class="container">
 
         <div class="menu">
-            <button class="bookshelf" style=" background-color: #F8F7EC;">
-                <img src="../img/icons8-book-48.png" width="30" height="30">
+            <button class="bookshelf" onclick="goToDashboard()"> 
+                <img src="../img/icons8-dashboard-50.png" width="30" height="30">
+                Dashboard
+            </button>
+            <button class="bookshelf" onclick="goToAddBook()"> 
+                <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
                 Add Book
             </button>
             <button class="wishlist" onclick="goToGenre()">
-                <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
+                <img src="../img/icons8-bookmark-96.png" width="30" height="30">
                 Genre
+            </button>
+            <button class="wishlist" onclick="goToIssued()"> 
+                <img src="../img/icons8-check-book-100.png" width="30" height="30"> 
+                Issued
+            </button>
+            <button class="wishlist" onclick="goToUser()"> 
+                <img src="../img/icons8-user-groups-100.png" width="30" height="30"> 
+                Users
             </button>
             <div>
                 <button class="log_out_button" onclick="logOut()">
@@ -197,7 +209,7 @@
 
                     <p class="title">Description</p>
                     <textarea class="descriptionBar" rows="4" cols="50"></textarea>
-                    <p class="note">Tell something about the book.</p>
+                    <p class="note">Tell something about the book.</p> 
 
                     <button class="cover-img">
                         <img src="../img/icons8-img-48.png" width="30px" height="30px" style="margin-right: 5px;">

@@ -33,7 +33,14 @@ function goToSignUp() {
 function showError() {
     document.getElementById("error_message").style.display = "block";
 }
-
+function goToIssued()
+{
+    window.location.href = "issued.html";
+}
+function goToUser()
+{
+    window.location.href = "adminUsers.html";
+}
 function goToAddBook() {
     window.location.href = "addBook.html";
 }
@@ -61,9 +68,20 @@ function goToAdd() {
     document.querySelector("#new-title-1").value = "";
     document.querySelector("#new-title-description-1").value = "";
 }
+function goToUserProfile() {
+    window.location.href = "userProfile.html";
+}
+function goToChangePassword() {
+    window.location.href = "changePassword.html";
+}
+function goToDashboard() {
+    window.location.href = "adminDashboard.html";
+} 
 
-function goToDetail() {
-    document.querySelector(".add-container").style.display = "none";
+function hideBookDetail() {
+    document.querySelector(".white_container .top .right-column").style.display = "none";
+    document.querySelector(".top .book_cover").style.display = "none";
+    document.querySelector(".bottom").style.display = "none";
 }
 
 function showBookDetail() {
@@ -134,8 +152,43 @@ function drop_down_menu() {
         dropdown.style.display = 'none';
     }
 }
+function editProfile() {
+    document.querySelector(".edit").style.display = "none";
+    document.querySelector(".infor-input-panel").style.display = "inline";
+    document.querySelector(".infor-panel").style.display = "none"
+}
 
+function cancelEditProfile() {
+    document.querySelector(".edit").style.display = "block";
+    document.querySelector(".infor-input-panel").style.display = "none";
+    document.querySelector(".infor-panel").style.display = "block"
+}
+function showAvaPanel() {
+    document.querySelector(".change-ava").style.display = "block";
+    document.querySelector(".ava-panel").style.display = "grid";
+}
 
+function hideAvaPanel() {
+    document.querySelector(".change-ava").style.display = "none";
+    document.querySelector(".ava-panel").style.display = "none";
+}
+
+function selectAvatar(avatarId) {
+    const avatars = document.querySelectorAll(".ava-panel img");
+    avatars.forEach(avatar => {
+        avatar.classList.remove("selected");
+    });
+    const selectedAvatar = document.querySelector(`.ava-panel .${avatarId}`);
+    selectedAvatar.classList.add("selected");
+}
+function toggleAddPanel() {
+    const addPanel = document.querySelector('.add-panel');
+    if (addPanel.style.display === 'block') {
+        addPanel.style.display = 'none';
+    } else {
+        addPanel.style.display = 'block';
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", userCheck);
@@ -145,6 +198,7 @@ function userCheck() {
         .then(response => response.json())
         .then(data => {
             changeAva(data);
+            
         })
         .catch(error => {
             console.error("Error:", error);

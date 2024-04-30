@@ -477,8 +477,20 @@ textarea:focus {
 .title {
     font-size: 18px;
 }
+.tracking-title
+{
+    font-size: 20px;
+    font-weight: 700;
+}
 
-.edit-container input {
+.table
+{
+    margin-top: 50px;
+    width: 800px;
+    margin-left: 80px;
+    border: solid #504332;
+}
+.edit-container input{
     border: none;
 }
 
@@ -641,18 +653,38 @@ td {
     padding: 15px;
     text-align: left;
 }
-
-.not-returned {
+.not-returned,.overdue
+{
     color: rgb(200, 41, 41);
+    position: relative;
 }
-
-.not-returned:hover {
-    opacity: 0.75;
+.return-option
+{
+    color:#020202;
+    position: absolute;
+    margin-top: 4px;
+    background-color: #ffffff;
+    width: 100px;
+    padding: 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+    border: solid 2px rgb(236, 231, 231);
+}
+.return-option:hover {
+    background-color:rgb(236, 231, 231) ;
     cursor: pointer;
 }
-
-.ava-dropdown {
-
+.user-id
+{
+    color: rgb(58, 75, 136);
+}
+.not-returned:hover,.overdue:hover,.user-id:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.ava-dropdown
+{
+    
     margin-left: -132px;
     margin-top: 40px;
     z-index: 1;

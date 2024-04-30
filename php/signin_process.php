@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             elseif ($_SESSION['user_role'] === 0) {
                 echo json_encode(array('success-0' => 'success login into admin'));
-            }
+            } 
         } elseif (isset($response['error'])) {
             echo json_encode(array('error' => $response['error']));
             exit();
@@ -35,5 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
     }
+
     $conn->close();
 }

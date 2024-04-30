@@ -33,7 +33,7 @@
                     <button class="profile">
                         Profile
                     </button>
-                    <button class="change-password">
+                    <button class="change-password" onclick = "goToChangePassword()">
                         Change password
                     </button>
                 </div>
@@ -44,13 +44,25 @@
     </div>
     <div class="container">
         <div class="menu">
-            <button class="home" onclick="goToAddBook()">
-                <img src="../img/icons8-book-48.png" width="30" height="30">
+            <button class="bookshelf" onclick="goToDashboard()">
+                <img src="../img/icons8-dashboard-50.png" width="30" height="30">
+                Dashboard
+            </button>
+            <button class="bookshelf" onclick="goToAddBook()">
+                <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
                 Add Book
             </button>
-            <button class="bookshelf" onclick="goToGenre()">
-                <img src="../img/icons8-bookshelf-96.png" width="30" height="30">
+            <button class="wishlist" onclick="goToGenre()">
+                <img src="../img/icons8-bookmark-96.png" width="30" height="30">
                 Genre
+            </button> 
+            <button class="wishlist" onclick="goToIssued()">
+                <img src="../img/icons8-check-book-100.png" width="30" height="30">
+                Issued
+            </button>
+            <button class="wishlist" onclick="goToUser()">
+                <img src="../img/icons8-user-groups-100.png" width="30" height="30">
+                Users
             </button>
             <div>
                 <button class="log_out_button" onclick="logOut()">
@@ -98,10 +110,13 @@
                     </button>
                 </div>
                 <div class="details-container" style="display: none;">
-                    <p>
+                    <button class="back-to-book" onclick="backToBookDetail()">
+                        &larr;
+                    </button>
+                    <p class="tracking-title">
                         Borrowing tracking
                     </p>
-                    <table border="1" cellpadding="8" cellspacing="1">
+                    <table class="table" border="1" cellpadding="8" cellspacing="1">
                         <thead>
                             <tr>
                                 <th>User</th>
@@ -112,26 +127,46 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>201</td>
+                                <td class="user-id">
+                                    201
+                                </td>
                                 <td>11/3/2024</td>
                                 <td>11/4/2024</td>
-                                <td class="not-returned">Not returned</td>
+                                <td>
+                                    <div class="not-returned">
+                                        Not returned
+                                    </div>
+                                    <div class="return-option">
+                                        Returned
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                            <tr>
-                                <td>202</td>
-                                <td>12/2/2024</td>
-                                <td>12/3/2024</td>
-                                <td>Returned</td>
+                                <tr>
+                                    <td class="user-id">
+                                        201
+                                    </td>
+                                    <td>12/2/2024</td>
+                                    <td>12/3/2024</td>
+                                    <td>Returned</td>
+                                </tr>
                             </tr>
-                            </tr>
                             <tr>
-                            <tr>
-                                <td>216</td>
-                                <td>3/2/2024</td>
-                                <td>3/3/2024</td>
-                                <td>Overdue</td>
-                            </tr>
+                                <tr>
+                                    <td class="user-id">
+                                            201
+                                    </td>
+                                    <td>3/2/2024</td>
+                                    <td>3/3/2024</td>
+                                    <td>
+                                        <div class="overdue">
+                                            Overdue
+                                        </div>
+                                        <div class="return-option">
+                                            Returned
+                                        </div>
+                                    </td>
+                                </tr>
                             </tr>
                         </tbody>
                     </table>

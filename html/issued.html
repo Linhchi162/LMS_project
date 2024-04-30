@@ -1,9 +1,8 @@
-<!-- admin -->
 <!DOCTYPE html>
 <html>
     <head>
         <title>Filtered books</title>
-        <link rel="stylesheet" href="../css/wishList.css">
+        <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
@@ -14,8 +13,7 @@
             <div class="start">logo</div>
             <div class="middle">
                 <img class="find" src="../img/icons8-search-48.png" width="18" height="18">
-                <input class="enterSpace" type="text" id="searchInput" name="search"
-                    placeholder="Search for name or author...">
+                <input  class="enterSpace" type="text" placeholder="Search for name or author...">
             </div>
             <div class="end">
                 <div class="ava_menu">
@@ -68,32 +66,40 @@
                         Logout
                     </button>
                 </div>
-        </div>
+            </div>
             <div class="main_board">
                 <div class="white_container">
                     <div class="white_container2">
                     </div>
-                    <div class="book">
-                        <img class="book_cover" src="../img\81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" width="120px" height="160px"> 
-                        <div class="name">name</div>
-                        <div class="author">author</div>
+                    <select class="filterDropdown" onchange="filterBooks()">
+                        <option value="all">All Books</option>
+                        <option value="issued">Issued Books</option>
+                        <option value="overdue">Overdue Books</option>
+                    </select>
+                    <div class="issued-book-table">
+                        <table border="2" id="issuedBookTable">
+                            <thead style="background-color: rgb(59, 52, 47);">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Borrower</th>
+                                    <th>Issue Date</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Reservation Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            
+                        </table>
                     </div>
-                    <div class="book">
-                        <img class="book_cover" src="../img\81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" width="120px" height="160px"> 
-                        <div class="name">name</div>
-                        <div class="author">author</div>
-                    </div>
-                    <div class="book">
-                        <img class="book_cover" src="../img\81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg" width="120px" height="160px"> 
-                        <div class="name">name</div>
-                        <div class="author">author</div>
-                    </div>
-                   
                 </div>
-
                 </div>
             </div>
         </div>
         <script src="../js/functions.js"></script>
+        <script src="../js/issued.js"></script>
     </body>
 </html>

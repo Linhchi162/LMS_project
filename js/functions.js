@@ -33,12 +33,10 @@ function goToSignUp() {
 function showError() {
     document.getElementById("error_message").style.display = "block";
 }
-function goToIssued()
-{
+function goToIssued() {
     window.location.href = "issued.html";
 }
-function goToUser()
-{
+function goToUser() {
     window.location.href = "adminUsers.html";
 }
 function goToAddBook() {
@@ -60,7 +58,7 @@ function goToModify() {
     document.querySelector(".add-container").style.display = "none";
     document.querySelector("#new-title-2").value = "";
     document.querySelector("#new-title-description-2").value = "";
-    
+
 }
 function goToAdd() {
     document.querySelector(".add-container").style.display = "block";
@@ -76,7 +74,7 @@ function goToChangePassword() {
 }
 function goToDashboard() {
     window.location.href = "adminDashboard.html";
-} 
+}
 
 function hideBookDetail() {
     document.querySelector(".white_container .top .right-column").style.display = "none";
@@ -131,13 +129,13 @@ function goToMove() {
     document.querySelector(".move-container").style.display = "block";
     document.querySelector(".blur").style.display = "block";
     document.querySelector(".delete-container").style.display = "none";
-    document.querySelector(".edit_container").style.display = "none";    
+    document.querySelector(".edit_container").style.display = "none";
     document.querySelector(".details-container").style.display = "none";
     document.querySelector(".choose_action_bar").style.display = "none";
 }
 function goToDetails() {
     hideBookDetail();
-    document.querySelector(".edit_container").style.display = "none";  
+    document.querySelector(".edit_container").style.display = "none";
     document.querySelector(".details-container").style.display = "block";
     document.querySelector("blur").style.display = "none";
     document.querySelector(".move-container").style.display = "none";
@@ -198,7 +196,7 @@ function userCheck() {
         .then(response => response.json())
         .then(data => {
             changeAva(data);
-            
+
         })
         .catch(error => {
             console.error("Error:", error);
@@ -206,31 +204,13 @@ function userCheck() {
 }
 
 function changeAva(data) {
-    var ava_menu = document.querySelector('.ava_menu');
-    ava_menu.innerHTML = '';
-
-    var avatarContainerDiv = document.createElement('div');
-    avatarContainerDiv.classList.add('avatar-container');
-
-    var avatarImg = document.createElement('img');
-    avatarImg.classList.add('ava');
+    var avatarImg = document.querySelector('.ava');
+    avatarImg.innerHTML = '';
     avatarImg.src = "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg";
 
-    avatarContainerDiv.appendChild(avatarImg);
-
-    var accountNameDiv = document.createElement('div');
-    accountNameDiv.classList.add('account_name');
+    var accountNameDiv = document.querySelector('.account_name');
+    accountNameDiv.innerHTML = ' ';
     accountNameDiv.textContent = data.username;
-
-    var dropdownImg = document.createElement('img');
-    dropdownImg.classList.add('drop_down_menu');
-    dropdownImg.src = "../img/icons8-expand-arrow-64.png";
-    dropdownImg.width = "25";
-    dropdownImg.height = "25";
-
-    ava_menu.appendChild(avatarContainerDiv);
-    ava_menu.appendChild(accountNameDiv);
-    ava_menu.appendChild(dropdownImg);
 }
 
 

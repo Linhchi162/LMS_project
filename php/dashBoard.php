@@ -17,7 +17,9 @@ $result_issued = $conn->query($sql_issued);
 $total_issued = $result_issued->fetch_assoc()['total_issued'];
 
 // Truy vấn số lượng sách quá hạn
-$sql_overdue = "SELECT COUNT(*) as total_overdue FROM borrow WHERE design_return_date < CURDATE()";
+$sql_overdue = "SELECT COUNT(*) as total_overdue FROM borrow 
+                WHERE design_return_date < CURDATE() 
+                and return_date is NULL;";
 $result_overdue = $conn->query($sql_overdue);
 $total_overdue = $result_overdue->fetch_assoc()['total_overdue'];
 

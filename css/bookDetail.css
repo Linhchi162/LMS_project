@@ -107,6 +107,8 @@ body {
     border-radius: 20px;
     padding-bottom: 50px;
     width: 990px;
+    font-family: DejaVu Sans;
+    /* font-size: 35px; */
 }
 
 .white_container2 {
@@ -221,13 +223,13 @@ body {
     border-left: none;
     border-right: none;
     width: 650px;
-    font-size: 16px;
-    padding-top: 10px;
+    font-size: 20px;
+    padding-top: 15px;
 }
 
 .menu {
     position: fixed;
-    padding-left: 15px;
+    /* padding-left: 15px; */
     padding-top: 14px;
     background-color: #E6D4BA;
     height: 565px;

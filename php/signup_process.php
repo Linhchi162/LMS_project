@@ -7,9 +7,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
     $repeatPassword = $_POST['repeat_password'];
 
+    if ($password !== $repeatPassword) {
+        echo json_encode(array('error' => 'Password does not match'));
+        exit();
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     if (!empty($username) && !empty($password)) {
         $stmt = $conn->prepare("CALL signup(?, ?, ?, @error_message)");
-        $stmt->bind_param("sss", $username, $password, $repeatPassword);
+        $stmt->bind_param("sss", $username, $hashedPassword, $hashedPasswordRepeat);
         $stmt->execute();
 
         $result = $conn->query("SELECT @error_message AS error_message");

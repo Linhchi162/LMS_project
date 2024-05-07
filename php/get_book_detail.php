@@ -4,6 +4,15 @@ include_once "db_connection.php";
 include_once "get_user.php";
 
 $book_id = $_GET['book_id'];
+$details = array();
+
+$checkWishlist = "SELECT count(*) FROM wishlist WHERE book_id = $book_id AND account_id = $user_id";
+$result = $conn->query($checkWishlist);
+if ($result->num_rows > 0) {
+    $detail[] = array('genreIconSrc' => "../img/icons8-book-96.png",);
+} else {
+    $detail[] = array('genreIconSrc' => "../img/icons8-book-96.png",);
+}
 
 $sql = "SELECT 
 bd.id AS book_id,
@@ -40,11 +49,9 @@ $result = $conn->query($sql);
 $response = array();
 
 if ($result->num_rows > 0) {
-    $details = array();
     while ($row = $result->fetch_assoc()) {
         $detail = array(
             'imageSrc' => $row['book_image'],
-            'genreIconSrc' => "../img/icons8-book-96.png",
             'genreText' => $row['book_genre'],
             'bookName' => $row['book_title'],
             'author' => $row['author'],

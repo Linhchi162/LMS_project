@@ -90,7 +90,7 @@ body {
 
 .white_container {
     position: relative;
-    padding-top: 50px;
+    /* padding-top: 50px; */
     margin-left: 200px;
     display: flex;
     flex-direction: row;

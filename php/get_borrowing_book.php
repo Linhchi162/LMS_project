@@ -3,7 +3,7 @@ include_once 'db_connection.php';
 include_once 'get_user.php';
 
 if ($_SESSION['user_id'] == 0) {
-    echo json_encode(['error' => 'Please log in first']);
+    echo json_encode(array('error' => 'Please log in first'));
     exit();
 }
 
@@ -18,7 +18,7 @@ $query = "SELECT
         ORDER BY borrow.design_return_date DESC";
 
 // Prepare the query
-$stmt = $mysqli->prepare($query);
+$stmt = $conn->prepare($query);
 if ($stmt) {
     // Bind parameters
     $stmt->bind_param('i', $user_id);
@@ -36,7 +36,7 @@ if ($stmt) {
             $book = array(
                 'id' => $row['book_id'],
                 'imageSrc' => $row['book_image'],
-                'author' => $row['author'],
+                'author' => $row['book_author'],
                 'name' => $row['book_name']
             );
             $books[] = $book;
@@ -46,11 +46,12 @@ if ($stmt) {
         $response['success'] = array();
     }
 
+    echo json_encode($response);
     // Close the statement
     $stmt->close();
 } else {
-    echo json_encode(['error' => 'Failed to prepare the statement']);
+    echo json_encode(array('error' => 'Failed to prepare the statement'));
 }
 
 // Close the database connection
-$mysqli->close();
+$conn->close();

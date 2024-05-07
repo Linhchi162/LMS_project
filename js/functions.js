@@ -33,7 +33,14 @@ function goToSignUp() {
 function showError() {
     document.getElementById("error_message").style.display = "block";
 }
-
+function goToIssued()
+{
+    window.location.href = "issued.html";
+}
+function goToUser()
+{
+    window.location.href = "adminUsers.html";
+}
 function goToAddBook() {
     window.location.href = "addBook.html";
 }
@@ -60,6 +67,15 @@ function goToAdd() {
     document.querySelector(".white_container").style.display = "none";
     document.querySelector("#new-title-1").value = "";
     document.querySelector("#new-title-description-1").value = "";
+}
+function goToUserProfile() {
+    window.location.href = "userProfile.html";
+}
+function goToChangePassword() {
+    window.location.href = "changePassword.html";
+}
+function goToDashboard() {
+    window.location.href = "adminDashboard.html";
 }
 
 function goToDetail() {
@@ -134,8 +150,43 @@ function drop_down_menu() {
         dropdown.style.display = 'none';
     }
 }
+function editProfile() {
+    document.querySelector(".edit").style.display = "none";
+    document.querySelector(".infor-input-panel").style.display = "inline";
+    document.querySelector(".infor-panel").style.display = "none"
+}
 
+function cancelEditProfile() {
+    document.querySelector(".edit").style.display = "block";
+    document.querySelector(".infor-input-panel").style.display = "none";
+    document.querySelector(".infor-panel").style.display = "block"
+}
+function showAvaPanel() {
+    document.querySelector(".change-ava").style.display = "block";
+    document.querySelector(".ava-panel").style.display = "grid";
+}
 
+function hideAvaPanel() {
+    document.querySelector(".change-ava").style.display = "none";
+    document.querySelector(".ava-panel").style.display = "none";
+}
+
+function selectAvatar(avatarId) {
+    const avatars = document.querySelectorAll(".ava-panel img");
+    avatars.forEach(avatar => {
+        avatar.classList.remove("selected");
+    });
+    const selectedAvatar = document.querySelector(`.ava-panel .${avatarId}`);
+    selectedAvatar.classList.add("selected");
+}
+function toggleAddPanel() {
+    const addPanel = document.querySelector('.add-panel');
+    if (addPanel.style.display === 'block') {
+        addPanel.style.display = 'none';
+    } else {
+        addPanel.style.display = 'block';
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", userCheck);
@@ -152,37 +203,11 @@ function userCheck() {
 }
 
 function changeAva(data) {
-    var ava_menu = document.querySelector('.ava_menu');
-    ava_menu.innerHTML = '';
-
-    var avatarContainerDiv = document.createElement('div');
-    avatarContainerDiv.classList.add('avatar-container');
-
-    var avatarImg = document.createElement('img');
-    avatarImg.classList.add('ava');
+    var avatarImg = document.querySelector('.ava');
+    avatarImg.innerHTML = '';
     avatarImg.src = "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg";
 
-    avatarContainerDiv.appendChild(avatarImg);
-
-    var accountNameDiv = document.createElement('div');
-    accountNameDiv.classList.add('account_name');
+    var accountNameDiv = document.querySelector('.account_name');
+    accountNameDiv.innerHTML = ' ';
     accountNameDiv.textContent = data.username;
-
-    var dropdownImg = document.createElement('img');
-    dropdownImg.classList.add('drop_down_menu');
-    dropdownImg.src = "../img/icons8-expand-arrow-64.png";
-    dropdownImg.width = "25";
-    dropdownImg.height = "25";
-
-    ava_menu.appendChild(avatarContainerDiv);
-    ava_menu.appendChild(accountNameDiv);
-    ava_menu.appendChild(dropdownImg);
 }
-
-
-
-
-
-
-
-

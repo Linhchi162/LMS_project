@@ -24,6 +24,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    $queryCheckBorrow = "SELECT id FROM reservation WHERE book_id = ? AND account_id = ? AND reservation_status_id = 1";
+    $stmtCheckBorrow = $conn->prepare($queryCheckBorrow);
+    $stmtCheckBorrow->bind_param("ii", $book_id, $user_id);
+    $stmtCheckBorrow->execute();
+    $resultBorrow = $stmtCheckBorrow->get_result();
+    
+    if ($resultBorrow->num_rows > 0) {
+        // The user is still borrowing the book
+        $changing_status_query = "UPDATE reservation SET reservation_status_id = 4 WHERE book_id = ? AND account_id = ? AND reservation_status_id = 1";
+        $stmtChangeReservation = $conn ->prepare($changing_status_query);
+        $stmtChangeReservation -> bind_param("ii", $book_id, $user_id);
+        $stmtChangeReservation->execute();
+        echo json_encode(array('error' => 'reservation cancelled'));
+        exit();
+    }
+
     // Check if the book is available (owned > 0)
     $queryCheck = "SELECT (owned > 0) AS is_owned FROM book WHERE id = ?";
     $stmtCheck = $conn->prepare($queryCheck);

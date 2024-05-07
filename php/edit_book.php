@@ -89,8 +89,7 @@ try {
                             $dataLog .= "insert book_author ok.\n";
                         }
                         $stmt_book_author->close();
-                    } 
-                    else if ($stmt_author->num_rows == 0)  {
+                    } else if ($stmt_author->num_rows == 0) {
                         // Author does not exist, insert into author table
                         $insert_query = "INSERT INTO author (id, `name`, `description`) VALUES ((select max(id) + 1 from author au), ?, 'NULL')";
                         $stmt_insert = $conn->prepare($insert_query);
@@ -122,19 +121,20 @@ try {
         $sql = "UPDATE book_detail SET ";
         $bind = ""; // Initialize the parameter binding string
         $params = array(); // Initialize the array to store parameter values
+        $updates = array();
 
         // Check each POST parameter and add it to the SQL statement and binding string
-        if (!empty($_POST['newTitle'])) {
+        if (!empty(trim($_POST['newTitle']))) {
             $updates[] = "title = ?";
             $bind .= "s";
             $params[] = $_POST['newTitle'];
         }
-        if (!empty($_POST['newISBN'])) {
+        if (!empty(trim($_POST['newISBN']))) {
             $updates[] = "isbn = ?";
             $bind .= "s";
             $params[] = $_POST['newISBN'];
         }
-        if (!empty($_POST['newDescription'])) {
+        if (!empty(trim($_POST['newDescription']))) {
             $updates[] = "description = ?";
             $bind .= "s";
             $params[] = $_POST['newDescription'];

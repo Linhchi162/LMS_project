@@ -6,13 +6,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const book_id = urlParams.get('id');
     // console.log(book_id);
 
+    const newTitle = document.getElementById("newTitle");
+    const newAuthor = document.getElementById("newAuthor");
+    const newInstock = document.getElementById("newInstock");
+    const newISBN = document.getElementById("newISBN");
+    const newDescription = document.getElementById("newDescription");
+
+    let url = "../php/get_edit_book.php?book_id=" + book_id;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                newTitle.value = data.success['title'];
+                newAuthor.value = data.success['authors'];
+                newInstock.value = data.success['instock'];
+                newDescription.value = data.success['description'];
+                newISBN.value = data.success['ISBN'];
+            }
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
     function areAllFieldsEmpty() {
-        const newTitle = document.getElementById("newTitle").value.trim();
-        const newAuthor = document.getElementById("newAuthor").value.trim();
-        const newInstock = document.getElementById("newInstock").value.trim();
-        const newISBN = document.getElementById("newISBN").value.trim();
-        const newDescription = document.getElementById("newDescription").value.trim();
-        return !newTitle && !newAuthor && !newInstock && !newISBN && !newDescription;
+        return !newTitle.value.trim() && !newAuthor.value.trim() && !newInstock.value.trim() && !newISBN.value.trim() && !newDescription.value.trim();
     }
 
     function toggleSubmitButton() {
@@ -38,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const newISBN = document.getElementById("newISBN").value.trim();
         const newDescription = document.getElementById("newDescription").value.trim();
 
-        // console.log(newAuthors);
+        // console.log(newTitle, newAuthors, newISBN, newDescription, newInstock);
 
         var editData = new FormData();
         editData.append('newTitle', newTitle);
@@ -49,8 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
         editData.append('newISBN', newISBN);
         editData.append('newDescription', newDescription);
 
-
-        // console.log(editData);
         // console.log(book_id);
 
         let url = "../php/edit_book.php?book_id=" + book_id;

@@ -30,6 +30,37 @@ function renderBook(bookData) {
     return bookDiv;
 }
 
+function renderBookAdmin(bookData) {
+    const bookDiv = document.createElement("div");
+    bookDiv.classList.add("book");
+
+    const img = document.createElement("img");
+    img.classList.add("book_cover");
+    img.src = bookData.imageSrc;
+    img.width = "120";
+    img.height = "160";
+    img.loading = "lazy";
+    img.alt = bookData.id
+
+    const nameDiv = document.createElement("div");
+    nameDiv.classList.add("name");
+    nameDiv.title = bookData.name;
+    nameDiv.textContent = bookData.name;
+
+    const authorDiv = document.createElement("div");
+    authorDiv.classList.add("author");
+    authorDiv.textContent = bookData.author;
+
+    bookDiv.addEventListener("click", function () {
+        window.location.href = `adminBookDetail.html?id=${bookData.id}`;
+    });
+
+    bookDiv.appendChild(img);
+    bookDiv.appendChild(nameDiv);
+    bookDiv.appendChild(authorDiv);
+
+    return bookDiv;
+}
 function renderComment(comment_data) {
     const commentDiv = document.createElement("div");
     commentDiv.classList.add("comment-section");
@@ -67,6 +98,13 @@ export function renderLib(divID, bookData) {
 export function renderLibAll(divID, bookData) {
     for (let i = 0; i < bookData.length; i++) {
         let bookElement = renderBook(bookData[i]);
+        document.getElementById(divID).appendChild(bookElement);
+    }
+}
+
+export function renderLibAllforAdmin(divID, bookData) {
+    for (let i = 0; i < bookData.length; i++) {
+        let bookElement = renderBookAdmin(bookData[i]);
         document.getElementById(divID).appendChild(bookElement);
     }
 }
@@ -239,7 +277,7 @@ export function renderBookDetailAdmin(divID, bookDataDetail) {
 function createButton(className, onClick, imgSrc, buttonText) {
     const button = document.createElement("button");
     button.classList.add(className);
-    
+
     const img = document.createElement("img");
     img.src = imgSrc;
     img.width = "20";

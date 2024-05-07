@@ -3,13 +3,13 @@ include_once 'db_connection.php';
 include_once 'get_user.php';
 
 if ($_SESSION['user_id'] == 0) {
-    echo json_encode(['error' => 'Please log in first']);
+    echo json_encode(array('error' => 'Please log in first'));
     exit();
 }
 
 // Database query to retrieve book data for the specified user ID
 $query = "SELECT 
-    book.id as book_id, book_detail.image as book_image,'author' as book_author, book_detail.title as book_name 
+    distinct book.id as book_id, book_detail.image as book_image,'author' as book_author, book_detail.title as book_name 
     FROM `account`
         INNER JOIN `borrow` ON `borrow`.account_id = `account`.id
         INNER JOIN `book` ON `borrow`.book_id = `book`.id
@@ -17,7 +17,7 @@ $query = "SELECT
         WHERE `account`.id = ? AND book_detail.title IS NOT NULL";
 
 // Prepare the query
-$stmt = $mysqli->prepare($query);
+$stmt = $conn->prepare($query);
 if ($stmt) {
     // Bind parameters
     $stmt->bind_param('i', $user_id);
@@ -35,7 +35,7 @@ if ($stmt) {
             $book = array(
                 'id' => $row['book_id'],
                 'imageSrc' => $row['book_image'],
-                'author' => $row['author'],
+                'author' => $row['book_author'],
                 'name' => $row['book_name']
             );
             $books[] = $book;
@@ -45,6 +45,8 @@ if ($stmt) {
         $response['success'] = array();
     }
 
+    echo json_encode($response);
+
     // Close the statement
     $stmt->close();
 } else {
@@ -52,4 +54,4 @@ if ($stmt) {
 }
 
 // Close the database connection
-$mysqli->close();
+$conn->close();

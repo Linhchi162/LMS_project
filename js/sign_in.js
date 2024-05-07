@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     location.href = "../html/home.html";
                 } else if (data['success-0']) {
                     errorMessage.textContent = data['success-0'];
-                    location.href = "../html/addBook.html";
+                    location.href = "../html/adminDashBoard.html";
                 } else {
                     // Handle unexpected responses
                     errorMessage.textContent = "An unexpected response occurred.";

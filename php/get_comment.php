@@ -1,13 +1,19 @@
 <?php 
 include_once "db_connection.php";
-
 include_once "get_user.php";
 
 $book_id = $_GET['book_id'];
 
 $sql = "SELECT username, `comment`.`comment` FROM 
 `comment` INNER JOIN `account` ON `account`.id = `comment`.account_id
-WHERE `book_id` = $book_id";
+WHERE `book_id` = $book_id
+ORDER BY 
+    CASE 
+        WHEN account_id = $user_id THEN 0
+        ELSE 1
+    END,
+    posting_time";
+    
 $result = $conn->query($sql);
 
 $response = array(); 

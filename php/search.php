@@ -1,56 +1,57 @@
 <?php
+use Elastic\Elasticsearch\ClientBuilder;
+require 'C:\xampp\htdocs\project_DBMS\LMS_project\vendor\autoload.php';
 function search_books($keyword)
 {
-    // Kết nối đến cơ sở dữ liệu
-    include 'db_connection.php';
+    //Khai báo thông tin của API key
+    $apiKeyId = 'Zmk4YVRZOEJTQTNRdmVHNW9QUWg6eTdaRXloWmxTTG1pdzI0NFVORkpzZw==';
 
-    // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh
-    $query = "SELECT * 
-              FROM `book_detail`
-              WHERE (`id` LIKE ? OR `title` LIKE ?) AND `title` IS NOT NULL";
-    $stmt = $conn->prepare($query);
+    // Khởi tạo kết nối tới ElasticSearch
+    $client = ClientBuilder::create()
+        ->setHosts(['https://e835a2f73a6842edb4d97d520a7f7a53.us-central1.gcp.cloud.es.io:443'])
+        ->setApiKey($apiKeyId)
+        ->build();
 
-    if (!$stmt) {
-        // Xử lý lỗi nếu prepare statement không thành công
-        die("Error: " . $conn->error);
-    }
+    // Tạo truy vấn ElasticSearch với điều kiện match_phrase với title hoặc author
+    $params = [
+        'index' => 'rdbms_idx',
+        'body' => [
+            'query' => [
+                'bool' => [
+                    'should' => [
+                        ['match_phrase' => ['title' => $keyword]],
+                        ['match_phrase' => ['author' => $keyword]]
+                    ]
+                ]
+            ]
+        ]
+    ];
 
-    // Bind parameter và thiết lập giá trị của $keyword
-    $keyword = trim($keyword);
-    $searchKeyword = "%$keyword%";
-    $stmt->bind_param("ss", $searchKeyword, $searchKeyword);
+    // Thực hiện truy vấn ElasticSearch
+    $response = $client->search($params);
 
-    // Thực thi truy vấn
-    if (!$stmt->execute()) {
-        // Xử lý lỗi nếu không thể thực thi truy vấn
-        die("Error: " . $stmt->error);
-    }
-
-    // Lấy kết quả của truy vấn
-    $result = $stmt->get_result();
-
+    // Mảng lưu trữ kết quả cuối cùng
     $data = array();
-    // Tạo biến lưu trữ kết quả dưới dạng HTML
-    // $html_output = '';
 
-    // Đọc từng dòng dữ liệu từ kết quả truy vấn và tạo HTML tương ứng
-    while ($row = $result->fetch_assoc()) {
-        $data[] = [
-            'id' => $row['id'],
-            'name' => $row['title'],
-            'author' => "author",
-            'imageSrc' => $row['image'],
-        ];
-    };
+    // Lặp qua kết quả ElasticSearch
+    foreach ($response['hits']['hits'] as $hit) {
+        // Truy cập vào trường "_source" để lấy thông tin
+        $source = $hit['_source'];
 
-    // Đóng prepared statement
-    $stmt->close();
+        // Tạo một mảng mới chứa thông tin title, author, và image
+        $item = array(
+            'id' => $source['id'],
+            'name' => $source['title'],
+            'author' => $source['author'],
+            'imageSrc' => $source['image']
+        );
 
-    // Đóng kết nối cơ sở dữ liệu
-    $conn->close();
+        // Thêm mảng mới vào mảng kết quả cuối cùng
+        $data[] = $item;
+        
+    }
 
-    // Trả về kết quả dưới dạng HTML
-    // return $html_output;
+    // Trả về mảng kết quả
     return $data;
 }
 
@@ -59,9 +60,10 @@ if (isset($_POST['searchData'])) {
     // Lấy từ khóa tìm kiếm từ dữ liệu POST
     $keyword = $_POST['searchData'];
 
-    // Gọi hàm search_books để tìm kiếm và trả về kết quả dưới dạng HTML
-    $searchResultData  = search_books($keyword);
+    // Gọi hàm search_books để tìm kiếm và trả về kết quả
+    $searchResult = search_books($keyword);
 
     // Trả về kết quả tìm kiếm dưới dạng JSON
-    echo json_encode($searchResultData);
+    echo json_encode($searchResult);
 }
+?>

@@ -3,7 +3,7 @@
     include 'db_connection.php';
 
     // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh
-    $query = "SELECT book_detail.title AS title, book_detail.image
+    $query = "SELECT book_id, book_detail.title AS title, book_detail.image
             FROM book
             JOIN book_detail ON book.id = book_detail.id
             JOIN wishlist ON book.id = wishlist.book_id";
@@ -16,7 +16,7 @@
         // Duyệt qua từng dòng dữ liệu
         while($row = $result->fetch_assoc()) {
             $wishlistData[] = [
-            'id' => "id",
+            'id' => $row['book_id'],
             'name' => $row['title'],
             'author' => "author",
             'imageSrc' => $row['image'],

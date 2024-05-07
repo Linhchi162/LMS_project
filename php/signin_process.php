@@ -6,9 +6,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "CALL login(?, ?)";
+    $sql = "SELECT password FROM account where username = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $username, $password);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows <= 0) {
+        echo json_encode(array("error" => "Your username or password is incorrect!"));
+        exit();
+    }
+    $row = $result->fetch_assoc();
+
+    if (!password_verify($password, $row['password'])) {
+        echo json_encode(array("error" => "Your username or password is incorrect!"));
+        exit();
+    }
+
+    $sql = "CALL login(?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();

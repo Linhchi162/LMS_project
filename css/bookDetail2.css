@@ -672,6 +672,21 @@ td {
 }
 .return-option:hover {
     background-color:rgb(236, 231, 231) ;
+    position: relative;
+}
+.return-option
+{
+    color:#020202;
+    position: absolute;
+    margin-top: 4px;
+    background-color: #ffffff;
+    width: 100px;
+    padding: 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+    border: solid 2px rgb(236, 231, 231);
+}
+.return-option:hover {
+    background-color:rgb(236, 231, 231) ;
     cursor: pointer;
 }
 .user-id

@@ -8,4 +8,5 @@ if (isset($_SESSION['username']) && isset($_SESSION['user_id']) && isset($_SESSI
     $_SESSION['username'] = $username = "Guest";
     $_SESSION['user_id'] = $user_id = 0;
     $_SESSION['user_role'] = $user_role = 2;
-}
+} 
+?>

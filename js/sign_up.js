@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 errorMessage.textContent = data.error;
             } else {
                 errorMessage.textContent = data.success;
-                location.href = "../html/home.html";
+                location.href = "../html/login.html";
             }
         })
         .catch(error => {

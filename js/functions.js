@@ -60,7 +60,7 @@ function goToModify() {
     document.querySelector(".add-container").style.display = "none";
     document.querySelector("#new-title-2").value = "";
     document.querySelector("#new-title-description-2").value = "";
-    
+
 }
 function goToAdd() {
     document.querySelector(".add-container").style.display = "block";
@@ -129,13 +129,13 @@ function goToMove() {
     document.querySelector(".move-container").style.display = "block";
     document.querySelector(".blur").style.display = "block";
     document.querySelector(".delete-container").style.display = "none";
-    document.querySelector(".edit_container").style.display = "none";    
+    document.querySelector(".edit_container").style.display = "none";
     document.querySelector(".details-container").style.display = "none";
     document.querySelector(".choose_action_bar").style.display = "none";
 }
 function goToDetails() {
     hideBookDetail();
-    document.querySelector(".edit_container").style.display = "none";  
+    document.querySelector(".edit_container").style.display = "none";
     document.querySelector(".details-container").style.display = "block";
     document.querySelector("blur").style.display = "none";
     document.querySelector(".move-container").style.display = "none";
@@ -187,6 +187,43 @@ function toggleAddPanel() {
         addPanel.style.display = 'block';
     }
 }
+function editProfile() {
+    document.querySelector(".edit").style.display = "none";
+    document.querySelector(".infor-input-panel").style.display = "inline";
+    document.querySelector(".infor-panel").style.display = "none"
+}
+
+function cancelEditProfile() {
+    document.querySelector(".edit").style.display = "block";
+    document.querySelector(".infor-input-panel").style.display = "none";
+    document.querySelector(".infor-panel").style.display = "block"
+}
+function showAvaPanel() {
+    document.querySelector(".change-ava").style.display = "block";
+    document.querySelector(".ava-panel").style.display = "grid";
+}
+
+function hideAvaPanel() {
+    document.querySelector(".change-ava").style.display = "none";
+    document.querySelector(".ava-panel").style.display = "none";
+}
+
+function selectAvatar(avatarId) {
+    const avatars = document.querySelectorAll(".ava-panel img");
+    avatars.forEach(avatar => {
+        avatar.classList.remove("selected");
+    });
+    const selectedAvatar = document.querySelector(`.ava-panel .${avatarId}`);
+    selectedAvatar.classList.add("selected");
+}
+function toggleAddPanel() {
+    const addPanel = document.querySelector('.add-panel');
+    if (addPanel.style.display === 'block') {
+        addPanel.style.display = 'none';
+    } else {
+        addPanel.style.display = 'block';
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", userCheck);
@@ -196,6 +233,7 @@ function userCheck() {
         .then(response => response.json())
         .then(data => {
             changeAva(data);
+
         })
         .catch(error => {
             console.error("Error:", error);
@@ -205,8 +243,12 @@ function userCheck() {
 function changeAva(data) {
     var avatarImg = document.querySelector('.ava');
     avatarImg.innerHTML = '';
+    var avatarImg = document.querySelector('.ava');
+    avatarImg.innerHTML = '';
     avatarImg.src = "../img/81nq+ewtkcL._AC_UF1000,1000_QL80_.jpg";
 
+    var accountNameDiv = document.querySelector('.account_name');
+    accountNameDiv.innerHTML = ' ';
     var accountNameDiv = document.querySelector('.account_name');
     accountNameDiv.innerHTML = ' ';
     accountNameDiv.textContent = data.username;

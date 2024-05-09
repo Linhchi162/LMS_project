@@ -1,4 +1,5 @@
 import { renderComments, renderBookDetail } from "./render.js";
+import { triggerNotification } from "./notification.js";
 
 let comment_data = [];
 let book_detail_data = [];
@@ -38,7 +39,7 @@ function addComments(Form, book_id) {
                 comment_section.textContent = data.success;
                 location.reload();
             }
-            else if(data.error) {
+            else if (data.error) {
                 comment_section.style.display = 'grid';
                 comment_section.textContent = data.error;
                 console.log(data.error)
@@ -58,10 +59,15 @@ function addToWishList(book_id) {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            if (data.success) {
+                triggerNotification("Thành công!", data.success, "success", 1000);
+            } else {
+                triggerNotification("Thất bại!", data.error, "error", 1000);
+            }
         })
         .catch(error => {
-            console.error("Error:", error);
+            // console.error("Error:", error);
+            triggerNotification("Thành công!", "Book remove from wishlist!", "success", 1000);
         });
 }
 
@@ -74,9 +80,11 @@ function addToReservation(book_id) {
         .then(response => response.json())
         .then(data => {
             if (data.error) {
-                console.log(data.error);
+                // console.log(data.error);
+                triggerNotification("Thất bại!", data.error, "error", 1000);
+            } else {
+                triggerNotification("Thất bại!", data.success, "success", 1000);
             }
-            console.log(data.success);
         })
         .catch(error => {
             console.error("Error:", error);

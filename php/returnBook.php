@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error decoding JSON data.";
     }
 
-    $sql_update = "UPDATE borrow SET return_date = NOW() WHERE id = ?";
+    $sql_update = "UPDATE borrow SET return_date = NOW(), borrow_status = 1 WHERE id = ?";
     
     $stmt = $conn->prepare($sql_update);
     $stmt->bind_param("i", $book_id);

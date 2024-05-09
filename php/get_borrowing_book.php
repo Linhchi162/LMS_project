@@ -9,13 +9,15 @@ if ($_SESSION['user_id'] == 0) {
 
 // Database query to retrieve book data for the specified user ID
 $query = "SELECT 
-    book.id as book_id, book_detail.image as book_image,'author' as book_author, book_detail.title as book_name 
-    FROM `account`
-        INNER JOIN `borrow` ON `borrow`.account_id = `account`.id
-        INNER JOIN `book` ON `borrow`.book_id = `book`.id
-        INNER JOIN `book_detail` ON `book`.id = `book_detail`.id
-        WHERE `account`.id = ? AND `borrow`.return_date IS NULL
-        ORDER BY borrow.design_return_date DESC";
+book.id as book_id, book_detail.image as book_image, group_concat(distinct author.`name`) as book_author, book_detail.title as book_name 
+FROM `account`
+    INNER JOIN `borrow` ON `borrow`.account_id = `account`.id
+    INNER JOIN `book` ON `borrow`.book_id = `book`.id
+    INNER JOIN `book_detail` ON `book`.id = `book_detail`.id
+    JOIN book_author ON book.id = book_author.book_id
+    JOIN author ON  author.id = book_author.author_id
+    WHERE `account`.id = ? AND `borrow`.return_date IS NULL AND book_detail.title IS NOT NULL
+    GROUP BY book.id";
 
 // Prepare the query
 $stmt = $conn->prepare($query);

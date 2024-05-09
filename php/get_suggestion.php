@@ -2,22 +2,8 @@
 include_once 'db_connection.php';
 include_once 'get_user.php';
 
-if ($_SESSION['user_id'] == 0) {
-    echo json_encode(array('error' => 'Please log in first'));
-    exit();
-}
-
 // Database query to retrieve book data for the specified user ID
-$query = "SELECT 
-distinct book.id as book_id, book_detail.image as book_image, group_concat(distinct author.`name`) as book_author, book_detail.title as book_name 
-FROM `account`
-    INNER JOIN `borrow` ON `borrow`.account_id = `account`.id
-    INNER JOIN `book` ON `borrow`.book_id = `book`.id
-    INNER JOIN `book_detail` ON `book`.id = `book_detail`.id
-    JOIN book_author ON book.id = book_author.book_id
-    JOIN author ON  author.id = book_author.author_id
-    WHERE `account`.id = ? AND book_detail.title IS NOT NULL
-    GROUP BY book.id";
+$query = "call CreateRecommendedList(?)";
 
 // Prepare the query
 $stmt = $conn->prepare($query);
@@ -36,7 +22,7 @@ if ($stmt) {
         $books = array();
         while ($row = $result->fetch_assoc()) {
             $book = array(
-                'id' => $row['book_id'],
+                'id' => $row['the_book_id'],
                 'imageSrc' => $row['book_image'],
                 'author' => $row['book_author'],
                 'name' => $row['book_name']

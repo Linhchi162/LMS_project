@@ -7,7 +7,8 @@ function search_books($keyword)
     // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh
     $query = "SELECT * 
               FROM `book_detail`
-              WHERE (`id` LIKE ? OR `title` LIKE ?) AND `title` IS NOT NULL";
+              WHERE (`id` LIKE ? OR `title` LIKE ?) AND `title` IS NOT NULL
+              LIMIT 30";
     $stmt = $conn->prepare($query);
 
     if (!$stmt) {

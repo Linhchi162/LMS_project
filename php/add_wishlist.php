@@ -3,7 +3,7 @@ include_once "db_connection.php";
 include_once "get_user.php";
 
 if ($_SESSION['user_id'] == 0) {
-    echo json_encode('Please log in first');
+    echo json_encode(['error' => 'Please log in first']);
     exit();
 }
 
@@ -23,16 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($removeQuery) === TRUE) {
             // echo json_encode("Book removed from wishlist successfully.");
         } else {
-            echo json_encode("Error removing book from wishlist: " . $conn->error);
+            echo json_encode(['error' => "Error removing book from wishlist."]);
             exit();
         }
     } else {
         // Nếu sách chưa có trong wishlist, thêm nó vào
         $addQuery = "INSERT INTO wishlist (account_id, book_id) VALUES ($user_id, $book_id)";
         if ($conn->query($addQuery) === TRUE) {
-            echo json_encode("Book added to wishlist successfully.");
+            echo json_encode(['success'=>"Book added to wishlist successfully."]);
         } else {
-            echo json_encode("Error adding book to wishlist: " . $conn->error);
+            echo json_encode(['error' => "Error adding book to wishlist"]);
         }
     }
     // }

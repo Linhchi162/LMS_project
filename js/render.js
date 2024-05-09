@@ -50,6 +50,7 @@ function renderBookAdmin(bookData) {
     const authorDiv = document.createElement("div");
     authorDiv.classList.add("author");
     authorDiv.textContent = bookData.author;
+    authorDiv.style.overflowX = "hidden";
 
     bookDiv.addEventListener("click", function () {
         window.location.href = `adminBookDetail.html?id=${bookData.id}`;

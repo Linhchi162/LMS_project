@@ -253,3 +253,11 @@ function changeAva(data) {
     accountNameDiv.innerHTML = ' ';
     accountNameDiv.textContent = data.username;
 }
+
+function goToPopular() {
+    location.href = "../html/Popular.html";
+}
+
+function goToSuggestion() {
+    location.href = "../html/Suggestion.html";
+}

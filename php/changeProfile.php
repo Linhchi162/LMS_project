@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "db_connection.php";
 include_once "get_user.php";
 
@@ -46,4 +45,3 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 $stmt->close();
 $conn->close();
-?>

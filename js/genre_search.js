@@ -164,3 +164,5 @@ function removeGenreList() {
     genre = [];
     console.log('removing genre list');
 }
+
+

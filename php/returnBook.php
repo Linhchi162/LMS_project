@@ -2,22 +2,14 @@
 //ok
 include_once "db_connection.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
 
-    $json_data = file_get_contents('php://input');
-    $data_array = json_decode($json_data, true); 
-
-    if (is_array($data_array)) {
-        $book_id = $data_array['book_id'];
-        echo "Book ID: " . $book_id;
-    } else {
-        echo "Error decoding JSON data.";
-    }
+    $borrow_id = $_GET['id'];
 
     $sql_update = "UPDATE borrow SET return_date = NOW(), borrow_status = 1 WHERE id = ?";
     
     $stmt = $conn->prepare($sql_update);
-    $stmt->bind_param("i", $book_id);
+    $stmt->bind_param("i", $borrow_id);
     
     if ($stmt->execute()) {
         echo json_encode(['success' => true]);

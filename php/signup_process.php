@@ -12,6 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    if (strlen($password) < 8) {
+        echo json_encode(array("error" => "New password must be at least 8 characters long"));
+        exit();
+    }
+
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     if (!empty($username) && !empty($password)) {

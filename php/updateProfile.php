@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
   
     $sql = "SELECT firstName, lastName, age, gender, gmail, phone_number FROM account_profile WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $id);
+    $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
 

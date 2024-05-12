@@ -81,9 +81,9 @@ function addToReservation(book_id) {
         .then(data => {
             if (data.error) {
                 // console.log(data.error);
-                triggerNotification("Thất bại!", data.error, "error", 1000);
+                triggerNotification("Thành công!", data.error, "success", 1000);
             } else {
-                triggerNotification("Thất bại!", data.success, "success", 1000);
+                triggerNotification("Thành công!", data.success, "success", 1000);
             }
         })
         .catch(error => {

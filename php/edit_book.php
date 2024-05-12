@@ -30,7 +30,7 @@ try {
             $stmt->execute();
 
             if ($stmt->affected_rows == 0) {
-                echo json_encode(array("error" => $datalog .= "Failed to update stock.\n"));
+                echo json_encode(array("error" => "Failed to update stock.\n"));
                 exit();
             } else {
                 $dataLog .= "update stock is ok.\n";
@@ -57,8 +57,7 @@ try {
                 $stmt_delete->close();
 
                 if (isset($_POST['newAuthors'])) {
-                    $authors_string = $_POST['newAuthors'];
-                    $authors_array = explode(',', $authors_string);
+                    $authors_array = $_POST['newAuthors'];
                 }
 
                 foreach ($authors_array as $author_name) {

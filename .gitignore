@@ -1,1 +1,6 @@
-/Backup&Restore/
+/Backup&Restore/*
+/Vendor/*
+/composer.json
+/composer.lock
+/my.cnf
+/.vscode/*

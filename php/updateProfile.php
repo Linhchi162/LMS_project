@@ -1,7 +1,7 @@
 <?php
 //cần check lại
 session_start();
-include_once "db_connection.php";
+include_once "db_connection_client.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = $_SESSION['user_id'];

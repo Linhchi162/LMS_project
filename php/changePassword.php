@@ -1,6 +1,11 @@
 <?php
-include_once "db_connection.php";
-include_once "user_now.php";
+include_once "db_connection_client.php";
+include_once "get_user.php";
+
+if ($_SESSION['user_id'] == 0) {
+    echo json_encode(array('error' => 'Please log in first'));
+    exit();
+}
 
 // Retrieve current password hash from the database
 $stmt = $conn->prepare("SELECT password FROM `account` WHERE id = ?");

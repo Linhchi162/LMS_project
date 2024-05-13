@@ -1,6 +1,6 @@
 <?php
     // Kết nối đến cơ sở dữ liệu
-    include 'db_connection.php';
+    include 'db_connection_client.php';
     include 'get_user.php';
 
     // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh

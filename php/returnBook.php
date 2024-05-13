@@ -1,6 +1,12 @@
 <?php
 //ok
 include_once "db_connection.php";
+include_once "get_user.php";
+
+if ($_SESSION['user_role'] != '0') {
+    echo json_encode(array("error" => "You don't have permission to access this page."));
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
 

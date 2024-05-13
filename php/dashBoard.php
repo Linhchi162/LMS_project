@@ -1,5 +1,11 @@
 <?php
 include_once "db_connection.php";
+include_once "get_user.php";
+
+if ($_SESSION['user_role'] != '0') {
+    echo json_encode(array("error" => "You don't have permission to access this page."));
+    exit();
+}
 
 // Truy vấn số lượng sách
 $sql_books = "SELECT COUNT(*) as total_books FROM book";
@@ -73,4 +79,3 @@ $data = array(
     "chart" => $chart
 );
 echo json_encode($data);
-?>

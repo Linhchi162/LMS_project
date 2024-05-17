@@ -1,33 +1,34 @@
 <?php
-    // Kết nối đến cơ sở dữ liệu
-    include 'db_connection.php';
-    include 'get_user.php';
+// Kết nối đến MongoDB
+include 'get_user.php';
+require 'C:\xampp\htdocs\LMS_project-main\LMS_project-main\vendor\autoload.php';
+$connectionString = 'mongodb+srv://caovananhnd2021:6ZtSq8I3XDCcX2z2@cluster0.nurixz1.mongodb.net';
+$manager = new MongoDB\Client($connectionString);
+$mongoDB = $manager->selectDatabase('library');
+$mongoCollection = $mongoDB->selectCollection('wishlist');
 
-    // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh
-    $query = "SELECT book_id, book_detail.title AS title, book_detail.image
-            FROM book
-            JOIN book_detail ON book.id = book_detail.id
-            JOIN wishlist ON book.id = wishlist.book_id
-            WHERE account_id = $user_id";
-    $result = $conn->query($query);
+// Lấy thông tin từ MongoDB
+$user_id = $_SESSION['user_id'];
 
-    $wishlistData = array();
+// Tạo một query để lấy dữ liệu từ MongoDB
+$query = [
+    'user_id' => $user_id
+];
 
-    // Kiểm tra và lưu trữ dữ liệu từ bảng wishlist vào mảng
-    if ($result->num_rows > 0) {
-        // Duyệt qua từng dòng dữ liệu
-        while($row = $result->fetch_assoc()) {
-            $wishlistData[] = [
-            'id' => $row['book_id'],
-            'name' => $row['title'],
-            'author' => "author",
-            'imageSrc' => $row['image'],
-            ];
-        }
-    }
+$cursor = $mongoCollection->find($query);
 
-    // Đóng kết nối cơ sở dữ liệu
-    $conn->close();
+$wishlistData = array();
 
-    // Trả về kết quả dưới dạng JSON
-    echo json_encode($wishlistData);
+// Duyệt qua các tài liệu trả về
+foreach ($cursor as $document) {
+    $wishlistData[] = [
+        'id' => $document['book_id'],
+        'name' => $document['title'],
+        'author' => $document['author'],
+        'imageSrc' => $document['image']
+    ];
+}
+
+// Trả về kết quả dưới dạng JSON
+echo json_encode($wishlistData);
+?>

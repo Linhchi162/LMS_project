@@ -1,67 +1,76 @@
 <?php
 function search_books($keyword)
 {
-    // Kết nối đến cơ sở dữ liệu
-    include 'db_connection.php';
-
-    // Sử dụng prepared statement để tránh lỗ hổng SQL Injection hoàn chỉnh
-    $query = "SELECT * 
-              FROM `book_detail`
-              WHERE (`id` LIKE ? OR `title` LIKE ?) AND `title` IS NOT NULL";
-    $stmt = $conn->prepare($query);
-
-    if (!$stmt) {
-        // Xử lý lỗi nếu prepare statement không thành công
-        die("Error: " . $conn->error);
-    }
-
-    // Bind parameter và thiết lập giá trị của $keyword
-    $keyword = trim($keyword);
-    $searchKeyword = "%$keyword%";
-    $stmt->bind_param("ss", $searchKeyword, $searchKeyword);
-
-    // Thực thi truy vấn
-    if (!$stmt->execute()) {
-        // Xử lý lỗi nếu không thể thực thi truy vấn
-        die("Error: " . $stmt->error);
-    }
-
-    // Lấy kết quả của truy vấn
-    $result = $stmt->get_result();
-
-    $data = array();
-    // Tạo biến lưu trữ kết quả dưới dạng HTML
-    // $html_output = '';
-
-    // Đọc từng dòng dữ liệu từ kết quả truy vấn và tạo HTML tương ứng
-    while ($row = $result->fetch_assoc()) {
-        $data[] = [
-            'id' => $row['id'],
-            'name' => $row['title'],
-            'author' => "author",
-            'imageSrc' => $row['image'],
+        $data = [
+            'query' => [
+                'match' => [
+                    'title' => $keyword
+                ]
+                ],
+                'size' => 25
         ];
-    };
+        $jsonData = json_encode($data);
 
-    // Đóng prepared statement
-    $stmt->close();
 
-    // Đóng kết nối cơ sở dữ liệu
-    $conn->close();
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://localhost:9200/book_detail/book/_search");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-    // Trả về kết quả dưới dạng HTML
-    // return $html_output;
+
+    // Thực hiện truy vấn và lấy kết quả
+    $response = curl_exec($ch);
+
+    // Kiểm tra lỗi
+    if (curl_errno($ch)) {
+        echo 'Error: ' . curl_error($ch);
+        exit;
+    }
+
+    // Giải mã kết quả JSON
+    $result = json_decode($response, true);
+
+    // Mảng lưu trữ kết quả cuối cùng
+    $data = array();
+
+    // Lặp qua danh sách các tài liệu được trả về
+    if (isset($result['hits']['hits']) && !empty($result['hits']['hits'])) {
+        // Lặp qua danh sách các tài liệu được trả về
+        foreach ($result['hits']['hits'] as $hit) {
+            $source = $hit['_source'];
+
+            // Tạo một mảng dữ liệu cho mỗi tài liệu
+            $item = array(
+                'id' => $source['id'],
+                'name' => $source['title'],
+                //'author' => $source['publisher'],
+                'imageSrc' => $source['image']
+            );
+
+            // Thêm mảng dữ liệu này vào mảng kết quả cuối cùng
+            $data[] = $item;
+        }
+    }
+
+    // Đóng kết nối cURL
+    curl_close($ch);
+
+    // Trả về mảng kết quả
     return $data;
 }
+
 
 // Kiểm tra xem dữ liệu đã được gửi từ form chưa
 if (isset($_POST['searchData'])) {
     // Lấy từ khóa tìm kiếm từ dữ liệu POST
     $keyword = $_POST['searchData'];
 
-    // Gọi hàm search_books để tìm kiếm và trả về kết quả dưới dạng HTML
-    $searchResultHTML = search_books($keyword);
+    // Gọi hàm search_books để tìm kiếm và trả về kết quả
+    $searchResult = search_books($keyword);
 
-    // Trả về kết quả tìm kiếm dưới dạng HTML
-    echo json_encode($searchResultHTML);
+    // Trả về kết quả tìm kiếm dưới dạng JSON
+    echo json_encode($searchResult);
 }
+?>

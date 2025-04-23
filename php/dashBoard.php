@@ -2,12 +2,12 @@
 include_once "db_connection.php";
 
 // Truy vấn số lượng sách
-$sql_books = "SELECT COUNT(*) as total_books FROM book";
+$sql_books = "SELECT COUNT(*) as total_books FROM book_detail";
 $result_books = $conn->query($sql_books);
 $total_books = $result_books->fetch_assoc()['total_books'];
 
 // Truy vấn số lượng thể loại
-$sql_genres = "SELECT COUNT(*) as total_genres FROM book_genre";
+$sql_genres = "SELECT COUNT(*) as total_genres FROM genre";
 $result_genres = $conn->query($sql_genres);
 $total_genres = $result_genres->fetch_assoc()['total_genres'];
 
